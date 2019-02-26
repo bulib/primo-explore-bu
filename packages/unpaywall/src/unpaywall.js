@@ -61,7 +61,7 @@ angular.module('unpaywall', [])
         }
 
         // if there's a doi and it's not already open access, ask the oadoi.org for an OA link
-        if(this.doi && !this.is_oa){
+        if(this.doi && !this.is_oa && self.show){
           self.logEvent('unpaywall', 'api-call', self.listOrFullViewLabel, self.logToConsole, self.publishEvents);
 
           // make the actual call to unpaywall API
