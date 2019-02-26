@@ -8,9 +8,9 @@ app.constant('unpaywallConfig', {
   "showVersionLabel":true,
   "logToConsole":true,
   "showDebugTable":false,
-  "publishGAEvents":false,
-  "logEvent":function(category, action, label, logToConsole=true, sendToGA=false){
-    if(logToConsole){ console.log("eventLogger) sending '" + category + "' event sent to Google Analytics [publish=" + sendToGA + "]."); }
-    if(sendToGA){ window.ga('send', 'event', category, action, label); }
+  "publishEvents":false,
+  "logEvent":function(category, action, label, logToConsole=true, publishEvent=false){
+    if(logToConsole){ console.log("custom 'logEvent' called for action:'" + action + "' and publish:" + publishEvent + "."); }
+    if(publishEvent){ window.ga('send', 'event', category, action, label); }
   }
 });
