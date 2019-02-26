@@ -1,6 +1,7 @@
 {
   "name": "primo-explore-unpaywall",
-  "version": "0.9.0",
+  "private": false,
+  "version": "0.9.1",
   "description": "Add 'Open Access available via unpaywall' link to search-result-avaliability-line-after in Primo New UI",
   "main": "src/unpaywall.js",
   "scripts": {
