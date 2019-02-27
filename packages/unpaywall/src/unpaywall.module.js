@@ -35,17 +35,18 @@ angular.module('bulibUnpaywall', []).component('prmSearchResultAvailabilityLineA
       var self = this;  // 'this' changes scope inside of the $http.get(). 'self' is easier to track/trace
       var item = this.parentCtrl.result;  // item data is stored in 'prmSearchResultAvailability' (its parent)
       
-      // obtain contextual info on whether you're on the result list of the full item view
-      var onFullView = this.parentCtrl.isFullView || this.parentCtrl.isOverlayFullView;
-      self.listOrFullViewLabel = onFullView ? 'full' : 'list';
-      self.show = onFullView || unpaywallConfig.showOnResultsPage;
-
       // obtain custom configuration information from 'unpaywallConfig' constant (with defaults)
       self.showDebugTable = unpaywallConfig.showDebugTable || false;
       self.logToConsole = unpaywallConfig.logToConsole || false;
       self.showVersionLabel = unpaywallConfig.showVersionLabel || false;
       self.publishEvents = unpaywallConfig.publishEvents || false;
       self.logEvent = unpaywallConfig.logEvent || logUnpaywallEventToAnalytics;
+      var showOnResults = unpaywallConfig.showOnResultsPage || true;
+
+      // obtain contextual info on whether you're on the result list of the full item view
+      var onFullView = this.parentCtrl.isFullView || this.parentCtrl.isOverlayFullView;
+      self.listOrFullViewLabel = onFullView ? 'full' : 'list';
+      self.show = onFullView || showOnResults;
       
       // ng-click response that logs data to google analytics
       self.trackLinkClick = function(doi){
