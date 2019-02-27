@@ -1,5 +1,5 @@
 let logUnpaywallMessageToConsole = function(message, logToConsole=true){
-  if(logToConsole){ console.log("unpaywall) " + message); }
+  if(logToConsole){ console.log("bulib-unpaywall) " + message); }
 }
 
 let logUnpaywallEventToAnalytics = function(category, action, label, logToConsole=true, publishEvent=false){
@@ -7,11 +7,10 @@ let logUnpaywallEventToAnalytics = function(category, action, label, logToConsol
   if(publishEvent){ window.ga('send', 'event', category, action, label); }
 }
 
-angular.module('unpaywall', [])
-  .component('prmSearchResultAvailabilityLineAfter', {
-    bindings: { parentCtrl: '<'},
+angular.module('bulibUnpaywall', []).component('prmSearchResultAvailabilityLineAfter', {
+    bindings: { parentCtrl: '<' },
     template: `
-      <unpaywall ng-if="$ctrl.show">
+      <bulib-unpaywall ng-if="$ctrl.show">
         <div layout="flex" ng-if="$ctrl.best_oa_link" class="layout-row" style="margin-top: 5px;">
           <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_lock_open_24px" style="color: #f68212;"></prm-icon>
           <a ng-click="$ctrl.trackLinkClick($ctrl.doi)" target="_blank" href="{{$ctrl.best_oa_link}}"
@@ -29,8 +28,8 @@ angular.module('unpaywall', [])
             <tr><td><strong>best_oa_version</strong></td><td>{{$ctrl.best_oa_version}}</td></tr>
           </table>
         </div>
-      </unpaywall>`,
-    controller: function unpaywallController(unpaywallConfig, $http) {
+      </bulib-unpaywall>`,
+    controller: function(unpaywallConfig, $http) {
       var self = this;  // 'this' changes scope inside of the $http.get(). 'self' is easier to track/trace
       var item = this.parentCtrl.result;  // item data is stored in 'prmSearchResultAvailability' (its parent)
       
@@ -46,7 +45,6 @@ angular.module('unpaywall', [])
       self.publishEvents = unpaywallConfig.publishEvents || false;
       self.logEvent = unpaywallConfig.logEvent || logUnpaywallEventToAnalytics;
       
-
       // ng-click response that logs data to google analytics
       self.trackLinkClick = function(doi){
         logUnpaywallMessageToConsole("unpaywall link used for doi: "+doi, self.logToConsole);

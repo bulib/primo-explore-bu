@@ -15,6 +15,7 @@ Add 'Open Access available via unpaywall' link to `search-result-avaliability-li
 - Its [rate limits](https://unpaywall.org/products/api) are extremely leniant (100,000 calls a day), and we never hit them 
   (we do around half of that), but your mileage may vary (depending on how many of your results have DOIs [see 'How it Works' below]).
 - If you _do_ hit the limit, set `showOnResultsPage` to `false`. [see 'Additional Customization']
+- _note: this project is in no way sponsored by or affiliated with the unpaywall organization_
 
 #### `primo-explore-oadoi-link`
 - This customization was inspired by and originally developed on top of [`alliance-pcsg`](https://github.com/alliance-pcsg/)'s 
@@ -28,9 +29,11 @@ Add 'Open Access available via unpaywall' link to `search-result-avaliability-li
     - has entirely different templates/displays
     - is loaded into a different component/location on different pages (`full-view-service-container-after` vs `search-result-availability-line-after`)
     - has additional logging functionality and customizations
-    - shares _very_ little code and required an entirely new `app.module` anyway.
-    - can be used indepently 
-  - **maintenance and versioning**: having our own project ensures we don't affecting existing users and can version our work as we go
+    - shared little code with the original project (pre-merge) and required an entirely new `app.module` anyway.
+    - duplicates the functionality of the original package (would show the same link twice on the same page 
+      (/primo-explore/fulldisplay)
+  - **maintenance and versioning**: having our own project ensures we don't affecting existing users and can version 
+      our work as we go
 
 #### How it Works
 
