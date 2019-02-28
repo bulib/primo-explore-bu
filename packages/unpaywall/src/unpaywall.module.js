@@ -1,10 +1,8 @@
-'use strict';
-
-var logUnpaywallMessageToConsole = function(message, logToConsole=true){
+var logUnpaywallMessageToConsole = function(message, logToConsole){
   if(logToConsole){ console.log("bulib-unpaywall) " + message); }
 }
 
-var logUnpaywallEventToAnalytics = function(category, action, label, logToConsole=true, publishEvent=false){
+var logUnpaywallEventToAnalytics = function(category, action, label, logToConsole, publishEvent){
   logUnpaywallMessageToConsole("sending '" + category + "' event sent to Google Analytics [publish=" + publishEvent + "].", logToConsole);
   if(publishEvent){ window.ga('send', 'event', category, action, label); }
 }
