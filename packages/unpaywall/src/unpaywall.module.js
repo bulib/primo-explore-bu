@@ -7,29 +7,9 @@ var logUnpaywallEventToAnalytics = function(category, action, label, logToConsol
   if(publishEvent){ window.ga('send', 'event', category, action, label); }
 }
 
-angular.module('bulibUnpaywall', []).component('prmSearchResultAvailabilityLineAfter', {
-    bindings: { parentCtrl: '<' },
-    template: '\
-      <bulib-unpaywall ng-if="$ctrl.show">\
-        <div layout="flex" ng-if="$ctrl.best_oa_link" class="layout-row" style="margin-top: 5px;">\
-          <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_lock_open_24px" style="color: #f68212;"></prm-icon>\
-          <a ng-click="$ctrl.trackLinkClick($ctrl.doi)" target="_blank" href="{{$ctrl.best_oa_link}}"\
-            style="margin-left: 3px; margin-top: 3px;" rel="noreferrer">\
-            <strong>Open Access</strong> available via unpaywall\
-            <span ng-if="$ctrl.showVersionLabel && $ctrl.best_oa_version">&nbsp({{$ctrl.best_oa_version}} version)</span>\
-            <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\
-          </a>\
-        </div>\
-        <div ng-if="$ctrl.showDebugTable" class="layout-row">\
-          <table>\
-            <tr><td><strong>doi</strong></td><td>{{$ctrl.doi}}</td></tr>\
-            <tr><td><strong>is_OA</strong></td><td>{{$ctrl.is_oa}}</td>\
-            <tr><td><strong>best_oa_link</strong></td><td>{{$ctrl.best_oa_link}}</td></tr>\
-            <tr><td><strong>best_oa_version</strong></td><td>{{$ctrl.best_oa_version}}</td></tr>\
-          </table>\
-        </div>\
-      </bulib-unpaywall>',
-    controller: function(unpaywallConfig, $http) {
+angular.module('bulibUnpaywall', [])
+  .controller('unpaywallController', ['unpaywallConfig', '$http', 
+    function(unpaywallConfig, $http) {
       var self = this;  // 'this' changes scope inside of the $http.get(). 'self' is easier to track/trace
       var item = this.parentCtrl.result;  // item data is stored in 'prmSearchResultAvailability' (its parent)
       
@@ -94,4 +74,28 @@ angular.module('bulibUnpaywall', []).component('prmSearchResultAvailabilityLineA
         logUnpaywallMessageToConsole("error caught in unpaywallController: " + e.message);
       }
     }
+  ])
+  .component('prmSearchResultAvailabilityLineAfter', {
+    bindings: { parentCtrl: '<' },
+    template: '\
+      <bulib-unpaywall ng-if="$ctrl.show">\
+        <div layout="flex" ng-if="$ctrl.best_oa_link" class="layout-row" style="margin-top: 5px;">\
+          <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_lock_open_24px" style="color: #f68212;"></prm-icon>\
+          <a ng-click="$ctrl.trackLinkClick($ctrl.doi)" target="_blank" href="{{$ctrl.best_oa_link}}"\
+            style="margin-left: 3px; margin-top: 3px;" rel="noreferrer">\
+            <strong>Open Access</strong> available via unpaywall\
+            <span ng-if="$ctrl.showVersionLabel && $ctrl.best_oa_version">&nbsp({{$ctrl.best_oa_version}} version)</span>\
+            <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\
+          </a>\
+        </div>\
+        <div ng-if="$ctrl.showDebugTable" class="layout-row">\
+          <table>\
+            <tr><td><strong>doi</strong></td><td>{{$ctrl.doi}}</td></tr>\
+            <tr><td><strong>is_OA</strong></td><td>{{$ctrl.is_oa}}</td>\
+            <tr><td><strong>best_oa_link</strong></td><td>{{$ctrl.best_oa_link}}</td></tr>\
+            <tr><td><strong>best_oa_version</strong></td><td>{{$ctrl.best_oa_version}}</td></tr>\
+          </table>\
+        </div>\
+      </bulib-unpaywall>',
+    controller: 'unpaywallController'
   });
