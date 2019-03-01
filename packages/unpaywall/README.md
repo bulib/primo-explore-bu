@@ -1,5 +1,7 @@
 # `primo-explore-unpaywall`
 
+![npm package](https://img.shields.io/npm/v/primo-explore-unpaywall.svg)
+
 ### Description
 
 Add 'Open Access available via unpaywall' link to `search-result-avaliability-line-after` in Primo New UI
@@ -8,7 +10,7 @@ Add 'Open Access available via unpaywall' link to `search-result-avaliability-li
 /primo-explore/fulldisplay
 ![unpaywall-link_fulldisplay](img/unpaywall-link_fulldisplay.png)
 
-**On Results List (optionally)**
+**On Results List (optionally)...**
 /primo-explore/search
 ![unpaywall-link_results-list](img/unpaywall-link_results-list.png)
 
@@ -16,7 +18,8 @@ Add 'Open Access available via unpaywall' link to `search-result-avaliability-li
 
 #### Purpose
 - We created this add-on to  **increase open access** to online records for our patrons.
-- This helps to increase overall access to our user whether or not they're logged in or we subscribe to the content in the results (WorldCat search)
+- This helps to increase overall access to our user whether or not they're logged in or we subscribe to the content in the results 
+  (e.g. "Primo Central Index - Include Results with no full-text")
 - At BU, this results in around 50,000 additional open access links a week added exclusively to items that are not marked as `oa`
 
 #### `unpaywall` API usage
@@ -68,12 +71,23 @@ $ npm install --save primo-explore-unpaywall
 
 this should add the following line to your `package.json` file...
 ```json
-"primo-explore-unpaywall": "^0.9.1"
+"primo-explore-unpaywall": "^1.0.1"
 ```
 
 and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-unpaywall` 
   directory for your current view. the presence of this package should mean that the package was successfully 
   installed and added to your project.
+
+from here you'll have to edit your `main.js` file to import the package, and add `bulibUnpaywall` to the
+  dependencies inside of your 'viewCustom' module (`angular.module('viewCustom', ['angularLoad', 'bulibUnpaywall'])`). 
+  
+if you're using `--browserify`, the import line should be `import 'primo-explore-unpaywall';` and a working example 
+  of the whole thing should be found in `src/.main.js`.
+
+if you're not, (i.e. you're still using `custom.module.js` with raw concatenation), simply copy/paste the 
+  `unpaywall.module.js` file from `node_modules/primo-explore-unpaywall` into your `js/` directory and use
+  `import './unpaywall.module.js';` instead. 
+  _note: npm won't auto-update `unpaywall.module.js` if you do it this way, so be sure to copy/paste after each update_
 
 #### Configuring via `unpaywallConfiguration`
 
@@ -106,3 +120,16 @@ the following table describes describes some additional configuration options th
 
 _note: the default for `logEvent` can be found within this repo at `src/.main.js`. it assumes you're using google analytics and calls it via `window.ga`_
 
+### Contributing
+
+You're more than welcome to fork this repository, make some changes, and contribute it back by 
+  [creating a pull request](https://github.com/bulib/primo-explore-bu/compare). 
+
+If you have any issues with this package or ideas for how to make it better, don't hesitate to let us know by 
+  [submitting a new issue](https://github.com/bulib/primo-explore-bu/issues/new).
+
+In both of these cases, it would help us if you make sure to add on the appropriate 
+  [labels](https://github.com/bulib/primo-explore-bu/labels) (including especially `unpaywall`) so that we 
+  can keep track of what your pull request or issue relates to.
+
+If you get stuck, send us a message [![Gitter](https://badges.gitter.im/bulib/developers.svg)](https://gitter.im/bulib/developers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge), and we'll try to help you out.
