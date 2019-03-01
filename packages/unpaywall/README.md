@@ -1,6 +1,16 @@
 # `primo-explore-unpaywall`
 
-Add 'Open Access available via unpaywall' link to `search-result-avaliability-line-after` in Primo New U
+### Description
+
+Add 'Open Access available via unpaywall' link to `search-result-avaliability-line-after` in Primo New UI
+
+**On Item Display...**
+/primo-explore/fulldisplay
+![unpaywall-link_fulldisplay](img/unpaywall-link_fulldisplay.png)
+
+**On Results List (optionally)**
+/primo-explore/search
+![unpaywall-link_results-list](img/unpaywall-link_results-list.png)
 
 ### Background
 
