@@ -10,7 +10,7 @@ assorted customizations to Ex Libris Primo New UI created, consumed, and maintai
 
 |name|npm package|description|
 |:------|:-----|:----------|
-|`primo-explore-unpaywall`|![npm package](https://img.shields.io/npm/v/primo-explore-unpaywall.svg)|add 'Open Access available via unpaywall' link to `search-result-avaliability-line-after`|
+|`primo-explore-unpaywall`|[![npm package](https://img.shields.io/npm/v/primo-explore-unpaywall.svg)](https://www.npmjs.com/package/primo-explore-unpaywall)|add 'Open Access available via unpaywall' link to `search-result-avaliability-line-after`|
 
 ### Contributing
 
