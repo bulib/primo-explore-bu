@@ -39,11 +39,14 @@ Add 'Open Access available via unpaywall' link to `search-result-avaliability-li
 
 Wherever a `<prm-search-result-availability-after>` tag appears (/primo-explore/search, /primo-explore/fulldisplay), we...
 1. look in its parentController (`prmSearchResultAvailability`) for the item info contained in it's `result` variable
-2. if there's a doi (`doi`) in there and it's not already marked as open access (`oa`) use it to make a call to the afore-mentioned unpaywall api.
+2. if there's a doi (`doi`) in there and it's not already marked as open access (`oa`) use it to make a call to the afore-mentioned 
+   unpaywall api.
 3. if that call ends up being successful, look for an open access download link (`successResponse.data.best_oa_location`)
 4. if it has that, grab the url for it and place it right beneath the other "Online Access Available" link.
 
 ### Usage
+
+_note: it appears the package only works if you're using the `--browserify` option using `main.js` instead of `custom.module.js`._
 
 #### Adding the Package to your view in `primo-explore` 
 
@@ -58,40 +61,38 @@ this should add the following line to your `package.json` file...
 "primo-explore-unpaywall": "^0.9.1"
 ```
 
-and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-unpaywall` directory 
-  for your current view. the presence of this package should mean that the package was successfully installed and added to your project.
+and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-unpaywall` 
+  directory for your current view. the presence of this package should mean that the package was successfully 
+  installed and added to your project.
 
 #### Configuring via `unpaywallConfiguration`
 
-to afford you with as much control as possible (and since we needed you to add your email for the unpaywall API call to work anyway), 
-  we've added some configuration options that you'll need to set up _before the package runs_.
+to afford you with as much control as possible (and since we needed you to add your email for the unpaywall 
+  API call to work anyway), we've added some configuration options that you'll need to set up in order to run the 
+  package effectively 
 
-our package attempts to read its options as variables within a `constant` object attached to the primo angular `app`, so all you have to 
-  do is add something that will be added to your `custom.js` file once it's built (either by created a `unpaywall.config.js` file or adding 
-  to an existing js file you use for other configuration options). 
+our package attempts to read its options as variables within a `constant` object attached to the primo angular module (`app`). 
+  to get this packaged to work, simply create a new constant with the name `unpaywallConfig`, specifying the `email` you'd
+  like us to append to your unpaywall request:
 
 ```js
-// unpaywall.config.js
-app.constant('unpaywallConfig', {
-  "email":"<your_username>@<your_institution>.edu"
-});
+// main.js
+app.constant('unpaywallConfig', { "email":"<your_username>@<your_institution>.edu" });
 ```
-
-_note: only `email` is required, since unpaywall uses it to track requests and manage rate limits_
 
 #### Additional Customization
 
-the following table describes describes some additional configuration options that are currently afforded to you by the package. 
-  an example implementation of this section can be found within this repo at `src/custom.module.js`:
+the following table describes describes some additional configuration options that are currently afforded to 
+  you by the package. an example implementation of this section can be found within this repo at `src/.main.js`:
 
 |name|default|description|
 |:------|:-----|:----------|
-|`logEvent`|_[see `src/custom.module.js`]_|here's an opportunity to hook in whatever event tracking you have, (we use google analytics)|
+|`logEvent`|_see example_|here's an opportunity to hook in whatever event tracking you have, (we use google analytics)|
 |`showOnResultsPage`|`true`|determine whether the link is added to each item in the list of results|
 |`showVersionLabel`|`true`|sometimes the unpaywall OA response qualifies the stage of publication the work was OA-available in (`Submitted`, `Published`, `Accepted`)|
 |`logToConsole`|`true`|controls whether or not messages about what's going on in the component are `console.log()`-ed (visible in inspector)|
 |`showDebugTable`|`false`|the debug table is a quick way to see unpaywall response data for the record in context a really ugly way (used to help troubleshoot, not meant for end users)|
 |`publishEvents`|`false`|we use this variable within our sample implementation to ensure only real traffic is tracked (not us debugging/developing/testing)|
 
-_note: the default for `logEvent` can be found within this repo at `src/custom.module.js`. it assumes you're using google analytics and calls it via `window.ga`_
+_note: the default for `logEvent` can be found within this repo at `src/.main.js`. it assumes you're using google analytics and calls it via `window.ga`_
 

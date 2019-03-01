@@ -9,8 +9,7 @@ app.constant('unpaywallConfig', {
   "logToConsole":true,
   "showDebugTable":false,
   "publishEvents":false,
-  "logEvent":function(category, action, label, logToConsole=true, publishEvent=false){
-    if(logToConsole){ console.log("custom 'logEvent' called for action:'" + action + "' and publish:" + publishEvent + "."); }
-    if(publishEvent){ window.ga('send', 'event', category, action, label); }
+  "logEvent":function(category, action, label){
+    window.ga('send', 'event', category, action, label);
   }
 });
