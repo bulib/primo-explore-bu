@@ -9,10 +9,10 @@ angular.module('bulibUnpaywall', [])
       var item = this.parentCtrl.result;  // item data is stored in 'prmSearchResultAvailability' (its parent)
       
       // obtain custom configuration information from 'unpaywallConfig' constant (with defaults)
-      self.showDebugTable = unpaywallConfig.showDebugTable || false;
       self.logToConsole = unpaywallConfig.logToConsole || false;
+      self.publishEvents = unpaywallConfig.publishEvents || true;
       self.showVersionLabel = unpaywallConfig.showVersionLabel || false;
-      self.publishEvents = unpaywallConfig.publishEvents || false;
+      self.showDebugTable = unpaywallConfig.showDebugTable || false;
       self.logEvent = unpaywallConfig.logEvent || logEventToGoogleAnalytics;
       var showOnResults = unpaywallConfig.showOnResultsPage || true;
 
