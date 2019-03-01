@@ -1,10 +1,5 @@
-var logUnpaywallMessageToConsole = function(message, logToConsole){
-  if(logToConsole){ console.log("bulib-unpaywall) " + message); }
-}
-
-var logUnpaywallEventToAnalytics = function(category, action, label, logToConsole, publishEvent){
-  logUnpaywallMessageToConsole("sending '" + category + "' event sent to Google Analytics [publish=" + publishEvent + "].", logToConsole);
-  if(publishEvent){ window.ga('send', 'event', category, action, label); }
+var logEventToGoogleAnalytics = function(category, action, label){
+  window.ga('send', 'event', category, action, label);
 }
 
 angular.module('bulibUnpaywall', [])
@@ -18,18 +13,29 @@ angular.module('bulibUnpaywall', [])
       self.logToConsole = unpaywallConfig.logToConsole || false;
       self.showVersionLabel = unpaywallConfig.showVersionLabel || false;
       self.publishEvents = unpaywallConfig.publishEvents || false;
-      self.logEvent = unpaywallConfig.logEvent || logUnpaywallEventToAnalytics;
+      self.logEvent = unpaywallConfig.logEvent || logEventToGoogleAnalytics;
       var showOnResults = unpaywallConfig.showOnResultsPage || true;
 
       // obtain contextual info on whether you're on the result list of the full item view
       var onFullView = this.parentCtrl.isFullView || this.parentCtrl.isOverlayFullView;
       self.listOrFullViewLabel = onFullView ? 'full' : 'list';
       self.show = onFullView || showOnResults;
-      
+
+      // conditionally log to the console 
+      self.logMessageToConsole = function(message){
+        if(self.logToConsole){ console.log("bulib-unpaywall) " + message); }
+      }
+
+      // conditionally call customized 'logEvent' 
+      self.logEventToAnalytics = function(category, action, label){
+        self.logMessageToConsole("triggering '" + category + "." + action + "' event [publish=" + self.publishEvents + "].");
+        if(self.publishEvents){ self.logEvent(category, action, label); }
+      }
+
       // ng-click response that logs data to google analytics
       self.trackLinkClick = function(doi){
-        logUnpaywallMessageToConsole("unpaywall link used for doi: "+doi, self.logToConsole);
-        self.logEvent("unpaywall", "usage", self.listOrFullViewLabel, self.logToConsole, self.publishEvents);
+        self.logMessageToConsole("unpaywall link used for doi: " + doi);
+        self.logEventToAnalytics("unpaywall", "usage", self.listOrFullViewLabel);
       };
 
       try{
@@ -42,7 +48,7 @@ angular.module('bulibUnpaywall', [])
 
         // if there's a doi and it's not already open access, ask the oadoi.org for an OA link
         if(this.doi && !this.is_oa && self.show){
-          self.logEvent('unpaywall', 'api-call', self.listOrFullViewLabel, self.logToConsole, self.publishEvents);
+          self.logEventToAnalytics('unpaywall', 'api-call', self.listOrFullViewLabel);
 
           // make the actual call to unpaywall API
           $http.get("https://api.oadoi.org/v2/"+self.doi+"?email="+unpaywallConfig.email).then(
@@ -55,8 +61,8 @@ angular.module('bulibUnpaywall', [])
 
               // get the "best" content link from this "best_oa_location"
               self.best_oa_link = best_oa_location.url || "";
-              logUnpaywallMessageToConsole("successfully acquired a 'best_oa_location' for doi '" + self.doi + "' at url: " + self.best_oa_link, self.logToConsole);
-              self.logEvent('unpaywall', 'api-success', self.listOrFullViewLabel, self.logToConsole, self.publishEvents);
+              self.logMessageToConsole("successfully acquired a 'best_oa_location' for doi '" + self.doi + "' at url: " + self.best_oa_link);
+              self.logEventToAnalytics('unpaywall', 'api-success', self.listOrFullViewLabel);
 
               // optionally display whether the link is to a published, submitted, or accepted version
               var best_oa_version = best_oa_location.version.toLowerCase() || "";
@@ -66,7 +72,7 @@ angular.module('bulibUnpaywall', [])
                 self.best_oa_version = (best_oa_version.includes("submit"))? "Submitted" : "Accepted";
               }
             }, function(errorResponse){
-              logUnpaywallMessageToConsole("[" + errorResponse.status + "] error calling unpaywall API: " +  errorResponse.statusText, self.logToConsole);
+              self.logMessageToConsole("[" + errorResponse.status + "] error calling unpaywall API: " +  errorResponse.statusText);
             });
         }
 
