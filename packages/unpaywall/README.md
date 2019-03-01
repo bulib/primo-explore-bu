@@ -1,10 +1,8 @@
-# `primo-explore-unpaywall`
-
-![npm package](https://img.shields.io/npm/v/primo-explore-unpaywall.svg)
-
-### Description
+# `primo-explore-unpaywall` ![npm package](https://img.shields.io/npm/v/primo-explore-unpaywall.svg)
 
 Add 'Open Access available via unpaywall' link to `search-result-avaliability-line-after` in Primo New UI
+
+### Screenshots
 
 **On Item Display...**
 /primo-explore/fulldisplay
@@ -78,8 +76,14 @@ and add the contents of this repository (at that npm version) into a `node_modul
   directory for your current view. the presence of this package should mean that the package was successfully 
   installed and added to your project.
 
-from here you'll have to edit your `main.js` file to import the package, and add `bulibUnpaywall` to the
-  dependencies inside of your 'viewCustom' module (`angular.module('viewCustom', ['angularLoad', 'bulibUnpaywall'])`). 
+#### Installing/Importing it 
+
+from here you'll have to edit your `main.js` (or `config.module.js`) file to import the package, and add `bulibUnpaywall` to the
+  dependencies inside of your 'viewCustom' module:
+
+```
+angular.module('viewCustom', ['angularLoad', 'bulibUnpaywall'])
+``` 
   
 if you're using `--browserify`, the import line should be `import 'primo-explore-unpaywall';` and a working example 
   of the whole thing should be found in `src/.main.js`.
@@ -132,4 +136,4 @@ In both of these cases, it would help us if you make sure to add on the appropri
   [labels](https://github.com/bulib/primo-explore-bu/labels) (including especially `unpaywall`) so that we 
   can keep track of what your pull request or issue relates to.
 
-If you get stuck, send us a message [![Gitter](https://badges.gitter.im/bulib/developers.svg)](https://gitter.im/bulib/developers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge), and we'll try to help you out.
+If you get stuck, send us a message on [our gitter](https://gitter.im/bulib/developers), and we'll try to help you out.
