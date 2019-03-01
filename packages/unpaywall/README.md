@@ -64,7 +64,7 @@ _note: it appears the package only works if you're using the `--browserify` opti
 run the following command from within your view's main directory to add it as a dependency.
 
 ```bash
-$ npm install --save primo-explore-unpaywall
+$ npm install --save-dev primo-explore-unpaywall
 ```
 
 this should add the following line to your `package.json` file...

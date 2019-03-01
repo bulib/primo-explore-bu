@@ -1,6 +1,9 @@
 // import npm package by name (from `node_modules/`)
 import 'primo-explore-unpaywall';
 
+// import copy/pasted 'unpaywall.module.js' from js/
+// import './unpaywall.module';
+
 //load app 'viewCustom' as a module with [] dependencies
 var app = angular.module('viewCustom', ['angularLoad', 'bulibUnpaywall']);
 
