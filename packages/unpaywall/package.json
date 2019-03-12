@@ -1,0 +1,31 @@
+{
+  "name": "primo-explore-unpaywall",
+  "version": "1.0.4",
+  "description": "Add 'Open Access available via unpaywall' link to search-result-avaliability-line-after in Primo New UI",
+  "main": "src/unpaywall.module.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bulib/primo-explore-bu.git"
+  },
+  "keywords": [
+    "unpaywall",
+    "oadoi",
+    "open-access",
+    "oa",
+    "primo",
+    "primo-explore",
+    "exlibris",
+    "ex-libris",
+    "bulib",
+    "code4lib"
+  ],
+  "author": {
+    "name": "Boston University Libraries",
+    "url": "https://github.com/bulib"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/bulib/primo-explore-bu#readme",
+  "bugs": {
+    "url": "https://github.com/bulib/primo-explore-bu/issues"
+  }
+}
