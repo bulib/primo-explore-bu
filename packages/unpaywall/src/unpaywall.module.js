@@ -22,11 +22,19 @@ angular.module('bulibUnpaywall', [])
 
       // provide additional customization options (with defaults)
       self.logToConsole = unpaywallConfig.logToConsole || false;
-      self.publishEvents = unpaywallConfig.publishEvents || true;
       self.showVersionLabel = unpaywallConfig.showVersionLabel || false;
       self.showDebugTable = unpaywallConfig.showDebugTable || false;
       self.logEvent = unpaywallConfig.logEvent || logEventToGoogleAnalytics;
-      var showOnResults = unpaywallConfig.showOnResultsPage || true;
+
+      // other customization options defaulted to true
+      self.publishEvents = true;
+      if(Object.keys(unpaywallConfig).includes("publishEvents")){
+        self.publishEvents = unpaywallConfig.publishEvents;
+      }
+      var showOnResults = true;
+      if(Object.keys(unpaywallConfig).includes("showOnResultsPage")){
+        showOnResults = unpaywallConfig.showOnResultsPage;
+      }
 
       // obtain contextual info on whether you're on the result list of the full item view
       var onFullView = this.parentCtrl.isFullView || this.parentCtrl.isOverlayFullView;
@@ -65,7 +73,7 @@ angular.module('bulibUnpaywall', [])
           // make the actual call to unpaywall API
           var apiUrl = "https://api.oadoi.org/v2/"+self.doi+"?email="+self.email;
           self.logMessageToConsole("-> making 'api-call' to " + apiUrl);
-          $http.get(apiUrl).then(
+          $http.get(encodeURI(apiUrl)).then(
             function(successResponse){
               // if there is a "best open access location", save it so it can be used in the template above
               var best_oa_location = successResponse.data.best_oa_location;
@@ -86,12 +94,13 @@ angular.module('bulibUnpaywall', [])
                 self.best_oa_version = (best_oa_version.includes("submit"))? "Submitted" : "Accepted";
               }
             }, function(errorResponse){
-              self.logMessageToConsole("[" + errorResponse.status + "] error calling unpaywall API: " +  errorResponse.statusText);
-            });
+              self.logMessageToConsole("[error status: " + errorResponse.status + "] error calling unpaywall API: " +  errorResponse.statusText);
+            }
+          );
         }
 
       }catch(e){
-        logUnpaywallMessageToConsole("error caught in unpaywallController: " + e.message);
+        self.logMessageToConsole("error caught in unpaywallController: " + e.message);
       }
     }
   ])
