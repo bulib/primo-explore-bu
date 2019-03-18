@@ -3,12 +3,19 @@ var logEventToGoogleAnalytics = function(category, action, label){
 }
 
 angular.module('bulibUnpaywall', [])
-  .controller('unpaywallController', ['unpaywallConfig', '$http', 
-    function(unpaywallConfig, $http) {
+  .controller('unpaywallController', ['$http', '$injector',
+    function($http, $injector) {
       var self = this;  // 'this' changes scope inside of the $http.get(). 'self' is easier to track/trace
       var item = this.parentCtrl.result;  // item data is stored in 'prmSearchResultAvailability' (its parent)
       
-      // obtain custom configuration information from 'unpaywallConfig' constant (with defaults)
+      // obtain custom configuration information from 'unpaywallConfig' constant (with defaults
+      var unpaywallConfig = {};
+      if($injector.has('unpaywallConfig')){ 
+        unpaywallConfig = $injector.get('unpaywallConfig');
+      }
+      if($injector.has('primoExploreUnpaywallStudioConfig')){
+        unpaywallConfig = $injector.get('primoExploreUnpaywallStudioConfig');
+      }
       self.logToConsole = unpaywallConfig.logToConsole || false;
       self.publishEvents = unpaywallConfig.publishEvents || true;
       self.showVersionLabel = unpaywallConfig.showVersionLabel || false;
