@@ -8,7 +8,7 @@ angular.module('bulibUnpaywall', [])
       var self = this;  // 'this' changes scope inside of the $http.get(). 'self' is easier to track/trace
       var item = this.parentCtrl.result;  // item data is stored in 'prmSearchResultAvailability' (its parent)
       
-      // obtain custom configuration information from 'unpaywallConfig' constant (with defaults
+      // obtain custom configuration information from 'unpaywallConfig' or primo-studio constant 
       var unpaywallConfig = {};
       if($injector.has('unpaywallConfig')){ 
         unpaywallConfig = $injector.get('unpaywallConfig');
@@ -16,6 +16,11 @@ angular.module('bulibUnpaywall', [])
       if($injector.has('primoExploreUnpaywallStudioConfig')){
         unpaywallConfig = $injector.get('primoExploreUnpaywallStudioConfig');
       }
+
+      // provide 'unpaywall' organization with default value including some context that it's from us (for rate-limiting)
+      self.email = unpaywallConfig.email || "primo-explore-unpaywall@npmjs.com";
+
+      // provide additional customization options (with defaults)
       self.logToConsole = unpaywallConfig.logToConsole || false;
       self.publishEvents = unpaywallConfig.publishEvents || true;
       self.showVersionLabel = unpaywallConfig.showVersionLabel || false;
@@ -58,7 +63,9 @@ angular.module('bulibUnpaywall', [])
           self.logEventToAnalytics('unpaywall', 'api-call', self.listOrFullViewLabel);
 
           // make the actual call to unpaywall API
-          $http.get("https://api.oadoi.org/v2/"+self.doi+"?email="+unpaywallConfig.email).then(
+          var apiUrl = "https://api.oadoi.org/v2/"+self.doi+"?email="+self.email;
+          self.logMessageToConsole("-> making 'api-call' to " + apiUrl);
+          $http.get(apiUrl).then(
             function(successResponse){
               // if there is a "best open access location", save it so it can be used in the template above
               var best_oa_location = successResponse.data.best_oa_location;
