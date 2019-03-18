@@ -24,7 +24,7 @@ $ npm install --save-dev primo-explore-help-menu
 
 this should add the following line to your `package.json` file...
 ```json
-"primo-explore-help-menu": "^0.9.0"
+"primo-explore-help-menu": "^0.9.5"
 ```
 
 and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-help-menu` 

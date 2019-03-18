@@ -1,18 +1,21 @@
 import {sample_list_of_elements} from './help-menu-content';
 import {helpMenuContentDisplayTemplate, helpMenuDialogTemplate} from './help-menu-templates';
 
+// handle optional configuration variables
 const optionalConfigName = 'helpMenuConfig';
+const optionalStudioName = 'primoExploreHelpMenuStudioConfig';
 const logEventToGoogleAnalytics = function(category, action, label){ 
   window.ga('send','event',category, action, label);
 }
 
+// configurable logging, event-handling, and interaction with help content
 let helpMenuHelper = {
   logToConsole: true,
   publishEvents: true,
   helpMenuWidth: 500,
   list_of_elements: sample_list_of_elements,
   logMessage: function(message){
-    if(this.logToConsole){ console.log("helpMenu) " + message); }
+    if(this.logToConsole){ console.log("bulibHelpMenu) " + message); }
   },
   logEventToAnalytics: function(category, action, label){
     logEventToGoogleAnalytics(category, action, label);
@@ -43,10 +46,14 @@ let helpMenuHelper = {
 
 const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $timeout, $mdDialog){  
   // look for the optional 'helpMenuConfig' if present
+  let config = {}
   if($injector.has(optionalConfigName)){
-    let config = $injector.get(optionalConfigName);
-    helpMenuHelper.override_with_config(config);
+    config = $injector.get(optionalConfigName);
   }
+  if($injector.has(optionalStudioName)){
+    config = $injector.get(optionalStudioName)
+  }
+  helpMenuHelper.override_with_config(config);
 
   // determine whether to show the help menu (separate window)
   let hrefArgs = window.location.search; 
@@ -63,10 +70,11 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
     helpMenuHelper.logHelpEvent("select-item", id);
   };
 
+  // trigger the help-menu to open as a popup and return focus to main page
   $scope.openHelpInNewWindow = function(item_id=""){
     let help_event_label = window.location.pathname;
     let params=`width=${helpMenuHelper.helpMenuWidth},height=800,resizable=0,location=0,menubar=0,scrollbars=yes`;
-    let help_page_url = window.location.pathname + window.location.search + '&page=help'; // TODO: change from 'page=help' into help-url
+    let help_page_url = window.location.pathname + window.location.search + '&page=help'; // @TODO: change from 'page=help' into help-url
     
     // if present, send and log the 'help-option' instead of the url
     if(item_id){ 
@@ -86,6 +94,7 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
   }, 10);
 }
 
+// help content by replacing everything else on the 
 angular.module('helpMenuContentDisplay', [])
   .constant('helpMenuHelper', helpMenuHelper)
   .controller('helpMenuPopupController', ['helpMenuHelper', '$injector', '$scope', '$timeout', '$mdDialog', mainHelpMenuController])
@@ -97,18 +106,21 @@ angular.module('helpMenuContentDisplay', [])
     controller: 'helpMenuPopupController'
   });
 
+// topbar button and the dialog content it triggers 
 angular.module('helpMenuTopbar', ['ngMaterial'])
   .constant('helpMenuHelper', helpMenuHelper)
   .controller('helpMenuDialogController', ['helpMenuHelper', '$injector', '$scope', '$timeout', '$mdDialog', mainHelpMenuController])
   .controller('helpMenuTopbarController', ['helpMenuHelper', '$injector', '$mdDialog',
     function(helpMenuHelper, $injector, $mdDialog){
-      helpMenuHelper.logMessage("loaded.");
-
       // look for the optional 'helpMenuConfig' if present
+      let config = {}
       if($injector.has(optionalConfigName)){
-        let config = $injector.get(optionalConfigName);
-        helpMenuHelper.override_with_config(config);
+        config = $injector.get(optionalConfigName);
       }
+      if($injector.has(optionalStudioName)){
+        config = $injector.get(optionalStudioName)
+      }
+      helpMenuHelper.override_with_config(config);
 
       this.openHelpMenu = function(ev){
         helpMenuHelper.logHelpEvent( "open-dialog", window.location.pathname);

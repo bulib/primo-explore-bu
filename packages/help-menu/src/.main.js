@@ -2,7 +2,7 @@
 import 'primo-explore-help-menu';
 
 // import copy/pasted 'help-menu.js' in js/
-// import './help-menu';
+// import '../node_modules/primo-explore-help-menu/dist/help-menu';
 
 // import list of help-menu entries from another js file
 import {help_menu_items} from './help-menu-content';
