@@ -2,6 +2,16 @@
 
 Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after` (top nav bar)
 
+
+### Screenshots
+
+**dialog window with content list**
+![help-menu dialog](./img/help-menu_dialog.png)
+
+**opened in new window with item selected**
+![help-menu window](./img/help-menu_window.png)
+
+
 ### Usage
 
 #### Adding the Package to your view in `primo-explore` 
