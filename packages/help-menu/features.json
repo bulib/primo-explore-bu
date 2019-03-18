@@ -5,7 +5,7 @@
   "what": "help-menu-topbar",
   "linkGit": "https://github.com/bulib/primo-explore-bu/tree/master/packages/help-menu",
   "npmid": "primo-explore-help-menu",
-  "version": "0.9.3",
+  "version": "0.9.5",
   "hook": "prm-search-bookmark-filter-after",
   "config": {
     "form": [
@@ -38,6 +38,7 @@
       {
         "key": "helpMenuWidth",
         "type": "input",
+        "defaultValue":500,
         "templateOptions": {
           "required": false,
           "label": "Width of help-menu (nuber of pixels as an Integer)",
