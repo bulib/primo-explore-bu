@@ -24,5 +24,15 @@
   "homepage": "https://github.com/bulib/primo-explore-bu/tree/master/packages/help-menu#readme",
   "bugs": {
     "url": "https://github.com/bulib/primo-explore-bu/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "scripts": {
+    "build": "webpack --mode production"
   }
 }
