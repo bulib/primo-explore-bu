@@ -1,0 +1,39 @@
+{
+  "name": "primo-explore-help-menu",
+  "description": "Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after`",
+  "version": "1.0.0",
+  "main": "./dist/help-menu.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bulib/primo-explore-bu.git"
+  },
+  "keywords": [
+    "help",
+    "search-help",
+    "primo",
+    "primo-explore",
+    "exlibris",
+    "ex-libris",
+    "bulib",
+    "code4lib"
+  ],
+  "author": {
+    "name": "Boston University Libraries",
+    "url": "https://github.com/bulib"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/bulib/primo-explore-bu/tree/master/packages/help-menu#readme",
+  "bugs": {
+    "url": "https://github.com/bulib/primo-explore-bu/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "scripts": {
+    "build": "webpack --mode production"
+  }
+}
