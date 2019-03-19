@@ -10,12 +10,18 @@ angular.module('bulibUnpaywall', [])
       
       // obtain custom configuration information from 'unpaywallConfig' or primo-studio constant 
       var unpaywallConfig = {};
+      if(this.logToConsole && $injector.modules){
+        console.log($injector.modules);
+      }
       if($injector.has('unpaywallConfig')){ 
+        this.logMessageToConsole("'unpaywallConfig' found: ");
         unpaywallConfig = $injector.get('unpaywallConfig');
       }
       if($injector.has('primoExploreUnpaywallStudioConfig')){
+        this.logMessageToConsole("'primoExploreUnpaywallStudioConfig' found: ")
         unpaywallConfig = $injector.get('primoExploreUnpaywallStudioConfig');
       }
+      if(this.logToConsole){ console.log(unpaywallConfig); }
 
       // provide 'unpaywall' organization with default value including some context that it's from us (for rate-limiting)
       self.email = unpaywallConfig.email || "primo-explore-unpaywall@npmjs.com";
