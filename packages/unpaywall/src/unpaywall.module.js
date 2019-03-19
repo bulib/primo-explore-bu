@@ -3,18 +3,38 @@ var logEventToGoogleAnalytics = function(category, action, label){
 }
 
 angular.module('bulibUnpaywall', [])
-  .controller('unpaywallController', ['unpaywallConfig', '$http', 
-    function(unpaywallConfig, $http) {
+  .controller('unpaywallController', ['$http', '$injector',
+    function($http, $injector) {
       var self = this;  // 'this' changes scope inside of the $http.get(). 'self' is easier to track/trace
       var item = this.parentCtrl.result;  // item data is stored in 'prmSearchResultAvailability' (its parent)
       
-      // obtain custom configuration information from 'unpaywallConfig' constant (with defaults)
+      // obtain custom configuration information from 'unpaywallConfig' or primo-studio constant 
+      var unpaywallConfig = {};
+      if($injector.has('unpaywallConfig')){ 
+        unpaywallConfig = $injector.get('unpaywallConfig');
+      }
+      if($injector.has('primoExploreUnpaywallStudioConfig')){
+        unpaywallConfig = $injector.get('primoExploreUnpaywallStudioConfig');
+      }
+
+      // provide 'unpaywall' organization with default value including some context that it's from us (for rate-limiting)
+      self.email = unpaywallConfig.email || "primo-explore-unpaywall@npmjs.com";
+
+      // provide additional customization options (with defaults)
       self.logToConsole = unpaywallConfig.logToConsole || false;
-      self.publishEvents = unpaywallConfig.publishEvents || true;
       self.showVersionLabel = unpaywallConfig.showVersionLabel || false;
       self.showDebugTable = unpaywallConfig.showDebugTable || false;
       self.logEvent = unpaywallConfig.logEvent || logEventToGoogleAnalytics;
-      var showOnResults = unpaywallConfig.showOnResultsPage || true;
+
+      // other customization options defaulted to true
+      self.publishEvents = true;
+      if(Object.keys(unpaywallConfig).includes("publishEvents")){
+        self.publishEvents = unpaywallConfig.publishEvents;
+      }
+      var showOnResults = true;
+      if(Object.keys(unpaywallConfig).includes("showOnResultsPage")){
+        showOnResults = unpaywallConfig.showOnResultsPage;
+      }
 
       // obtain contextual info on whether you're on the result list of the full item view
       var onFullView = this.parentCtrl.isFullView || this.parentCtrl.isOverlayFullView;
@@ -51,7 +71,9 @@ angular.module('bulibUnpaywall', [])
           self.logEventToAnalytics('unpaywall', 'api-call', self.listOrFullViewLabel);
 
           // make the actual call to unpaywall API
-          $http.get("https://api.oadoi.org/v2/"+self.doi+"?email="+unpaywallConfig.email).then(
+          var apiUrl = "https://api.oadoi.org/v2/"+self.doi+"?email="+self.email;
+          self.logMessageToConsole("-> making 'api-call' to " + apiUrl);
+          $http.get(encodeURI(apiUrl)).then(
             function(successResponse){
               // if there is a "best open access location", save it so it can be used in the template above
               var best_oa_location = successResponse.data.best_oa_location;
@@ -72,12 +94,13 @@ angular.module('bulibUnpaywall', [])
                 self.best_oa_version = (best_oa_version.includes("submit"))? "Submitted" : "Accepted";
               }
             }, function(errorResponse){
-              self.logMessageToConsole("[" + errorResponse.status + "] error calling unpaywall API: " +  errorResponse.statusText);
-            });
+              self.logMessageToConsole("[error status: " + errorResponse.status + "] error calling unpaywall API: " +  errorResponse.statusText);
+            }
+          );
         }
 
       }catch(e){
-        logUnpaywallMessageToConsole("error caught in unpaywallController: " + e.message);
+        self.logMessageToConsole("error caught in unpaywallController: " + e.message);
       }
     }
   ])

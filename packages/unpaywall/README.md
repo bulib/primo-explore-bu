@@ -6,11 +6,11 @@ Add 'Open Access available via unpaywall' link to `search-result-avaliability-li
 
 **On Item Display...**
 /primo-explore/fulldisplay
-![unpaywall-link_fulldisplay](img/unpaywall-link_fulldisplay.png)
+![unpaywall-link_fulldisplay](https://github.com/bulib/primo-explore-bu/blob/master/packages/unpaywall/img/unpaywall-link_fulldisplay.png)
 
 **On Results List (optionally)...**
 /primo-explore/search
-![unpaywall-link_results-list](img/unpaywall-link_results-list.png)
+![unpaywall-link_results-list](https://github.com/bulib/primo-explore-bu/blob/master/packages/unpaywall/img/unpaywall-link_results-list.png)
 
 ### Background
 
@@ -69,7 +69,7 @@ $ npm install --save-dev primo-explore-unpaywall
 
 this should add the following line to your `package.json` file...
 ```json
-"primo-explore-unpaywall": "^1.0.1"
+"primo-explore-unpaywall": "^1.1.3"
 ```
 
 and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-unpaywall` 
