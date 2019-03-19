@@ -1,5 +1,5 @@
 var logEventToGoogleAnalytics = function(category, action, label){
-  window.ga('send', 'event', category, action, label);
+  if(window.ga){ window.ga('send', 'event', category, action, label); }
 }
 
 angular.module('bulibUnpaywall', [])

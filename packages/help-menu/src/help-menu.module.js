@@ -5,7 +5,7 @@ import {helpMenuContentDisplayTemplate, helpMenuDialogTemplate} from './help-men
 const optionalConfigName = 'helpMenuConfig';
 const optionalStudioName = 'primoExploreHelpMenuStudioConfig';
 const logEventToGoogleAnalytics = function(category, action, label){ 
-  window.ga('send','event',category, action, label);
+  if(window.ga){ window.ga('send','event',category, action, label); }
 }
 
 // configurable logging, event-handling, and interaction with help content
