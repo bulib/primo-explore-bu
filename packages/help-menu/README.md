@@ -6,10 +6,10 @@ Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after`
 ### Screenshots
 
 **dialog window with content list**
-![help-menu dialog](https://github.com/bulib/primo-explore-bu/blob/master/packages/help-menu/img/help-menu_dialog.png)
+![help-menu dialog](https://github.com/bulib/primo-explore-bu/blob/master/packages/help-menu/img/help-menu_dialog.png?raw=true)
 
 **opened in new window with item selected**
-![help-menu window](https://github.com/bulib/primo-explore-bu/blob/master/packages/help-menu/img/help-menu_window.png)
+![help-menu window](https://github.com/bulib/primo-explore-bu/blob/master/packages/help-menu/img/help-menu_window.png?raw=true)
 
 
 ### Usage
