@@ -37,7 +37,7 @@ angular.module('bulibUnpaywall', [])
       // obtain contextual info on whether you're on the result list of the full item view
       var onFullView = this.parentCtrl.isFullView || this.parentCtrl.isOverlayFullView;
       self.listOrFullViewLabel = onFullView ? 'full' : 'list';
-      self.show = onFullView || showOnResults;
+      self.show = onFullView || self.showOnResultsPage;
 
       // conditionally log to the console 
       self.logMessageToConsole = function(message){
