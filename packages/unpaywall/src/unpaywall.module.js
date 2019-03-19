@@ -21,20 +21,12 @@ angular.module('bulibUnpaywall', [])
       self.email = unpaywallConfig.email || "primo-explore-unpaywall@npmjs.com";
 
       // provide additional customization options (with defaults)
-      self.logToConsole = unpaywallConfig.logToConsole || false;
-      self.showVersionLabel = unpaywallConfig.showVersionLabel || false;
-      self.showDebugTable = unpaywallConfig.showDebugTable || false;
+      self.logToConsole = (Object.keys(unpaywallConfig).includes("logToConsole"))? unpaywallConfig.logToConsole : true;
+      self.publishEvents = (Object.keys(unpaywallConfig).includes("publishEvents"))? unpaywallConfig.publishEvents : false;
+      self.showVersionLabel = (Object.keys(unpaywallConfig).includes("showVersionLabel"))? unpaywallConfig.showVersionLabel : false;
+      self.showDebugTable = (Object.keys(unpaywallConfig).includes("showDebugTable"))? unpaywallConfig.showDebugTable : false;
+      self.showOnResultsPage = (Object.keys(unpaywallConfig).includes("showOnResultsPage"))? unpaywallConfig.showOnResultsPage : true;
       self.logEvent = unpaywallConfig.logEvent || logEventToGoogleAnalytics;
-
-      // other customization options defaulted to true
-      self.publishEvents = true;
-      if(Object.keys(unpaywallConfig).includes("publishEvents")){
-        self.publishEvents = unpaywallConfig.publishEvents;
-      }
-      var showOnResults = true;
-      if(Object.keys(unpaywallConfig).includes("showOnResultsPage")){
-        showOnResults = unpaywallConfig.showOnResultsPage;
-      }
 
       // obtain contextual info on whether you're on the result list of the full item view
       var onFullView = this.parentCtrl.isFullView || this.parentCtrl.isOverlayFullView;
