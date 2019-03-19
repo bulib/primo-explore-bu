@@ -36,7 +36,7 @@ let helpMenuHelper = {
   },
   override_with_config: function(config){
     if(!config || !Object.keys(config)){ return; }
-    if(config.logToConsole){ this.debug = config.logToConsole; }
+    if(config.logToConsole){ this.logToConsole = config.logToConsole; }
     if(config.publishEvents){ this.publishEvents = config.publishEvents; }
     if(config.helpMenuWidth){ this.helpMenuWidth = config.helpMenuWidth; }
     if(config.logEventToAnalytics){ this.logEventToAnalytics = config.logEventToAnalytics; }
