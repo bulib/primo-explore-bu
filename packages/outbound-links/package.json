@@ -1,0 +1,28 @@
+{
+  "name": "primo-explore-outbound-links",
+  "version": "0.5.1",
+  "description": "Add event tracking to outbound links contained in `prm-service-links`",
+  "main": "src/outbound-links.module.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bulib/primo-explore-bu.git"
+  },
+  "keywords": [
+    "logging",
+    "primo",
+    "primo-explore",
+    "exlibris",
+    "ex-libris",
+    "bulib",
+    "code4lib"
+  ],
+  "author": {
+    "name": "Boston University Libraries",
+    "url": "https://github.com/bulib"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/bulib/primo-explore-bu/tree/master/packages/outbound-links#readme",
+  "bugs": {
+    "url": "https://github.com/bulib/primo-explore-bu/issues"
+  }
+}

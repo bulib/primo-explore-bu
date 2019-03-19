@@ -1,0 +1,38 @@
+{
+  "face": "https://avatars2.githubusercontent.com/u/11337842?s=200&v=4",
+  "notes": "Add event tracking to outbound links contained in `prm-service-links`.",
+  "who": "BU Libraries",
+  "linkGit": "https://github.com/bulib/primo-explore-bu/tree/master/packages/outbound-links",
+  "npmid": "primo-explore-outbound-links",
+  "version": "0.5.1",
+  "hook": "prm-full-view-after",
+  "config": {
+    "form": [
+      { "key": "logEvent" },
+      {
+        "key": "logToConsole",
+        "type": "select",
+        "defaultValue": true,
+        "templateOptions": {
+          "label": "(debug) Log debug messages to console",
+          "options": [
+            { "name": "true",  "value": true  },
+            { "name": "false", "value": false }
+          ]
+        }
+      },
+      {
+        "key": "publishEvents",
+        "type": "select",
+        "defaultValue": false,
+        "templateOptions": {
+          "label": "(debug) Determine whether events are published to Analytics",
+          "options": [
+            { "name": "true",  "value": true  },
+            { "name": "false", "value": false }
+          ]
+        }
+      }
+    ]
+  }
+}
