@@ -57,8 +57,6 @@ Wherever a `<prm-search-result-availability-after>` tag appears (/primo-explore/
 
 ### Usage
 
-_note: it appears the package only works if you're using the `--browserify` option using `main.js` instead of `custom.module.js`._
-
 #### Adding the Package to your view in `primo-explore` 
 
 run the following command from within your view's main directory to add it as a dependency.

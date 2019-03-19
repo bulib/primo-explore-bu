@@ -15,7 +15,7 @@ let helpMenuHelper = {
   helpMenuWidth: 500,
   list_of_elements: sample_list_of_elements,
   logMessage: function(message){
-    if(this.logToConsole){ console.log("bulibHelpMenu) " + message); }
+    if(this.logToConsole){ console.log("bulib-help-menu) " + message); }
   },
   logEventToAnalytics: function(category, action, label){
     logEventToGoogleAnalytics(category, action, label);
