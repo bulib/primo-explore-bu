@@ -11,7 +11,7 @@ assorted customizations to Ex Libris Primo New UI created, consumed, and maintai
 |name|npm package|description|
 |:------|:-----|:----------|
 |`primo-explore-unpaywall`|[![npm package](https://img.shields.io/npm/v/primo-explore-unpaywall.svg)](https://www.npmjs.com/package/primo-explore-unpaywall)|add 'Open Access available via unpaywall' link to `search-result-avaliability-line-after`|
-|`primo-explore-help-menu`|[![npm package](https://img.shields.io/npm/v/primo-explore-help-menu.svg)](https://www.npmjs.com/package/primo-explore-help-menu)|add 'Open Access available via unpaywall' link to `search-result-avaliability-line-after`|
+|`primo-explore-help-menu`|[![npm package](https://img.shields.io/npm/v/primo-explore-help-menu.svg)](https://www.npmjs.com/package/primo-explore-help-menu)|Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after` (top nav bar)|
 |`primo-explore-outbound-links`|[![npm package](https://img.shields.io/npm/v/primo-explore-outbound-links.svg)](https://www.npmjs.com/package/primo-explore-outbound-links)|add event tracking to outbound links contained in `prm-service-links`|
 
 ### Contributing
