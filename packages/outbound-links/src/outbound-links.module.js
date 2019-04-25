@@ -46,7 +46,6 @@ angular.module('outboundLinksLogger', [])
 
       $timeout(function(){
         // find the associated 'More Links' using the querySelectorAll
-        outboundLinksHelper.logOutboundLinkMessage("using the querySelectorAll to grab outbound links in 'More Links'...");
         var outboundLinks = document.querySelectorAll("prm-service-links > div > div > a.arrow-link");
 
         // if links are found, add eventListeners to them
@@ -57,10 +56,11 @@ angular.module('outboundLinksLogger', [])
           for(var i=0; i<outboundLinks.length; i++){
             var anchorLinkElem = outboundLinks[i];
             var url = anchorLinkElem.getAttribute("href");
+            var loggedURL = outboundLinksHelper.getHrefArgFromSearch(url, "url", url);
             var linkText = anchorLinkElem.querySelector("span").innerHTML;
             anchorLinkElem.addEventListener("click", function(event){
               event.preventDefault();
-              outboundLinksHelper.logOutboundLinkEvent("outbound-link", linkText, url);
+              outboundLinksHelper.logOutboundLinkEvent("outbound-link", linkText, loggedURL);
               window.open(url, '_blank');
             });
           }
@@ -73,7 +73,6 @@ angular.module('outboundLinksLogger', [])
 
       $timeout(function(){
         // find the 'Find Online' and 'View Online' sections
-        outboundLinksHelper.logOutboundLinkMessage("using the querySelectorAll to grab outbound links from 'Find/View Online'...");
         var linksToResource = document.querySelectorAll("prm-view-online > div > a");
 
         if(linksToResource && linksToResource.length > 0){
@@ -85,14 +84,14 @@ angular.module('outboundLinksLogger', [])
             // determine the source information (e.g. libguides, openBU) from the primo 'docid' value
             var source = outboundLinksHelper.getHrefArgFromSearch(window.location.search, "docid=");
 
-            // get the url (and use the referring if it's an easyproxy link)
+            // get the url (and use the referring if it's an ezproxy link)
             var url = anchorLinkElem.getAttribute("href");
-            url = outboundLinksHelper.getHrefArgFromSearch(url, "url=", url);
+            var loggedURL = outboundLinksHelper.getHrefArgFromSearch(url, "url=", url);
 
             // add the eventListener to the anchor tag
             anchorLinkElem.addEventListener("click", function(event){
               event.preventDefault();
-              outboundLinksHelper.logOutboundLinkEvent(gaEventLogger, "link-to-resource",source, url);
+              outboundLinksHelper.logOutboundLinkEvent(gaEventLogger, "link-to-resource",source, loggedURL);
               window.open(url, '_blank');
             });
           }
