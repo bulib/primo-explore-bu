@@ -6,11 +6,11 @@ Add 'Open Access available via unpaywall' link to `search-result-avaliability-li
 
 **On Item Display...**
 /primo-explore/fulldisplay
-![unpaywall-link_fulldisplay](https://github.com/bulib/primo-explore-bu/blob/master/packages/unpaywall/img/unpaywall-link_fulldisplay.png)
+![unpaywall-link_fulldisplay](https://github.com/bulib/primo-explore-bu/blob/master/packages/unpaywall/img/unpaywall-link_fulldisplay.png?raw=true)
 
 **On Results List (optionally)...**
 /primo-explore/search
-![unpaywall-link_results-list](https://github.com/bulib/primo-explore-bu/blob/master/packages/unpaywall/img/unpaywall-link_results-list.png)
+![unpaywall-link_results-list](https://github.com/bulib/primo-explore-bu/blob/master/packages/unpaywall/img/unpaywall-link_results-list.png?raw=true)
 
 ### Background
 
@@ -56,8 +56,6 @@ Wherever a `<prm-search-result-availability-after>` tag appears (/primo-explore/
 4. if it has that, grab the url for it and place it right beneath the other "Online Access Available" link.
 
 ### Usage
-
-_note: it appears the package only works if you're using the `--browserify` option using `main.js` instead of `custom.module.js`._
 
 #### Adding the Package to your view in `primo-explore` 
 

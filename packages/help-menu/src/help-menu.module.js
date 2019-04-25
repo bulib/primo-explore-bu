@@ -5,7 +5,7 @@ import {helpMenuContentDisplayTemplate, helpMenuDialogTemplate} from './help-men
 const optionalConfigName = 'helpMenuConfig';
 const optionalStudioName = 'primoExploreHelpMenuStudioConfig';
 const logEventToGoogleAnalytics = function(category, action, label){ 
-  window.ga('send','event',category, action, label);
+  if(window.ga){ window.ga('send','event',category, action, label); }
 }
 
 // configurable logging, event-handling, and interaction with help content
@@ -15,7 +15,7 @@ let helpMenuHelper = {
   helpMenuWidth: 500,
   list_of_elements: sample_list_of_elements,
   logMessage: function(message){
-    if(this.logToConsole){ console.log("bulibHelpMenu) " + message); }
+    if(this.logToConsole){ console.log("bulib-help-menu) " + message); }
   },
   logEventToAnalytics: function(category, action, label){
     logEventToGoogleAnalytics(category, action, label);
@@ -36,7 +36,7 @@ let helpMenuHelper = {
   },
   override_with_config: function(config){
     if(!config || !Object.keys(config)){ return; }
-    if(config.logToConsole){ this.debug = config.logToConsole; }
+    if(config.logToConsole){ this.logToConsole = config.logToConsole; }
     if(config.publishEvents){ this.publishEvents = config.publishEvents; }
     if(config.helpMenuWidth){ this.helpMenuWidth = config.helpMenuWidth; }
     if(config.logEventToAnalytics){ this.logEventToAnalytics = config.logEventToAnalytics; }
