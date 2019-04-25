@@ -1,3 +1,5 @@
+const LOG_CONFIG_DISCOVERY = false;
+
 var logEventToGoogleAnalytics = function(category, action, label){
   if(window.ga){ window.ga('send', 'event', category, action, label); }
 }
@@ -10,18 +12,18 @@ angular.module('bulibUnpaywall', [])
       
       // obtain custom configuration information from 'unpaywallConfig' or primo-studio constant 
       var unpaywallConfig = {};
-      if($injector.modules){
+      if($injector.modules && LOG_CONFIG_DISCOVERY){
         console.log($injector.modules);
       }
       if($injector.has('unpaywallConfig')){ 
-        console.log("'unpaywallConfig' found: ");
+        if(LOG_CONFIG_DISCOVERY){ console.log("'unpaywallConfig' found: "); }
         unpaywallConfig = $injector.get('unpaywallConfig');
       }
       if($injector.has('primoExploreUnpaywallStudioConfig')){
-        console.log("'primoExploreUnpaywallStudioConfig' found: ")
+        if(LOG_CONFIG_DISCOVERY){ console.log("'primoExploreUnpaywallStudioConfig' found: "); }
         unpaywallConfig = $injector.get('primoExploreUnpaywallStudioConfig');
       }
-      console.log(unpaywallConfig);
+      if(LOG_CONFIG_DISCOVERY){ console.log(unpaywallConfig); }
 
       // provide 'unpaywall' organization with default value including some context that it's from us (for rate-limiting)
       self.email = unpaywallConfig.email || "primo-explore-unpaywall@npmjs.com";
