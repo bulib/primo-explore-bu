@@ -6,7 +6,7 @@ var outboundLinksHelper = {
   logToConsole: false,
   publishEvents: true,
   logOutboundLinkMessage: function(message){
-    if(this.logToConsole){ console.log("bulib-outbound-links-logger) " + message); }
+    if(this.logToConsole){ console.log("bulib-outbound-links) " + message); }
   },
   logOutboundLinkEvent: function(category, action, urlClicked){
     this.logOutboundLinkMessage(
@@ -31,6 +31,35 @@ var outboundLinksHelper = {
       source = hrefArgs.substring(start_index, end_index);
     }
     return source;
+  },
+  addEventListenersForOutboundLinkType: function(linksList, eventCode){
+    var section_name = (eventCode == "link-to-resource") ? 'Find/View Online' : "More Links";
+    if(linksList && linksList.length > 0){
+      outboundLinksHelper.logOutboundLinkMessage("adding eventListeners to " + linksList.length + " '" + section_name + "' anchor tag/s...");
+      for(var i=0; i<linksList.length; i++){
+        var anchorLinkElem = linksList[i];
+          
+        // get the url (and use the referring if it's an ezproxy link)
+        var url = anchorLinkElem.getAttribute("href");
+        var loggedURL = this.getHrefArgFromSearch(url, "url=", url);
+
+        // determine what to log as the 'action' part of the event
+        var action = (eventCode == "link-to-resource")
+          ? this.getHrefArgFromSearch(window.location.search, "docid=") // where the link is coming from (e.g. libguides, openBU) from the primo 'docid' value
+          : anchorLinkElem.querySelector("span").innerHTML   // the text of the link
+        ;
+
+        // add the EventListener to that anchor tag
+        var self = this; 
+        anchorLinkElem.addEventListener("click", function(event){
+          event.preventDefault();
+          self.logOutboundLinkEvent(eventCode, action, loggedURL);
+          window.open(url, '_blank');
+        });
+      }
+    }else{
+      this.logOutboundLinkMessage("no '" + eventCode + "' links found in '" + section_name + "'.");
+    }
   }
 };
 
@@ -39,68 +68,22 @@ angular.module('outboundLinksLogger', [])
   .controller('outboundLinksController', ['outboundLinksHelper', '$timeout', '$injector',
     function(outboundLinksHelper, $timeout, $injector){
       
+      // update behavior configurations if a config constant is found
       var config = $injector.has('outboundLinksConfig')? $injector.get('outboundLinksConfig') : {};
       outboundLinksHelper.logToConsole = Object.keys(config).includes('logToConsole')? config.logToConsole : true; 
       outboundLinksHelper.publishEvents = Object.keys(config).includes('publishEvents')? config.publishEvents : true;
       outboundLinksHelper.logEvent = config.logEvent || logEventToAnalytics;
 
+      // add eventListeners to the appropriate links after waiting a bit for primo to add them to the page
+      var anchorLinkElements;
       $timeout(function(){
-        // find the associated 'More Links' using the querySelectorAll
-        var outboundLinks = document.querySelectorAll("prm-service-links > div > div > a.arrow-link");
-
-        // if links are found, add eventListeners to them
-        if(outboundLinks && outboundLinks.length > 0){
-          outboundLinksHelper.logOutboundLinkMessage("adding eventListeners to " + outboundLinks.length + " 'outbound-links' anchor tag/s...");
-
-          // add the logging event to each of these anchor links
-          for(var i=0; i<outboundLinks.length; i++){
-            var anchorLinkElem = outboundLinks[i];
-            var url = anchorLinkElem.getAttribute("href");
-            var loggedURL = outboundLinksHelper.getHrefArgFromSearch(url, "url", url);
-            var linkText = anchorLinkElem.querySelector("span").innerHTML;
-            anchorLinkElem.addEventListener("click", function(event){
-              event.preventDefault();
-              outboundLinksHelper.logOutboundLinkEvent("outbound-link", linkText, loggedURL);
-              window.open(url, '_blank');
-            });
-          }
-
-        // if no links are found..
-        }else{
-          outboundLinksHelper.logOutboundLinkMessage("no 'outbound-links' found in 'More Links'.")
-        }
-      }, 1500);  // code above executes 1.5 seconds after the component first loads
-
+        anchorLinkElements = document.querySelectorAll("prm-service-links > div > div > a.arrow-link");
+        outboundLinksHelper.addEventListenersForOutboundLinkType(anchorLinkElements, "outbound-links");
+      }, 1500);
       $timeout(function(){
-        // find the 'Find Online' and 'View Online' sections
-        var linksToResource = document.querySelectorAll("prm-view-online > div > a");
-
-        if(linksToResource && linksToResource.length > 0){
-          outboundLinksHelper.logOutboundLinkMessage("adding eventListeners to " + linksToResource.length + " 'link-to-resource' anchor tag/s...");
-
-          for(var i=0; i<linksToResource.length; i++){
-            var anchorLinkElem = linksToResource[i];
-
-            // determine the source information (e.g. libguides, openBU) from the primo 'docid' value
-            var source = outboundLinksHelper.getHrefArgFromSearch(window.location.search, "docid=");
-
-            // get the url (and use the referring if it's an ezproxy link)
-            var url = anchorLinkElem.getAttribute("href");
-            var loggedURL = outboundLinksHelper.getHrefArgFromSearch(url, "url=", url);
-
-            // add the eventListener to the anchor tag
-            anchorLinkElem.addEventListener("click", function(event){
-              event.preventDefault();
-              outboundLinksHelper.logOutboundLinkEvent(gaEventLogger, "link-to-resource",source, loggedURL);
-              window.open(url, '_blank');
-            });
-          }
-
-        // if no links are found..
-        }else{
-          outboundLinksHelper.logOutboundLinkMessage("no 'link-to-resource' found in 'Find/View Online'.")
-        }
-      }, 2500); // code above executes 2.5 seconds after the component first loads
+        anchorLinkElements = document.querySelectorAll("prm-view-online > div > a");
+        outboundLinksHelper.addEventListenersForOutboundLinkType(anchorLinkElements, "link-to-resource");
+      }, 2500);
     }
   ])
   .component('prmFullViewAfter', { controller: 'outboundLinksController' });
