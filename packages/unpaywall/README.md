@@ -83,6 +83,12 @@ from here you'll have to edit your `main.js` (or `config.module.js`) file to imp
 angular.module('viewCustom', ['angularLoad', 'bulibUnpaywall'])
 ``` 
   
+If you already have a component for prmSearchResultAvailabilityLineAfter, add to the template `<bulib-unpaywall></bulib-unpaywall>`
+otherwise create a component like
+app.component('prmSearchResultAvailabilityLineAfter', {
+    template: '<bulib-unpaywall></bulib-unpaywall>'
+  });
+
 if you're using `--browserify`, the import line should be `import 'primo-explore-unpaywall';` and a working example 
   of the whole thing should be found in `src/.main.js`.
 
