@@ -4,7 +4,7 @@
   "who": "BU Libraries",
   "linkGit": "https://github.com/bulib/primo-explore-bu/tree/master/packages/outbound-links",
   "npmid": "primo-explore-outbound-links",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "hook": "prm-full-view-after",
   "config": {
     "form": [
