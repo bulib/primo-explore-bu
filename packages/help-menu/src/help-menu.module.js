@@ -11,7 +11,7 @@ const logEventToGoogleAnalytics = function(category, action, label){
 // configurable logging, event-handling, and interaction with help content
 let helpMenuHelper = {
   logToConsole: true,
-  publishEvents: true,
+  publishEvents: false,
   helpMenuWidth: 500,
   list_of_elements: sample_list_of_elements,
   logMessage: function(message){
@@ -47,12 +47,8 @@ let helpMenuHelper = {
 const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $timeout, $mdDialog){  
   // look for the optional 'helpMenuConfig' if present
   let config = {}
-  if($injector.has(optionalConfigName)){
-    config = $injector.get(optionalConfigName);
-  }
-  if($injector.has(optionalStudioName)){
-    config = $injector.get(optionalStudioName)
-  }
+  if($injector.has(optionalConfigName)){ config = $injector.get(optionalConfigName); }
+  if($injector.has(optionalStudioName)){ config = $injector.get(optionalStudioName); }
   helpMenuHelper.override_with_config(config);
   
   // gather items in list from helpMenuHelper
@@ -110,12 +106,8 @@ angular.module('helpMenuTopbar', ['ngMaterial'])
     function(helpMenuHelper, $injector, $mdDialog){
       // look for the optional 'helpMenuConfig' if present
       let config = {}
-      if($injector.has(optionalConfigName)){
-        config = $injector.get(optionalConfigName);
-      }
-      if($injector.has(optionalStudioName)){
-        config = $injector.get(optionalStudioName)
-      }
+      if($injector.has(optionalConfigName)){ config = $injector.get(optionalConfigName); }
+      if($injector.has(optionalStudioName)){ config = $injector.get(optionalStudioName); }
       helpMenuHelper.override_with_config(config);
 
       this.openHelpMenu = function(ev){

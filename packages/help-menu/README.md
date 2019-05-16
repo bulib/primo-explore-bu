@@ -48,6 +48,8 @@ if you're not, (i.e. you're still using `custom.module.js` with raw concatenatio
   `help-menu.js` file from `node_modules/primo-explore-help-menu` into your `js/` directory and use
   `import './help-menu.js';` instead. 
 
+_note: additions from `1.1.0` forward will not be visible unless you have an `help_en_US.html` uploaded_
+
 #### Adding Content 
 
 To add your own content, specify a `list_of_elements` variable within a `constant` object called `'helpMenuConfig'` and attach it 
