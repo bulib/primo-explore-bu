@@ -14,7 +14,7 @@ const helpMenuMainContent = `
   <ul ng-hide="entry" style="list-style: none; width: 100%; padding-left: 0px;">
     <hr aria-hidden="true" />
     <li ng-repeat="item in helpContentList" class="row">
-      <a ng-if="item.id" ng-click="openItem(item.id)" href="#{{item.id}}">
+      <a ng-if="item.id" ng-click="openItem(item.id)">
         <prm-icon svg-icon-set="{{item.icon.group}}" icon-definition="ic_{{item.icon.code}}_24px"
                   icon-type="svg" style="padding-right: 10px;"></prm-icon>
         {{item.title}}
@@ -29,18 +29,13 @@ export const helpMenuContentDisplayTemplate = `
     help-menu-content-display { font-size: 140%; margin-bottom: 5px;}
     #help-header { background-color: lightgrey; }
     #help-content { padding: 0px 25px; }
-    #s-lch-widget-8959 { display: none; }
-    
-    prm-topbar { display: none; }
-    prm-search-bar { display: none; }
-    ui-view { display: none; }
+    prm-static-page > prm-static > div { display: none; }
   </style>
   <div id="help-header" class="md-toolbar-tools">${helpMenuHeadContent}</div>
   <div id="help-content">${helpMenuMainContent}</div>`;
 
 export const helpMenuDialogTemplate = (width) => `
-  <md-dialog id="search-help-dialog" aria-label="Search Help Menu Dialog"
-             style="width: ${width}px;">
+  <md-dialog id="search-help-dialog" aria-label="Search Help Menu Dialog" style="width: ${width}px;">
     <form>
       <md-toolbar>
         <div class="md-toolbar-tools">

@@ -54,10 +54,6 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
     config = $injector.get(optionalStudioName)
   }
   helpMenuHelper.override_with_config(config);
-
-  // determine whether to show the help menu (separate window)
-  let hrefArgs = window.location.search; 
-  $scope.showHelpMenu = hrefArgs.includes("page=help");
   
   // gather items in list from helpMenuHelper
   $scope.helpContentList = helpMenuHelper.list_of_elements;
@@ -65,23 +61,23 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
   // modal navigation
   $scope.hide = function() { $mdDialog.hide(); };
   $scope.back = function() { $scope.entry = null; };
-  $scope.openItem = function(id){
+  $scope.openItem = function(id, count_as_click=true){
     $scope.entry = helpMenuHelper.get_entry_by_id(id);
-    helpMenuHelper.logHelpEvent("select-item", id);
+    if(count_as_click){ helpMenuHelper.logHelpEvent("select-item", id); }
   };
 
   // trigger the help-menu to open as a popup and return focus to main page
   $scope.openHelpInNewWindow = function(item_id=""){
     let help_event_label = window.location.pathname;
-    let params=`width=${helpMenuHelper.helpMenuWidth},height=800,resizable=0,location=0,menubar=0,scrollbars=yes`;
-    let help_page_url = window.location.pathname + window.location.search + '&page=help'; // @TODO: change from 'page=help' into help-url
+    let help_page_url = "/primo-explore/static-file/help" + window.location.search;
     
     // if present, send and log the 'help-option' instead of the url
     if(item_id){ 
       help_page_url += "#"+item_id; 
       help_event_label = item_id;
     }
-
+    
+    let params=`width=${helpMenuHelper.helpMenuWidth},height=800,resizable=0,location=0,menubar=0,scrollbars=yes`;
     helpMenuHelper.logHelpEvent("open-window", help_event_label);
     open(help_page_url, 'BULibraries Help Menu', params);
     $scope.hide();
@@ -90,7 +86,7 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
   // set currently selected item from the anchor/hash (#___) right after load
   $timeout(function(){
     let helpOptionId = window.top.location.hash.substring(1);
-    if(helpOptionId){ $scope.openItem(helpOptionId); }
+    if(helpOptionId){ $scope.openItem(helpOptionId, false); }
   }, 10);
 }
 
@@ -98,10 +94,10 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
 angular.module('helpMenuContentDisplay', [])
   .constant('helpMenuHelper', helpMenuHelper)
   .controller('helpMenuPopupController', ['helpMenuHelper', '$injector', '$scope', '$timeout', '$mdDialog', mainHelpMenuController])
-  .component('prmExploreMainAfter', {
+  .component('prmExploreFooterAfter', {
     template: `
       <help-menu-content-display>
-        <div ng-if="showHelpMenu">${helpMenuContentDisplayTemplate}</div>
+        <div ng-if="${window.location.pathname.includes("/static-file/help")}">${helpMenuContentDisplayTemplate}</div>
       </help-menu-content-display>`,
     controller: 'helpMenuPopupController'
   });
