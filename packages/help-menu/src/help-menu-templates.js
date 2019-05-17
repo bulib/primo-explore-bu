@@ -14,7 +14,7 @@ const helpMenuMainContent = `
   <ul ng-hide="entry" style="list-style: none; width: 100%; padding-left: 0px;">
     <hr aria-hidden="true" />
     <li ng-repeat="item in helpContentList" class="row">
-      <a ng-if="item.id" ng-click="openItem(item.id)">
+      <a ng-if="item.id" href="#{{item.id}}">
         <prm-icon svg-icon-set="{{item.icon.group}}" icon-definition="ic_{{item.icon.code}}_24px"
                   icon-type="svg" style="padding-right: 10px;"></prm-icon>
         {{item.title}}

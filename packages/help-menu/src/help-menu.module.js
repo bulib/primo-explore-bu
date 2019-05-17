@@ -56,11 +56,20 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
   
   // modal navigation
   $scope.hide = function() { $mdDialog.hide(); };
-  $scope.back = function() { $scope.entry = null; };
+  $scope.back = function() { 
+    $scope.entry = null; 
+    window.top.location.hash=""; 
+  };
   $scope.openItem = function(id, count_as_click=true){
     $scope.entry = helpMenuHelper.get_entry_by_id(id);
     if(count_as_click){ helpMenuHelper.logHelpEvent("select-item", id); }
   };
+
+  // look at the anchor tag to determine which help entry should be shown
+  $scope.setEntryIdFromHash = function(count_as_click=true) {
+    let helpOptionId = window.location.hash.substring(1);
+    if(helpOptionId){ $scope.openItem(helpOptionId, count_as_click); }
+  }
 
   // trigger the help-menu to open as a popup and return focus to main page
   $scope.openHelpInNewWindow = function(item_id=""){
@@ -75,15 +84,14 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
     
     let params=`width=${helpMenuHelper.helpMenuWidth},height=800,resizable=0,location=0,menubar=0,scrollbars=yes`;
     helpMenuHelper.logHelpEvent("open-window", help_event_label);
-    open(help_page_url, 'BULibraries Help Menu', params);
+    let help_popup = open(help_page_url, 'Search Help Menu', params);
+    help_popup.addEventListener('hashchange',$scope.setEntryIdFromHash,true);
+    help_popup.onload = function() { this.document.title = "Search Help Menu"; }
     $scope.hide();
   }
 
-  // set currently selected item from the anchor/hash (#___) right after load
-  $timeout(function(){
-    let helpOptionId = window.top.location.hash.substring(1);
-    if(helpOptionId){ $scope.openItem(helpOptionId, false); }
-  }, 10);
+  window.addEventListener('hashchange',$scope.setEntryIdFromHash,true);
+  $timeout($scope.setEntryIdFromHash(false), 10);
 }
 
 // help content by replacing everything else on the 
