@@ -1,7 +1,7 @@
 {
   "name": "primo-explore-help-menu",
   "description": "Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after`",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "main": "./dist/help-menu.js",
   "files": ["dist"],
   "repository": {
