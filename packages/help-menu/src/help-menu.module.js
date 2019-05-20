@@ -10,7 +10,7 @@ const logEventToGoogleAnalytics = function(category, action, label){
 
 // configurable logging, event-handling, and interaction with help content
 let helpMenuHelper = {
-  logToConsole: true,
+  logToConsole: false,
   publishEvents: false,
   helpMenuWidth: 500,
   list_of_elements: sample_list_of_elements,
