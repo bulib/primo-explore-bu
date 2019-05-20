@@ -36,11 +36,11 @@ let helpMenuHelper = {
   },
   override_with_config: function(config){
     if(!config || !Object.keys(config)){ return; }
-    if(config.logToConsole){ this.logToConsole = config.logToConsole; }
-    if(config.publishEvents){ this.publishEvents = config.publishEvents; }
-    if(config.helpMenuWidth){ this.helpMenuWidth = config.helpMenuWidth; }
-    if(config.logEventToAnalytics){ this.logEventToAnalytics = config.logEventToAnalytics; }
-    if(config.list_of_elements){ this.list_of_elements = config.list_of_elements; }
+    if(Object.keys(config).includes("logToConsole")){ this.logToConsole = config.logToConsole; }
+    if(Object.keys(config).includes("publishEvents")){ this.publishEvents = config.publishEvents; }
+    if(Object.keys(config).includes("helpMenuWidth")){ this.helpMenuWidth = config.helpMenuWidth; }
+    if(Object.keys(config).includes("logEventToAnalytics")){ this.logEventToAnalytics = config.logEventToAnalytics; }
+    if(Object.keys(config).includes("list_of_elements")){ this.list_of_elements = config.list_of_elements; }
   }
 };
 
