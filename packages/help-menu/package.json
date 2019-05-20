@@ -1,8 +1,9 @@
 {
   "name": "primo-explore-help-menu",
   "description": "Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after`",
-  "version": "1.0.1",
+  "version": "1.1.4",
   "main": "./dist/help-menu.js",
+  "files": ["dist"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bulib/primo-explore-bu.git"
@@ -34,6 +35,8 @@
     "webpack-cli": "^3.3.0"
   },
   "scripts": {
-    "build": "webpack --mode production"
+    "prebuild": "rm -rf dist/ || true",
+    "build": "webpack --mode production",
+    "postbuild": "cp src/help-menu.css dist/ && cp src/help_en_US.html dist/"
   }
 }

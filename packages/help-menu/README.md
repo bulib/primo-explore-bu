@@ -3,13 +3,15 @@
 Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after` (top nav bar)
 
 
-### Screenshots
+### Description
 
-**dialog window with content list**
-![help-menu dialog](https://github.com/bulib/primo-explore-bu/blob/master/packages/help-menu/img/help-menu_dialog.png?raw=true)
+![help-menu dialog](https://github.com/bulib/primo-explore-bu/blob/master/packages/help-menu/img/help-menu-preview.gif?raw=true)
 
-**opened in new window with item selected**
-![help-menu window](https://github.com/bulib/primo-explore-bu/blob/master/packages/help-menu/img/help-menu_window.png?raw=true)
+1. clicking on the '(?)' icon in the top right of any page brings up a new help-menu dialog
+2. here, users see a list of entries (from `list_of_elements`) which they can scroll through and select
+3. once selected, the user sees the specified `template` for that entry displayed
+4. links can be made between entries very simply using anchor tags `#{entry.id}`
+5. if desired, users can open the help menu in a new window to enable multi-tasking
 
 
 ### Usage
@@ -24,7 +26,7 @@ $ npm install --save-dev primo-explore-help-menu
 
 this should add the following line to your `package.json` file...
 ```json
-"primo-explore-help-menu": "^1.0.1"
+"primo-explore-help-menu": "^1.1.4"
 ```
 
 and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-help-menu` 
@@ -33,25 +35,28 @@ and add the contents of this repository (at that npm version) into a `node_modul
 
 #### Installing/Importing it 
 
-from here you'll have to edit your `main.js` (or `config.module.js`) file to import the package, and add
+from here you'll have to edit your `main.js` (or `config.module.js`) file to `import` the package, and add
    _both_ `'helpMenuContentDisplay'` and `'helpMenuTopbar'`, to the dependencies inside of your 
    `'viewCustom'` module:
 
 ```js
+import 'primo-explore-help-menu';  // import './help-menu.js'
+
 angular.module('viewCustom', ['angularLoad', 'helpMenuContentDisplay',  'helpMenuTopbar'])
 ``` 
+
+(see `./src/.main.js` for a working example).
+
+#### Additional Steps
+
+To get the same styling, you'll have to copy or import the `help-menu.css` file to the `css/custom.css` for your view.
   
-if you're using `--browserify`, the import line should be `import 'primo-explore-help-menu';` and a working example 
-  of the whole thing should be found in `src/.main.js`.
+If you're using a version from `1.1.0` onward, you'll have to make sure there's a `html/help_en_US.html` included as well.
 
-if you're not, (i.e. you're still using `custom.module.js` with raw concatenation), simply copy/paste the 
-  `help-menu.js` file from `node_modules/primo-explore-help-menu` into your `js/` directory and use
-  `import './help-menu.js';` instead. 
+#### Adding Your Own Content
 
-#### Adding Content 
-
-To add your own content, specify a `list_of_elements` variable within a `constant` object called `'helpMenuConfig'` and attach it 
-  to your primo angular module (`app`) like so:
+To add your own content, specify a `list_of_elements` variable within a `constant` object called `'helpMenuConfig'` and 
+  attach it to your primo angular module (`app`) like so:
 
 ```js
 // main.js
@@ -75,7 +80,6 @@ Make sure that each object in the list of elements matches the following structu
 
 _note: the [iconset being used](https://material.io/tools/icons/) is from material.io and is included within primo_
 
-
 #### Additional Customization
 
 the following table describes describes some additional configuration options that are currently afforded to 
@@ -87,6 +91,18 @@ the following table describes describes some additional configuration options th
 |`publishEvents`|`false`|controls whether the `logEventToAnalytics` is actually triggered, ensurng only real traffic is tracked|
 |`logEventToAnalytics`|_see example_|here's an opportunity to hook in whatever event tracking you have, (we use google analytics)|
 |`helpMenuWidth`|`500` (px)|the width of the dialog box and associated popup|
+
+### Events Logged
+
+All events are logged under the category `help-menu`.
+
+|action|label |description|
+|:-----|:-----|:---------|
+|`open-dialog`|_page user was on when clicked_|user clicks on the icon in the top right to initially open help-menu|
+|`select-item`|_`item.id` of currently open entry or webpage_|user selects an item in the main help-menu or follows link to another entry|
+|`open-window`|_`item.id` of currently open entry or webpage_|user presses 'open in new window' button|
+
+_note: At BU Libraries, we use Google Analytics to track and log events. Given this, all events emitted follow the  'category > action > label' convention._
 
 ### Contributing
 
