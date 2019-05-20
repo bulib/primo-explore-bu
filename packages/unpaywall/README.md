@@ -30,9 +30,9 @@ Add 'Open Access available via unpaywall' link to `search-result-avaliability-li
 
 #### `primo-explore-oadoi-link`
 - This customization was inspired by and originally developed on top of [`alliance-pcsg`](https://github.com/alliance-pcsg/)'s 
-  [`primo-explore-oadoi-link`](https://github.com/alliance-pcsg/primo-explore-oadoi-link/) customization, and owes very 
+  [`primo-explore-oadoi-link`](https://github.com/alliance-pcsg/primo-explore-oadoi-link/) customization, and owes very
   much to their great work.
-- While we did seek to recontribute our changes to that repository (and not create our own 'fork' of it) and did 
+- While we did seek to recontribute our changes to that repository (and not create our own 'fork' of it) and did
   end up creating a [pull request](https://github.com/alliance-pcsg/primo-explore-oadoi-link/pull/4).
 - We decided to publish our's independently for the following reasons:
   - **increased flexibility/control**: having our own `npm` package allows us to make changes more quickly
@@ -41,23 +41,23 @@ Add 'Open Access available via unpaywall' link to `search-result-avaliability-li
     - is loaded into a different component/location on different pages (`full-view-service-container-after` vs `search-result-availability-line-after`)
     - has additional logging functionality and customizations
     - shared little code with the original project (pre-merge) and required an entirely new `app.module` anyway.
-    - duplicates the functionality of the original package (would show the same link twice on the same page 
+    - duplicates the functionality of the original package (would show the same link twice on the same page
       (/primo-explore/fulldisplay)
-  - **maintenance and versioning**: having our own project ensures we don't affecting existing users and can version 
+  - **maintenance and versioning**: having our own project ensures we don't affecting existing users and can version
       our work as we go
 
 #### How it Works
 
 Wherever a `<prm-search-result-availability-after>` tag appears (/primo-explore/search, /primo-explore/fulldisplay), we...
 1. look in its parentController (`prmSearchResultAvailability`) for the item info contained in it's `result` variable
-2. if there's a doi (`doi`) in there and it's not already marked as open access (`oa`) use it to make a call to the afore-mentioned 
-   unpaywall api.
+2. if there's a doi (`doi`) in there and it's not already marked as open access (`oa`) use it to make a call to
+  the afore-mentioned unpaywall api.
 3. if that call ends up being successful, look for an open access download link (`successResponse.data.best_oa_location`)
 4. if it has that, grab the url for it and place it right beneath the other "Online Access Available" link.
 
 ### Usage
 
-#### Adding the Package to your view in `primo-explore` 
+#### Adding the Package to your view in `primo-explore`
 
 run the following command from within your view's main directory to add it as a dependency.
 
@@ -66,38 +66,43 @@ $ npm install --save-dev primo-explore-unpaywall
 ```
 
 this should add the following line to your `package.json` file...
+
 ```json
-"primo-explore-unpaywall": "^1.1.3"
+"primo-explore-unpaywall": "^1.2.0"
 ```
 
-and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-unpaywall` 
-  directory for your current view. the presence of this package should mean that the package was successfully 
+and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-unpaywall`
+  directory for your current view. the presence of this package should mean that the package was successfully
   installed and added to your project.
 
-#### Installing/Importing it 
+#### Installing/Importing it
 
-from here you'll have to edit your `main.js` (or `config.module.js`) file to import the package, and add `bulibUnpaywall` to the
-  dependencies inside of your 'viewCustom' module:
+from here you'll have to edit your `main.js` (or `config.module.js`) file to import the package, and
+  add `bulibUnpaywall` to the dependencies inside of your 'viewCustom' module. 
 
+```js
+import 'primo-explore-unpaywall';
+angular.module('viewCustom', ['angularLoad', 'bulibUnpaywall']);
 ```
-angular.module('viewCustom', ['angularLoad', 'bulibUnpaywall'])
-``` 
   
-if you're using `--browserify`, the import line should be `import 'primo-explore-unpaywall';` and a working example 
-  of the whole thing should be found in `src/.main.js`.
+to protect against the situation in which you already have a component for `prmSearchResultAvailabilityLineAfter`,
+  you'll also have to add a `<bulib-unpaywall></bulib-unpaywall>` component as such:
 
-if you're not, (i.e. you're still using `custom.module.js` with raw concatenation), simply copy/paste the 
-  `unpaywall.module.js` file from `node_modules/primo-explore-unpaywall` into your `js/` directory and use
-  `import './unpaywall.module.js';` instead. 
-  _note: npm won't auto-update `unpaywall.module.js` if you do it this way, so be sure to copy/paste after each update_
+```js
+app.component('prmSearchResultAvailabilityLineAfter', {
+  template: '<bulib-unpaywall></bulib-unpaywall>'
+});
+```
+
+_note: an example of the setup for this can be seen in the `.main.js` file_
 
 #### Configuring via `unpaywallConfiguration`
 
-to afford you with as much control as possible (and since we needed you to add your email for the unpaywall 
-  API call to work anyway), we've added some configuration options that you'll need to set up in order to run the 
-  package effectively 
+to afford you with as much control as possible (and since we needed you to add your email for the unpaywall
+  API call to work anyway), we've added some configuration options that you'll need to set up in order to run the
+  package effectively
 
-our package attempts to read its options as variables within a `constant` object attached to the primo angular module (`app`). 
+our package attempts to read its options as variables within a `constant` object attached to the primo angular module (`app`).
   to get this packaged to work, simply create a new constant with the name `unpaywallConfig`, specifying the `email` you'd
   like us to append to your unpaywall request:
 
@@ -108,7 +113,7 @@ app.constant('unpaywallConfig', { "email":"<your_username>@<your_institution>.ed
 
 #### Additional Customization
 
-the following table describes describes some additional configuration options that are currently afforded to 
+the following table describes describes some additional configuration options that are currently afforded to
   you by the package. an example implementation of this section can be found within this repo at `src/.main.js`:
 
 |name|default|description|
@@ -124,14 +129,14 @@ _note: the default for `logEvent` can be found within this repo at `src/.main.js
 
 ### Contributing
 
-You're more than welcome to fork this repository, make some changes, and contribute it back by 
-  [creating a pull request](https://github.com/bulib/primo-explore-bu/compare). 
+You're more than welcome to fork this repository, make some changes, and contribute it back by
+  [creating a pull request](https://github.com/bulib/primo-explore-bu/compare).
 
-If you have any issues with this package or ideas for how to make it better, don't hesitate to let us know by 
+If you have any issues with this package or ideas for how to make it better, don't hesitate to let us know by
   [submitting a new issue](https://github.com/bulib/primo-explore-bu/issues/new).
 
-In both of these cases, it would help us if you make sure to add on the appropriate 
-  [labels](https://github.com/bulib/primo-explore-bu/labels) (including especially `unpaywall`) so that we 
+In both of these cases, it would help us if you make sure to add on the appropriate
+  [labels](https://github.com/bulib/primo-explore-bu/labels) (including especially `unpaywall`) so that we
   can keep track of what your pull request or issue relates to.
 
 If you get stuck, send us a message on [our gitter](https://gitter.im/bulib/developers), and we'll try to help you out.
