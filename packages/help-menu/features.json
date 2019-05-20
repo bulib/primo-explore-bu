@@ -5,14 +5,14 @@
   "what": "help-menu-topbar",
   "linkGit": "https://github.com/bulib/primo-explore-bu/tree/master/packages/help-menu",
   "npmid": "primo-explore-help-menu",
-  "version": "1.0.1",
+  "version": "1.1.4",
   "hook": "prm-search-bookmark-filter-after",
   "config": {
     "form": [
       {
         "key": "logToConsole",
         "type": "select",
-        "defaultValue": true,
+        "defaultValue": false,
         "templateOptions": {
           "label": "(debug) Log debug messages to console",
           "required": false,
@@ -25,7 +25,7 @@
       {
         "key": "publishEvents",
         "type": "select",
-        "defaultValue": true,
+        "defaultValue": false,
         "templateOptions": {
           "label": "(debug) Determine whether click/usage events are published to Analytics",
           "required": false,
