@@ -24,7 +24,7 @@ $ npm install --save-dev primo-explore-help-menu
 
 this should add the following line to your `package.json` file...
 ```json
-"primo-explore-help-menu": "^1.1.1"
+"primo-explore-help-menu": "^1.1.4"
 ```
 
 and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-help-menu` 
@@ -50,7 +50,7 @@ if you're not, (i.e. you're still using `custom.module.js` with raw concatenatio
 
 _note: additions from `1.1.0` forward will not be visible unless you have an `help_en_US.html` uploaded_
 
-#### Adding Content 
+#### Adding Content
 
 To add your own content, specify a `list_of_elements` variable within a `constant` object called `'helpMenuConfig'` and attach it 
   to your primo angular module (`app`) like so:
@@ -77,7 +77,6 @@ Make sure that each object in the list of elements matches the following structu
 
 _note: the [iconset being used](https://material.io/tools/icons/) is from material.io and is included within primo_
 
-
 #### Additional Customization
 
 the following table describes describes some additional configuration options that are currently afforded to 
@@ -89,6 +88,18 @@ the following table describes describes some additional configuration options th
 |`publishEvents`|`false`|controls whether the `logEventToAnalytics` is actually triggered, ensurng only real traffic is tracked|
 |`logEventToAnalytics`|_see example_|here's an opportunity to hook in whatever event tracking you have, (we use google analytics)|
 |`helpMenuWidth`|`500` (px)|the width of the dialog box and associated popup|
+
+### Events Logged
+
+All events are logged under the category `help-menu`.
+
+|action|label |description|
+|:-----|:-----|:---------|
+|`open-dialog`|_page user was on when clicked_|user clicks on the icon in the top right to initially open help-menu|
+|`select-item`|_`item.id` of currently open help-menu entry_|user selects an item in the main help-menu or follows link to another entry|
+|`open-window`|_currently open entry or webpage_|user presses 'open in new window' button|
+
+_note: At BU Libraries, we use Google Analytics to track and log events. Given this, all events emitted follow the  'category > action > label' convention._
 
 ### Contributing
 
