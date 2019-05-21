@@ -1,6 +1,6 @@
 # `primo-explore-unpaywall` [![npm package](https://img.shields.io/npm/v/primo-explore-unpaywall.svg)](https://www.npmjs.com/package/primo-explore-unpaywall)
 
-Add 'Open Access available via unpaywall' link to `search-result-avaliability-line-after` in Primo New UI
+Add 'Open Access available via unpaywall' link to `search-result-availability-line-after` in Primo New UI
 
 ### Screenshots
 
