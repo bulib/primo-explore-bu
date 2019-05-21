@@ -32,6 +32,18 @@
         }
       },
       {
+        "key": "overrideOACheck",
+        "type": "select",
+        "defaultValue": false,
+        "templateOptions": {
+          "label": "(debug) Make unpaywall regardless of OA status",
+          "options": [
+            { "name": "true",  "value": true  },
+            { "name": "false", "value": false }
+          ]
+        }
+      },
+      {
         "key": "showVersionLabel",
         "type": "select",
         "defaultValue": true,

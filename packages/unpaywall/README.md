@@ -50,10 +50,12 @@ Add 'Open Access available via unpaywall' link to `search-result-avaliability-li
 
 Wherever a `<prm-search-result-availability-after>` tag appears (/primo-explore/search, /primo-explore/fulldisplay), we...
 1. look in its parentController (`prmSearchResultAvailability`) for the item info contained in it's `result` variable
-2. if there's a doi (`doi`) in there and it's not already marked as open access (`oa`) use it to make a call to
+2. if there's a doi (`doi`) in there and it's not already marked as open access (`oa`)* use it to make a call to
   the afore-mentioned unpaywall api.
 3. if that call ends up being successful, look for an open access download link (`successResponse.data.best_oa_location`)
 4. if it has that, grab the url for it and place it right beneath the other "Online Access Available" link.
+
+_note: (*) you can override this OA check (so that a call is made wherever a DOI is found) by setting `overrideOACheck` in your `unpaywallConfig`_
 
 ### Usage
 
@@ -120,6 +122,7 @@ the following table describes describes some additional configuration options th
 |:------|:-----|:----------|
 |`logEvent`|_see example_|here's an opportunity to hook in whatever event tracking you have, (we use google analytics)|
 |`showOnResultsPage`|`true`|determine whether the link is added to each item in the list of results|
+|`overrideOACheck`|`false`|disable the `addata.oa` check so that the unpaywall check runs on all items with an available DOI|
 |`showVersionLabel`|`true`|sometimes the unpaywall OA response qualifies the stage of publication the work was OA-available in (`Submitted`, `Published`, `Accepted`)|
 |`logToConsole`|`true`|controls whether or not messages about what's going on in the component are `console.log()`-ed (visible in inspector)|
 |`showDebugTable`|`false`|the debug table is a quick way to see unpaywall response data for the record in context a really ugly way (used to help troubleshoot, not meant for end users)|
