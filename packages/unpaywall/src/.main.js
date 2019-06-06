@@ -14,6 +14,7 @@ app.component('prmSearchResultAvailabilityLineAfter', {
   .constant('unpaywallConfig', {
     "email":"<your_username>@<your_institution>.edu",
     "showOnResultsPage":true,
+    "overrideOACheck":false,
     "showVersionLabel":true,
     "logToConsole":true,
     "showDebugTable":false,

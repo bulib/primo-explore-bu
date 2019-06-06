@@ -33,6 +33,7 @@ angular.module('bulibUnpaywall', [])
       self.showVersionLabel = (Object.keys(unpaywallConfig).includes("showVersionLabel")) ? unpaywallConfig.showVersionLabel : false;
       self.showDebugTable = (Object.keys(unpaywallConfig).includes("showDebugTable")) ? unpaywallConfig.showDebugTable : false;
       self.showOnResultsPage = (Object.keys(unpaywallConfig).includes("showOnResultsPage")) ? unpaywallConfig.showOnResultsPage : true;
+      self.overrideOACheck = (Object.keys(unpaywallConfig).includes("overrideOACheck")) ? unpaywallConfig.overrideOACheck : false;
       self.logEvent = unpaywallConfig.logEvent || logEventToGoogleAnalytics;
 
       // conditionally log to the console
@@ -70,7 +71,7 @@ angular.module('bulibUnpaywall', [])
           }
 
           // if there's a doi and it's not already open access, ask the oadoi.org for an OA link
-          if (this.doi && !this.is_oa && self.show) {
+          if (this.doi && (!this.is_oa || self.overrideOACheck) && self.show) {
             self.logEventToAnalytics('unpaywall', 'api-call', self.listOrFullViewLabel);
 
             // make the actual call to unpaywall API

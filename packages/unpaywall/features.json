@@ -6,7 +6,6 @@
   "linkGit": "https://github.com/bulib/primo-explore-bu/tree/master/packages/unpaywall",
   "npmid": "primo-explore-unpaywall",
   "version": "1.2.1",
-  "hook": "prm-search-result-availability-line-after",
   "config": {
     "form": [
       {
@@ -26,6 +25,18 @@
           "required": false,
           "label": "Include OA links on search results page",
           "options":[
+            { "name": "true",  "value": true  },
+            { "name": "false", "value": false }
+          ]
+        }
+      },
+      {
+        "key": "overrideOACheck",
+        "type": "select",
+        "defaultValue": false,
+        "templateOptions": {
+          "label": "(debug) Make unpaywall call regardless of OA status",
+          "options": [
             { "name": "true",  "value": true  },
             { "name": "false", "value": false }
           ]
