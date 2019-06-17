@@ -1,6 +1,6 @@
 {
   "name": "primo-explore-bu",
-  "description":"assorted customizations to Ex Libris Primo New UI created, consumed, and maintained by BU Libraries.",
+  "description": "assorted customizations to Ex Libris Primo New UI created, consumed, and maintained by BU Libraries.",
   "private": false,
   "repository": {
     "type": "git",
@@ -14,6 +14,15 @@
   ],
   "devDependencies": {
     "lerna": "^3.13.0"
+  },
+  "scripts":{
+    "clean:build": "rm -rf _build || true;",
+    "clean:view": "rm -rf _build/primo-explore/custom/VIEW || true;",
+    "reset": "npm run clean:build && scripts/initialize_build.sh",
+    "prep": "npm run clean:view && scripts/prepare_build.sh",
+    "start": "echo 'use gulp to run the empty_view inside of _build/'",
+    "test": "echo 'run the cypress tests within a running instance of that _build/'",
+    "all": "npm run reset && npm run prep && npm run start && npm run test"
   },
   "author": "@bulib",
   "license": "MIT",
