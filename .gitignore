@@ -1,5 +1,4 @@
 .DS_Store
-package-lock.json
 packages/*/dist/
 cypress/fixtures/example.json
 cypress/integration/examples/
