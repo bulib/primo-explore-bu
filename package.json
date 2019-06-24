@@ -13,9 +13,9 @@
     "code4lib"
   ],
   "devDependencies": {
-    "lerna": "^3.13.0"
+    "lerna": "^3.15.0"
   },
-  "scripts":{
+  "scripts": {
     "clean:build": "rm -rf _build || true;",
     "clean:view": "rm -rf _build/primo-explore/custom/VIEW || true;",
     "reset": "npm run clean:build && scripts/initialize_build.sh",
