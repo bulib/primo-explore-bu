@@ -20,7 +20,7 @@
     "clean:view": "rm -rf _build/primo-explore/custom/VIEW || true;",
     "reset": "npm run clean:build && scripts/initialize_build.sh",
     "prep": "npm run clean:view && scripts/prepare_build.sh",
-    "start": "echo 'use gulp to run the empty_view inside of _build/'",
+    "start": "cd _build/primo-explore/custom/VIEW && gulp run --view=VIEW --browserify",
     "test": "echo 'run the cypress tests within a running instance of that _build/'",
     "all": "npm run reset && npm run prep && npm run start && npm run test"
   },
