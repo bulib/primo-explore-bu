@@ -1,3 +1,7 @@
+/* this test was copy/pasted from NYULibraries/primo-explore-views repository and originally written by @etgrieco
+ * https://github.com/NYULibraries/primo-explore-views/blob/master/primo-explore-e2e-cypress/cypress/integration/CENTRAL_PACKAGE/basic-search.spec.js
+ */
+
 describe('Home Page Search', function () {
   beforeEach(() => {
     cy.visit('/primo-explore/search?vid=VIEW')
