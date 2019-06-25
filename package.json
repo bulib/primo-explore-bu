@@ -23,7 +23,10 @@
     "prep": "npm run clean:view && scripts/prepare_view.sh",
     "start": "cd _build/primo-explore/custom/VIEW && gulp run --view=VIEW --browserify",
     "restart": "npm run prep && npm run start",
-    "test": "npm run restart && cypress run --port 8003",
+    "cy:verify": "cypress verify",
+    "cy:run": "cypress run --port 8003",
+    "test": "npm run restart && npm run cy:run",
+    "test:open": "npm run restart && cypress open --port 8003",
     "all": "npm run reset && npm run test"
   },
   "author": "@bulib",
