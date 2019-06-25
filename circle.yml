@@ -21,11 +21,14 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      # start server before starting tests
+      # set up the devenv/'_build' directory
       - run:
-          command: npm run start
+          command: npm run reset
+      # create the view and start server before starting tests
+      - run:
+          command: npm run restart
           background: true
-      - run: npm run test
+      - run: npm run cy:run
 
 workflows:
   version: 2
