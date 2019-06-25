@@ -19,6 +19,7 @@ done;
 
 echo "'npm install'-ing each of those zips within that view"
 cd $view_dir;
-npm install $pack_str;
+npm install;  # install anything put into the empty_view package.json
+npm install $pack_str;  # install the newly packed customizations from the previous step
 rm $pack_str;
  

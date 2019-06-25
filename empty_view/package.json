@@ -1,0 +1,9 @@
+{
+  "name": "empty_view",
+  "version": "0.0.1",
+  "main": "js/main.js",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "license": "MIT"
+}
