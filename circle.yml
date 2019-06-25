@@ -26,7 +26,7 @@ jobs:
           command: npm run reset
       # create the view and start server before starting tests
       - run:
-          command: npm run restart
+          command: npm run restart & wait-on http://localhost:8003/primo-explore/search?vid=VIEW
           background: true
       - run: npm run cy:run
 

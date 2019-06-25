@@ -14,7 +14,8 @@
   ],
   "devDependencies": {
     "cypress": "^3.3.1",
-    "lerna": "^3.15.0"
+    "lerna": "^3.15.0",
+    "wait-on": "^3.2.0"
   },
   "scripts": {
     "clean:build": "rm -rf _build || true;",
