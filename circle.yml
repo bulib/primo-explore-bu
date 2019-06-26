@@ -28,7 +28,7 @@ jobs:
       - run:
           command: npm run restart
           background: true
-      - run: sleep 15 && npm run cy:run
+      - run: sleep 25 && npm run cy:run
 
 workflows:
   version: 2
