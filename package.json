@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/bulib/primo-explore-bu/issues"
   },
-  "homepage": "https://github.com/bulib/primo-explore-bu#readme"
+  "homepage": "https://github.com/bulib/primo-explore-bu#readme",
+  "dependencies": {
+    "primo-explore-devenv": "^1.0.5"
+  }
 }

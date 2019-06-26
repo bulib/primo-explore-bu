@@ -1,11 +1,15 @@
 #!/bin/bash
 
-echo "downloading the latest 'ExLibrisGroup/primo-explore-devenv' from git into '_build/'...";
-git clone https://github.com/ExLibrisGroup/primo-explore-devenv.git _build;
-
-echo "installing dependencies and returning..."
-cd _build;
-sed -i.before "s/your-server:your-port/bu-primostage.hosted.exlibrisgroup.com:443/g" ./gulp/config.js
-npm install -g gulp; 
+echo "installing (and moving) the latest 'ExLibrisGroup/primo-explore-devenv' into '_build/'...";
 npm install;
+mv ./node_modules/primo-explore-devenv ./_build/;
+
+echo "installing dependencies and returning...";
+cd _build;
+npm install -g gulp;
+npm install;
+
+echo "updating the gulp config with our own PROXY_SERVER";
+sed -i.before_1 "s/http:\/\/il-primo17:1703/https:\/\/bu-primostage.hosted.exlibrisgroup.com:443/" ./gulp/config.js;
+sed -i.before_2 "s/http:\/\/your-server:your-port/https:\/\/bu-primostage.hosted.exlibrisgroup.com:443/g" ./gulp/config.js;
 cd ..;
