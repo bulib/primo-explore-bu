@@ -15,8 +15,7 @@ jobs:
           name: Install dependencies
           command: npm ci
       - run: npm run cy:verify
-      # save npm dependencies and Cypress binary for future runs
-      - save_cache:
+      - save_cache: # save npm dependencies and Cypress binary for future runs
           key: cache-{{ checksum "package.json" }}
           paths:
             - ~/.npm
@@ -24,11 +23,20 @@ jobs:
       # set up the devenv/'_build' directory
       - run:
           command: npm run reset
-      # create the view and start server before starting tests
+      # create and copy the VIEW 
+      - run: 
+          command: npm run prep
+      - store_artifacts:
+          path: /root/project/_build/primo-explore/custom/VIEW
+          destination: /tmp/view
+      # start server before starting tests
       - run:
-          command: npm run restart
+          command: npm run start
           background: true
       - run: sleep 25 && npm run cy:run
+      - store_artifacts:
+          path: /root/project/cypress/videos/primo/
+          destination: /tmp/video
 
 workflows:
   version: 2

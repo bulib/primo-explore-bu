@@ -21,7 +21,7 @@
     "clean:view": "rm -rf _build/primo-explore/custom/VIEW || true;",
     "reset": "npm run clean:build && scripts/initialize_build.sh",
     "prep": "npm run clean:view && scripts/prepare_view.sh",
-    "start": "cd _build/primo-explore/custom/VIEW && gulp run --view=VIEW --browserify",
+    "start": "cd _build/ && gulp run --view=VIEW --browserify",
     "restart": "npm run prep && npm run start",
     "cy:verify": "cypress verify",
     "cy:run": "cypress run --port 8003",
