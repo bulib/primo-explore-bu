@@ -25,9 +25,14 @@ jobs:
           command: npm run reset
       # create and copy the VIEW 
       - run: 
-          command: npm run prep
+          command: |
+            npm run prep;
+            mkdir /root/project/_build/out
+            cp -r /root/project/_build/primo-explore/custom/VIEW/ /root/project/_build/out;
+            rm -rf /root/project/_build/out/node_modules/;
+            ls /root/project/_build/primo-explore/custom/VIEW/node_modules > /root/project/_build/out/node_modules.txt;
       - store_artifacts:
-          path: /root/project/_build/primo-explore/custom/VIEW
+          path: /root/project/_build/out/
           destination: /tmp/view
       # start server before starting tests
       - run:
