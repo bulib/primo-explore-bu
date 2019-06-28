@@ -23,15 +23,15 @@ jobs:
           name: initialize the development environment ('./_build/')
           command: npm run reset
       - run: 
-          name: prepare view (./_build/primo-explore/custom/VIEW)
+          name: prepare view (./_build/primo-explore/custom/EMPTY)
           command: npm run prep;
       - run: 
           name: prepare view artifact (./_build/out)
           command: |
             mkdir /root/project/_build/out
-            cp -r /root/project/_build/primo-explore/custom/VIEW/ /root/project/_build/out;
-            rm -rf /root/project/_build/out/VIEW/node_modules/;
-            ls /root/project/_build/primo-explore/custom/VIEW/node_modules > /root/project/_build/out/node_modules.txt;
+            cp -r /root/project/_build/primo-explore/custom/EMPTY/ /root/project/_build/out;
+            rm -rf /root/project/_build/out/EMPTY/node_modules/;
+            ls /root/project/_build/primo-explore/custom/EMPTY/node_modules > /root/project/_build/out/node_modules.txt;
       - store_artifacts:
           name: upload view artifact
           path: /root/project/_build/out/

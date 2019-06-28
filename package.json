@@ -17,11 +17,12 @@
     "lerna": "^3.15.0"
   },
   "scripts": {
-    "clean:build": "rm -rf _build || true;",
-    "clean:view": "rm -rf _build/primo-explore/custom/VIEW || true;",
-    "reset": "npm run clean:build && scripts/initialize_build.sh",
+    "init": "./scripts/initialize_build.sh",
+    "clean:build": "rm -rf /tmp/devenv || true;",
+    "clean:view": "rm -rf /tmp/devenv/primo-explore/ || true;",
+    "reset": "npm run clean:build && npm run init",
     "prep": "npm run clean:view && scripts/prepare_view.sh",
-    "start": "cd _build/ && gulp run --view=VIEW --browserify",
+    "start": "cd /tmp/devenv && gulp run --view=EMPTY --browserify",
     "restart": "npm run prep && npm run start",
     "cy:verify": "cypress verify",
     "cy:run": "cypress run",
@@ -34,8 +35,5 @@
   "bugs": {
     "url": "https://github.com/bulib/primo-explore-bu/issues"
   },
-  "homepage": "https://github.com/bulib/primo-explore-bu#readme",
-  "dependencies": {
-    "primo-explore-devenv": "^1.0.5"
-  }
+  "homepage": "https://github.com/bulib/primo-explore-bu#readme"
 }
