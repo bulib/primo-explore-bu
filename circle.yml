@@ -25,10 +25,16 @@ jobs:
       - run: 
           name: prepare view (/primo-explore/custom/EMPTY)
           command: npm run prep;
+      - run: 
+          name: prepare views artifact (./out)
+          command: |
+            mkdir /root/project/out;
+            cp -r /tmp/devenv/primo-explore/custom/ /root/project/out;
+            rm -rf /root/project/out/*/node_modules/ || true;
       - store_artifacts:
           name: upload view artifact
           path: /root/project/out/
-          destination: /view
+          destination: /views
       - run:
           command: npm run start
           background: true
@@ -39,13 +45,6 @@ jobs:
       - store_artifacts:
           path: /root/project/cypress/screenshots/primo/
           destination: /screenshots
-      - run: 
-          name: prepare view artifact (./out)
-          command: |
-            mkdir /root/project/out;
-            cp -r /tmp/devenv/primo-explore/custom/EMPTY/ /root/project/out;
-            rm -rf /root/project/out/EMPTY/node_modules/;
-            ls /tmp/devenv/primo-explore/custom/EMPTY/node_modules > /root/project/out/node_modules.txt;
 
 workflows:
   version: 2
