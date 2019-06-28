@@ -20,29 +20,32 @@ jobs:
             - ~/.npm
             - ~/.cache
       - run:
-          name: initialize the development environment ('./_build/')
+          name: initialize the development environment ('/tmp/devenv')
           command: npm run reset
       - run: 
-          name: prepare view (./_build/primo-explore/custom/EMPTY)
+          name: prepare view (/primo-explore/custom/EMPTY)
           command: npm run prep;
       - run: 
-          name: prepare view artifact (./_build/out)
+          name: prepare view artifact (./out)
           command: |
-            mkdir /root/project/_build/out
-            cp -r /root/project/_build/primo-explore/custom/EMPTY/ /root/project/_build/out;
-            rm -rf /root/project/_build/out/EMPTY/node_modules/;
-            ls /root/project/_build/primo-explore/custom/EMPTY/node_modules > /root/project/_build/out/node_modules.txt;
+            mkdir /root/project/out;
+            cp -r /tmp/devenv/primo-explore/custom/EMPTY/ /root/project/out;
+            rm -rf /root/project/out/EMPTY/node_modules/;
+            ls /tmp/devenv/primo-explore/custom/EMPTY/node_modules > /root/project/out/node_modules.txt;
       - store_artifacts:
           name: upload view artifact
-          path: /root/project/_build/out/
-          destination: /tmp/view
+          path: /root/project/out/
+          destination: /view
       - run:
           command: npm run start
           background: true
-      - run: sleep 25 && npm run cy:run
+      - run: sleep 15 && npm run cy:run
       - store_artifacts:
           path: /root/project/cypress/videos/primo/
-          destination: /tmp/video
+          destination: /video
+      - store_artifacts:
+          path: /root/project/cypress/screenshots/primo/
+          destination: /screenshots
 
 workflows:
   version: 2

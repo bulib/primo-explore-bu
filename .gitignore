@@ -3,6 +3,7 @@ packages/*/dist/
 cypress/fixtures/example.json
 cypress/integration/examples/
 cypress/videos
+cypress/screenshots
 _build
 
 # Logs
