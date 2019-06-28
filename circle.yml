@@ -10,7 +10,7 @@ jobs:
           keys:
             - cache-{{ checksum "package.json" }}
       - run:
-          name: Install cypress binary and dependencies
+          name: install cypress binary and dependencies
           command: npm ci
       - run: npm run cy:verify
       - save_cache:
@@ -20,15 +20,17 @@ jobs:
             - ~/.npm
             - ~/.cache
       - run:
-          name: setup the devenv './build/' directory
+          name: initialize the development environment ('./_build/')
           command: npm run reset
       - run: 
-          name: prepare view (with artifact)
+          name: prepare view (./_build/primo-explore/custom/VIEW)
+          command: npm run prep;
+      - run: 
+          name: prepare view artifact (./_build/out)
           command: |
-            npm run prep;
             mkdir /root/project/_build/out
             cp -r /root/project/_build/primo-explore/custom/VIEW/ /root/project/_build/out;
-            rm -rf /root/project/_build/out/node_modules/;
+            rm -rf /root/project/_build/out/VIEW/node_modules/;
             ls /root/project/_build/primo-explore/custom/VIEW/node_modules > /root/project/_build/out/node_modules.txt;
       - store_artifacts:
           name: upload view artifact

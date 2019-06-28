@@ -24,9 +24,9 @@
     "start": "cd _build/ && gulp run --view=VIEW --browserify",
     "restart": "npm run prep && npm run start",
     "cy:verify": "cypress verify",
-    "cy:run": "cypress run --port 8003",
+    "cy:run": "cypress run",
     "test": "npm run restart && npm run cy:run",
-    "test:open": "npm run restart && cypress open --port 8003",
+    "test:open": "npm run restart && cypress open",
     "all": "npm run reset && npm run test"
   },
   "author": "@bulib",
