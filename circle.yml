@@ -6,46 +6,46 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        name: restore binary/dependencies from cache
-        keys:
-          - cache-{{ checksum "package.json" }}
+          name: restore binary/dependencies from cache
+          keys:
+            - cache-{{ checksum "package.json" }}
       - run:
-        name: install cypress binary and dependencies
-        command: npm ci
+          name: install cypress binary and dependencies
+          command: npm ci
       - run: npm run cy:verify
       - save_cache:
-        name: save binary and dependencies to cache
-        key: cache-{{ checksum "package.json" }}
-        paths:
-          - ~/.npm
-          - ~/.cache
+          name: save binary and dependencies to cache
+          key: cache-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
       - run:
-        name: initialize the development environment ('/tmp/devenv')
-        command: npm run reset
+          name: initialize the development environment ('/tmp/devenv')
+          command: npm run reset
       - run: 
-        name: prepare view (/primo-explore/custom/EMPTY)
-        command: npm run prep;
+          name: prepare view (/primo-explore/custom/EMPTY)
+          command: npm run prep;
       - store_artifacts:
-        name: upload view artifact
-        path: /root/project/out/
-        destination: /view
+          name: upload view artifact
+          path: /root/project/out/
+          destination: /view
       - run:
-        command: npm run start
-        background: true
+          command: npm run start
+          background: true
       - run: sleep 15 && npm run cy:run
       - store_artifacts:
-        path: /root/project/cypress/videos/primo/
-        destination: /video
+          path: /root/project/cypress/videos/primo/
+          destination: /video
       - store_artifacts:
-        path: /root/project/cypress/screenshots/primo/
-        destination: /screenshots
+          path: /root/project/cypress/screenshots/primo/
+          destination: /screenshots
       - run: 
-        name: prepare view artifact (./out)
-        command: |
-          mkdir /root/project/out;
-          cp -r /tmp/devenv/primo-explore/custom/EMPTY/ /root/project/out;
-          rm -rf /root/project/out/EMPTY/node_modules/;
-          ls /tmp/devenv/primo-explore/custom/EMPTY/node_modules > /root/project/out/node_modules.txt;
+          name: prepare view artifact (./out)
+          command: |
+            mkdir /root/project/out;
+            cp -r /tmp/devenv/primo-explore/custom/EMPTY/ /root/project/out;
+            rm -rf /root/project/out/EMPTY/node_modules/;
+            ls /tmp/devenv/primo-explore/custom/EMPTY/node_modules > /root/project/out/node_modules.txt;
 
 workflows:
   version: 2
