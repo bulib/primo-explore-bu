@@ -2,7 +2,8 @@
 
 echo "installing (and moving) the latest 'ExLibrisGroup/primo-explore-devenv' to '_build/'...";
 npm install;
-mv ./node_modules/primo-explore-devenv ./_build/;
+# mv ./node_modules/primo-explore-devenv ./_build/;  # TODO: switch back to ExL package  
+git clone https://github.com/cooldudezach/primo-explore-devenv.git ./_build
 pwd; 
 
 echo "installing _build/ dependencies and returning...";
