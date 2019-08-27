@@ -31,6 +31,7 @@ jobs:
             mkdir /root/project/out;
             cp -r /tmp/devenv/primo-explore/custom/ /root/project/out;
             rm -rf /root/project/out/*/node_modules/ || true;
+            rm -rf /root/project/out/*/img/ || true;
       - store_artifacts:
           name: upload view artifact
           path: /root/project/out/

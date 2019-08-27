@@ -1,13 +1,12 @@
 #!/bin/bash
 
 echo "installing (and moving) the latest 'ExLibrisGroup/primo-explore-devenv' to '_build/'...";
-
 # get the devenv from npm 
 # npm install;
 # mv ./node_modules/primo-explore-devenv ./_build/;  # TODO: switch back to ExL package when npm and node get updated
 
 # get a fork of the devenv from github
-git clone https://github.com/cooldudezach/primo-explore-devenv.git /tmp/devenv
+git clone https://github.com/ExLibrisGroup/primo-explore-devenv.git /tmp/devenv
 rm -rf /tmp/devenv/.git
 
 echo "installing dependencies and returning...";

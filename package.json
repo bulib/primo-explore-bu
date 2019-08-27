@@ -14,7 +14,8 @@
   ],
   "devDependencies": {
     "cypress": "^3.3.1",
-    "lerna": "^3.15.0"
+    "gulp": "^4.0.2",
+    "primo-explore-devenv": "^1.0.5"
   },
   "scripts": {
     "init": "./scripts/initialize_build.sh",
@@ -25,7 +26,7 @@
     "start": "./scripts/start_view.sh",
     "restart": "npm run prep && npm run start",
     "cy:verify": "cypress verify",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --browser chrome",
     "test": "npm run restart && npm run cy:run",
     "test:open": "npm run restart && cypress open",
     "all": "npm run reset && npm run test"

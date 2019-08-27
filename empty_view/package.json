@@ -2,5 +2,14 @@
   "name": "empty_view",
   "version": "0.0.1",
   "main": "js/main.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^3.3.1",
+    "gulp": "^4.0.2",
+    "lerna": "^3.15.0",
+    "primo-explore-help-menu": "^1.1.4",
+    "primo-explore-outbound-links": "^0.6.0",
+    "primo-explore-report-problem": "^3.0.0",
+    "primo-explore-unpaywall": "^1.2.1"
+  }
 }
