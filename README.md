@@ -16,7 +16,7 @@ The `main.js` file is a representative one, demonstrating how to consume and cus
   using the `browserify` method in the [Primo New UI](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/Primo/New_Primo_User_Interface)
   (untested in [Primo VE](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE)).
 
-### Backrgound
+### Background
 
 - Primo "New" UI offers a lot of options for configuring and customizing your installation and adding on new features
 - One of the most effective ways of doing this is by creating and consuming these customizations with [`npm`](https://docs.npmjs.com/about-npm/)

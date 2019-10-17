@@ -1,6 +1,6 @@
 {
   "name": "primo-explore-bu",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "assorted customizations to Ex Libris Primo New UI created, consumed, and maintained by BU Libraries.",
   "files": [
     "main.js",
@@ -33,8 +33,7 @@
     "npm-check-updates": "^3.1.24"
   },
   "scripts": {
-    "clean": "rm -rf node_modules/ && lerna clean",
-    "install": "lerna bootstrap",
+    "reset": "rm -rf node_modules/ && lerna clean",
     "upgrade": "ncu -u && npm install",
     "deploy": "npm run upgrade && npm publish"
   }
