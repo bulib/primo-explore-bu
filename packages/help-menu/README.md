@@ -2,8 +2,7 @@
 
 Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after` (top nav bar)
 
-
-### Description
+## Description
 
 ![help-menu dialog](https://github.com/bulib/primo-explore-bu/blob/master/packages/help-menu/img/help-menu-preview.gif?raw=true)
 
@@ -13,10 +12,9 @@ Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after`
 4. links can be made between entries very simply using anchor tags `#{entry.id}`
 5. if desired, users can open the help menu in a new window to enable multi-tasking
 
+## Usage
 
-### Usage
-
-#### Adding the Package to your view in `primo-explore` 
+### Adding the Package to your view in `primo-explore`
 
 run the following command from within your view's main directory to add it as a dependency.
 
@@ -26,36 +24,36 @@ $ npm install --save-dev primo-explore-help-menu
 
 this should add the following line to your `package.json` file...
 ```json
-"primo-explore-help-menu": "^1.1.4"
+"primo-explore-help-menu": "^1.2.1"
 ```
 
-and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-help-menu` 
-  directory for your current view. the presence of this package should mean that the package was successfully 
+and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-help-menu`
+  directory for your current view. the presence of this package should mean that the package was successfully
   installed and added to your project.
 
-#### Installing/Importing it 
+### Installing/Importing it
 
 from here you'll have to edit your `main.js` (or `config.module.js`) file to `import` the package, and add
-   _both_ `'helpMenuContentDisplay'` and `'helpMenuTopbar'`, to the dependencies inside of your 
+   _both_ `'helpMenuContentDisplay'` and `'helpMenuTopbar'`, to the dependencies inside of your
    `'viewCustom'` module:
 
 ```js
 import 'primo-explore-help-menu';  // import './help-menu.js'
 
 angular.module('viewCustom', ['angularLoad', 'helpMenuContentDisplay',  'helpMenuTopbar'])
-``` 
+```
 
 (see `./src/.main.js` for a working example).
 
-#### Additional Steps
+### Additional Steps
 
 To get the same styling, you'll have to copy or import the `help-menu.css` file to the `css/custom.css` for your view.
   
 If you're using a version from `1.1.0` onward, you'll have to make sure there's a `html/help_en_US.html` included as well.
 
-#### Adding Your Own Content
+### Adding Your Own Content
 
-To add your own content, specify a `list_of_elements` variable within a `constant` object called `'helpMenuConfig'` and 
+To add your own content, specify a `list_of_elements` variable within a `constant` object called `'helpMenuConfig'` and
   attach it to your primo angular module (`app`) like so:
 
 ```js
@@ -80,9 +78,9 @@ Make sure that each object in the list of elements matches the following structu
 
 _note: the [iconset being used](https://material.io/tools/icons/) is from material.io and is included within primo_
 
-#### Additional Customization
+### Additional Customization
 
-the following table describes describes some additional configuration options that are currently afforded to 
+the following table describes describes some additional configuration options that are currently afforded to
   you by the package. an example implementation of this section can be found within this repo at `src/.main.js`:
 
 |name|default|description|
@@ -90,9 +88,10 @@ the following table describes describes some additional configuration options th
 |`logToConsole`|`true`|controls whether or not messages about what's going on in the component are `console.log()`-ed (visible in inspector)|
 |`publishEvents`|`false`|controls whether the `logEventToAnalytics` is actually triggered, ensurng only real traffic is tracked|
 |`logEventToAnalytics`|_see example_|here's an opportunity to hook in whatever event tracking you have, (we use google analytics)|
+|`helpMenuTitle`|`Search Help`|page and popup title displayed at the top of the menu (useful for translations) |
 |`helpMenuWidth`|`500` (px)|the width of the dialog box and associated popup|
 
-### Events Logged
+## Events Logged
 
 All events are logged under the category `help-menu`.
 
@@ -104,16 +103,16 @@ All events are logged under the category `help-menu`.
 
 _note: At BU Libraries, we use Google Analytics to track and log events. Given this, all events emitted follow the  'category > action > label' convention._
 
-### Contributing
+## Contributing
 
-You're more than welcome to fork this repository, make some changes, and contribute it back by 
-  [creating a pull request](https://github.com/bulib/primo-explore-bu/compare). 
+You're more than welcome to fork this repository, make some changes, and contribute it back by
+  [creating a pull request](https://github.com/bulib/primo-explore-bu/compare).
 
-If you have any issues with this package or ideas for how to make it better, don't hesitate to let us know by 
+If you have any issues with this package or ideas for how to make it better, don't hesitate to let us know by
   [submitting a new issue](https://github.com/bulib/primo-explore-bu/issues/new).
 
-In both of these cases, it would help us if you make sure to add on the appropriate 
-  [labels](https://github.com/bulib/primo-explore-bu/labels) (including especially `help-menu`) so that we 
+In both of these cases, it would help us if you make sure to add on the appropriate
+  [labels](https://github.com/bulib/primo-explore-bu/labels) (including especially `help-menu`) so that we
   can keep track of what your pull request or issue relates to.
 
 If you get stuck, send us a message on [our gitter](https://gitter.im/bulib/developers), and we'll try to help you out.
