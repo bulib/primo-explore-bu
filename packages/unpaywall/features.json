@@ -22,7 +22,7 @@
         "type": "input",
         "templateOptions": {
           "required": false,
-          "label": "Text/copy for the main call to action",
+          "label": "Text/copy for the main call-to-action",
           "placeholder": "Open Access available via unpaywall"
         }
       },

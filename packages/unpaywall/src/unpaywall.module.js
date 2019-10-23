@@ -37,7 +37,7 @@ angular.module('bulibUnpaywall', [])
       self.logEvent = unpaywallConfig.logEvent || logEventToGoogleAnalytics;
 
       // customize UI/UX
-      self.labelText = (Object.keys(unpaywallConfig).includes("labelText")) ? unpaywallConfig.labelText : "Open Access available via unpaywall";
+      self.labelText = (Object.keys(unpaywallConfig).includes("labelText")) ? unpaywallConfig.labelText : null;
       self.imageUrl  = (Object.keys(unpaywallConfig).includes("imageUrl")) ? unpaywallConfig.imageUrl : null;
       self.imageStyle = (Object.keys(unpaywallConfig).includes("imageStyle")) ? unpaywallConfig.imageStyle : "height: 24px; vertical-align: bottom; padding-right: 5px;";
       

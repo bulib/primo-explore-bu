@@ -127,6 +127,9 @@ the following table describes describes some additional configuration options th
 |`logToConsole`|`true`|controls whether or not messages about what's going on in the component are `console.log()`-ed (visible in inspector)|
 |`showDebugTable`|`false`|the debug table is a quick way to see unpaywall response data for the record in context a really ugly way (used to help troubleshoot, not meant for end users)|
 |`publishEvents`|`false`|we use this variable within our sample implementation to ensure only real traffic is tracked (not us debugging/developing/testing)|
+|`labelText`|_see above_|Text/copy for the main call-to-action|
+|`imageUrl` |`null`|Alternative image to display with unpaywall link|
+|`imageStyle`|_see example_|CSS tweaking to style whatever image you've chosen|
 
 _note: the default for `logEvent` can be found within this repo at `src/.main.js`. it assumes you're using google analytics and calls it via `window.ga`_
 
