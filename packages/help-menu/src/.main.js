@@ -15,6 +15,8 @@ app.constant('helpMenuConfig', {
   "list_of_elements":help_menu_items,
   "logToConsole":true,
   "publishEvents":false,
+  "helpMenuTitle":"Search Menu",
+  "helpMenuWidth":500,
   "logEventToAnalytics":function(category, action, label){
     window.ga('send', 'event', category, action, label);
   }

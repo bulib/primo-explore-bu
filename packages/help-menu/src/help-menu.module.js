@@ -42,6 +42,7 @@ let helpMenuHelper = {
     if(Object.keys(config).includes("logToConsole")){ this.logToConsole = config.logToConsole; }
     if(Object.keys(config).includes("publishEvents")){ this.publishEvents = config.publishEvents; }
     if(Object.keys(config).includes("helpMenuWidth")){ this.helpMenuWidth = config.helpMenuWidth; }
+    if(Object.keys(config).includes("helpMenuTitle")){ this.helpMenuTitle = config.helpMenuTitle; }
     if(Object.keys(config).includes("logEventToAnalytics")){ this.logEventToAnalytics = config.logEventToAnalytics; }
     if(Object.keys(config).includes("list_of_elements")){ this.list_of_elements = config.list_of_elements; }
   }
@@ -58,6 +59,7 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
 
   // gather items in list from helpMenuHelper
   $scope.helpContentList = helpMenuHelper.list_of_elements;
+  $scope.helpMenuTitle = helpMenuHelper.helpMenuTitle;
 
   // modal navigation
   $scope.hide = function() { $mdDialog.hide(); };
@@ -88,10 +90,11 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
     }
 
     // open the help-menu in a new-window
+    let popup_title = helpMenuHelper.helpMenuTitle || "Search Help Menu";
     let params=`width=${helpMenuHelper.helpMenuWidth},height=800,resizable=0,location=0,menubar=0,scrollbars=yes`;
     helpMenuHelper.logHelpEvent("open-window", help_event_label);
-    let help_popup = open(help_page_url, 'Search Help Menu', params);
-    help_popup.onload = function() { this.document.title = "Search Help Menu"; }
+    let help_popup = open(help_page_url, popup_title, params);
+    help_popup.onload = function() { this.document.title = popup_title; }
 
     // prepare new window to handle 'select-option' via the '#', and close the dialog
     help_popup.addEventListener('hashchange',$scope.setEntryIdFromHash,true);

@@ -3,7 +3,11 @@ const helpMenuHeadContent = `
     <prm-icon icon-type="svg" svg-icon-set="navigation" icon-definition="ic_arrow_back_24px"
               aria-label="return to help content list" ></prm-icon>
   </md-button>
-  <h2><strong>Search Help</strong><span ng-hide="!entry"> - {{entry.title}}</span></h2>`;
+  <h2>
+    <strong ng-if="helpMenuTitle">{{helpMenuTitle}}</strong>
+    <strong ng-hide="helpMenuTitle">Search Help</strong>
+    <span ng-hide="!entry"> - {{entry.title}}</span>
+  </h2>`;
 
 const helpMenuMainContent = `
   <div ng-if="entry" id="search-help-menu-content" tabindex="-1">
