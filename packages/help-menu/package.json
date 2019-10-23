@@ -1,9 +1,11 @@
 {
   "name": "primo-explore-help-menu",
   "description": "Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after`",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "./dist/help-menu.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bulib/primo-explore-bu.git"
