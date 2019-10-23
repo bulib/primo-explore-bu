@@ -36,6 +36,8 @@ angular.module('bulibUnpaywall', [])
       self.overrideOACheck = (Object.keys(unpaywallConfig).includes("overrideOACheck")) ? unpaywallConfig.overrideOACheck : false;
       self.logEvent = unpaywallConfig.logEvent || logEventToGoogleAnalytics;
 
+      // customize UI/UX
+      self.labelText = (Object.keys(unpaywallConfig).includes("labelText")) ? unpaywallConfig.labelText : "Open Access available via unpaywall";
       // conditionally log to the console
       self.logMessageToConsole = function (message) {
         if (self.logToConsole) { console.log("bulib-unpaywall) " + message); }
@@ -120,7 +122,10 @@ angular.module('bulibUnpaywall', [])
           <a ng-click="$ctrl.trackLinkClick($ctrl.doi)" target="_blank" href="{{$ctrl.best_oa_link}}"\
             style="margin-left: 3px; margin-top: 3px;" rel="noreferrer">\
             <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_lock_open_24px" style="color: #f68212;"></prm-icon>\
-            <strong>Open Access</strong> available via unpaywall\
+            \
+            <span ng-if="$ctrl.labelText">{{$ctrl.labelText}}</span>\
+            <span ng-hide="$ctrl.labelText"><strong>Open Access</strong> available via unpaywall</span>\
+            \
             <span ng-if="$ctrl.showVersionLabel && $ctrl.best_oa_version">&nbsp({{$ctrl.best_oa_version}} version)</span>\
             <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\
           </a>\

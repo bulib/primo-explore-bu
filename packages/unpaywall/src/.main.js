@@ -21,5 +21,6 @@ app.component('prmSearchResultAvailabilityLineAfter', {
     "publishEvents":false,
     "logEvent":function(category, action, label){
       window.ga('send', 'event', category, action, label);
-    }
+    },
+    "labelText":"View Open Access Version"
   });
