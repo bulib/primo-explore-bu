@@ -36,6 +36,16 @@
         }
       },
       {
+        "key": "helpMenuTitle",
+        "type": "input",
+        "defaultValue":"Search Help",
+        "templateOptions": {
+          "required": false,
+          "label": "Page and popup title displayed at the top of the menu (useful for translations)",
+          "placeholder": "Search Help"
+        }
+      },
+      {
         "key": "helpMenuWidth",
         "type": "input",
         "defaultValue":500,
