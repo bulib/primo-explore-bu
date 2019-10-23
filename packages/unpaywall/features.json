@@ -27,6 +27,24 @@
         }
       },
       {
+        "key": "imageUrl",
+        "type": "input",
+        "templateOptions": {
+          "required": false,
+          "label": "Alternative image to display with unpaywall link",
+          "placeholder": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Open_Access_logo_PLoS_white.svg/384px-Open_Access_logo_PLoS_white.svg.png"
+        }
+      },
+      {
+        "key": "imageStyle",
+        "type": "input",
+        "templateOptions": {
+          "required": false,
+          "label": "CSS tweaking to style whatever image you've chosen",
+          "placeholder": "height: 24px; vertical-align: bottom; padding-right: 5px;"
+        }
+      },
+      {
         "key": "showOnResultsPage",
         "type": "select",
         "defaultValue": true,

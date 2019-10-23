@@ -38,6 +38,9 @@ angular.module('bulibUnpaywall', [])
 
       // customize UI/UX
       self.labelText = (Object.keys(unpaywallConfig).includes("labelText")) ? unpaywallConfig.labelText : "Open Access available via unpaywall";
+      self.imageUrl  = (Object.keys(unpaywallConfig).includes("imageUrl")) ? unpaywallConfig.imageUrl : null;
+      self.imageStyle = (Object.keys(unpaywallConfig).includes("imageStyle")) ? unpaywallConfig.imageStyle : "height: 24px; vertical-align: bottom; padding-right: 5px;";
+      
       // conditionally log to the console
       self.logMessageToConsole = function (message) {
         if (self.logToConsole) { console.log("bulib-unpaywall) " + message); }
@@ -121,7 +124,9 @@ angular.module('bulibUnpaywall', [])
         <div layout="flex" ng-if="$ctrl.best_oa_link" class="layout-row" style="margin-top: 5px;">\
           <a ng-click="$ctrl.trackLinkClick($ctrl.doi)" target="_blank" href="{{$ctrl.best_oa_link}}"\
             style="margin-left: 3px; margin-top: 3px;" rel="noreferrer">\
-            <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_lock_open_24px" style="color: #f68212;"></prm-icon>\
+            \
+            <img ng-if="$ctrl.imageUrl" src="{{$ctrl.imageUrl}}" alt="unpaywall logo" style="{{$ctrl.imageStyle}}">\
+            <prm-icon ng-hide="$ctrl.imageUrl" icon-type="svg" svg-icon-set="action" icon-definition="ic_lock_open_24px" style="color: #f68212;"></prm-icon>\
             \
             <span ng-if="$ctrl.labelText">{{$ctrl.labelText}}</span>\
             <span ng-hide="$ctrl.labelText"><strong>Open Access</strong> available via unpaywall</span>\
