@@ -70,7 +70,7 @@ $ npm install --save-dev primo-explore-unpaywall
 this should add the following line to your `package.json` file...
 
 ```json
-"primo-explore-unpaywall": "^1.2.0"
+"primo-explore-unpaywall": "^1.3.2"
 ```
 
 and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-unpaywall`
