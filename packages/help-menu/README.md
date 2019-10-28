@@ -12,6 +12,18 @@ Add link to customizable 'help-menu' popup to `prm-search-bookmark-filter-after`
 4. links can be made between entries very simply using anchor tags `#{entry.id}`
 5. if desired, users can open the help menu in a new window to enable multi-tasking
 
+_note: as of `1.3.0`, you can open the help menu from any page (or module) by triggering an `openHelpMenuEvent` event!_
+
+```javascript
+window.dispatchEvent(new CustomEvent('openHelpMenuEvent'))
+```
+
+_If you want to specify a particular page, simply add the entry `id` as the event `detail` like so:_
+
+```javascript
+window.dispatchEvent(new CustomEvent('openHelpMenuEvent', {detail:'getting-started'}))
+```
+
 ## Usage
 
 ### Adding the Package to your view in `primo-explore`
