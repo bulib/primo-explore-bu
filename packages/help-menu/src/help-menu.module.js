@@ -107,6 +107,12 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
   // keep listening for changes in the page's 'hash' to see which entry to show (e.g. '/path/to#hash')
   window.addEventListener('hashchange',$scope.setEntryIdFromHash,true);
 
+  // listen for any 'openHelpMenuEvent' to open menu in a new window
+  window.addEventListener('openHelpMenuEvent', function(ev){ 
+    let entry_id = ev.detail || "";
+    helpMenuHelper.logMessage("opening helpMenu from 'openHelpMenuEvent' with 'item_id': '" + entry_id + "'")
+    $scope.openHelpInNewWindow(entry_id); 
+  });
 }
 
 // the simplest-case display for the help-menu when rendered directly into the page (`primo-explore/static-file/help`)
