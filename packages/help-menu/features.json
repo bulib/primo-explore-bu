@@ -5,7 +5,7 @@
   "what": "help-menu-topbar",
   "linkGit": "https://github.com/bulib/primo-explore-bu/tree/master/packages/help-menu",
   "npmid": "primo-explore-help-menu",
-  "version": "1.1.4",
+  "version": "1.2.2",
   "hook": "prm-search-bookmark-filter-after",
   "config": {
     "form": [
@@ -33,6 +33,16 @@
             { "name": "true",  "value": true  },
             { "name": "false", "value": false }
           ]
+        }
+      },
+      {
+        "key": "helpMenuTitle",
+        "type": "input",
+        "defaultValue":"Search Help",
+        "templateOptions": {
+          "required": false,
+          "label": "Page and popup title displayed at the top of the menu (useful for translations)",
+          "placeholder": "Search Help"
         }
       },
       {
