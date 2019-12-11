@@ -5,7 +5,7 @@ const helpMenuHeadContent = `
   </md-button>
   <h2>
     <strong ng-if="helpMenuTitle">{{helpMenuTitle}}</strong>
-    <strong ng-hide="helpMenuTitle">Search Help</strong>
+    <strong ng-hide="helpMenuTitle" translate="nui.helpMenu.helpMenuTitle">Search Help</strong>
     <span ng-hide="!entry"> - {{entry.title}}</span>
   </h2>`;
 
@@ -54,7 +54,7 @@ export const helpMenuDialogTemplate = (width) => `
         <div class="md-dialog-content">${helpMenuMainContent}</div>
       </md-dialog-content>
       <md-dialog-actions layout="row">
-        <md-button ng-click="openHelpInNewWindow(entry.id)">Open in New Window</md-button>
+        <md-button ng-click="openHelpInNewWindow(entry.id)" translate="nui.helpMenu.newWindowButtonText">Open in New Window</md-button>
       </md-dialog-actions>
     </form>
   </md-dialog>`;
