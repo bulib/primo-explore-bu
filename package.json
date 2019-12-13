@@ -1,6 +1,6 @@
 {
   "name": "primo-explore-bu",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "assorted customizations to Ex Libris Primo New UI created, consumed, and maintained by BU Libraries.",
   "files": [
     "main.js",
@@ -24,17 +24,17 @@
   },
   "homepage": "https://github.com/bulib/primo-explore-bu#readme",
   "dependencies": {
-    "primo-explore-help-menu": "^1.1.4",
+    "primo-explore-help-menu": "^1.4.1",
     "primo-explore-outbound-links": "^0.6.0",
-    "primo-explore-unpaywall": "^1.2.1"
+    "primo-explore-unpaywall": "^1.4.1"
   },
   "devDependencies": {
-    "lerna": "^3.18.1",
-    "npm-check-updates": "^3.1.24"
+    "lerna": "^3.19.0",
+    "npm-check-updates": "^4.0.1"
   },
   "scripts": {
     "reset": "rm -rf node_modules/ && lerna clean",
     "upgrade": "ncu -u && npm install",
-    "deploy": "npm run upgrade && npm publish"
+    "deploy": "npm run upgrade && npm version patch && npm publish"
   }
 }
