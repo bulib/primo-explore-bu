@@ -15,8 +15,11 @@ module.exports = function(config) {
       './node_modules/angular/angular.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
       './node_modules/angular-mocks/angular-mocks.js',
+      './packages/unpaywall/src/unpaywall.module.js',
+      './packages/help-menu/dist/help-menu.js',
       './packages/*/tests/*.spec.js',
-      './tests/smoke.spec.js'
+      './tests/smoke.spec.js',
+      { pattern: 'tests/fixtures/*.json', watched: true, served: true, included: false }
     ],
 
 
