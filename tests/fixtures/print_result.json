@@ -1,0 +1,667 @@
+{
+  "enrichment": {
+    "virtualBrowseObject": {
+      "callNumber": "RC480.5 .Q56 1982",
+      "isVirtualBrowseEnabled": true,
+      "callNumberBrowseField": "browse_callnumber.0.V2"
+    }
+  },
+  "@rta_link": "https://bu-primostage.hosted.exlibrisgroup.com/primo_library/libweb/webservices/rest/v1/rta/BU?recordInformation=21653918490001161|,|ALMA_BOSU1|,|01BOSU_INST|,|Alma|,|ALMA_BOSU121653918490001161|,|$$IBOSU$$LMUG$$1Stacks$$2(RC480.5 .Q56 1982 )$$Savailable$$X01BOSU_INST$$YMUG$$Zboss$$P1|,|$$IBOSU$$Savailable|,|Alma-P|,|BOSU|,|01BOSU_INST:21653918490001161|,|__NO_VALUE__|,|__NO_VALUE__|,|__NO_VALUE__|,|__NO_VALUE__",
+  "context": "L",
+  "adaptor": "Local Search Engine",
+  "pnx": {
+    "delivery": {
+      "institution": [
+        "BOSU"
+      ],
+      "delcategory": [
+        "Alma-P"
+      ],
+      "availability": [
+        "available_in_my_institution"
+      ],
+      "displayedAvailability": "available_in_my_institution",
+      "holding": [
+        {
+          "matchForHoldings": [
+            {
+              "holdingRecord": "",
+              "matchOn": "$$X"
+            },
+            {
+              "holdingRecord": "",
+              "matchOn": "$$Y"
+            }
+          ],
+          "subLocationCode": "boss",
+          "ilsApiId": "",
+          "libraryCode": "MUG",
+          "isValidUser": true,
+          "mainLocation": "MUG",
+          "callNumber": "(RC480.5 .Q56 1982 )",
+          "adaptorid": "ALMA_01",
+          "organization": "BOSU",
+          "holdingURL": "OVP",
+          "@id": "_:0",
+          "availabilityStatus": "available",
+          "subLocation": "Stacks",
+          "holdId": ""
+        }
+      ],
+      "bestlocation": {
+        "matchForHoldings": [
+          {
+            "holdingRecord": "",
+            "matchOn": "$$X"
+          },
+          {
+            "holdingRecord": "",
+            "matchOn": "$$Y"
+          }
+        ],
+        "mainLocation": "MUG",
+        "subLocationCode": "boss",
+        "callNumber": "(RC480.5 .Q56 1982 )",
+        "organization": "BOSU",
+        "libraryCode": "MUG",
+        "@id": "_:0",
+        "availabilityStatus": "available",
+        "subLocation": "Stacks",
+        "holdId": "",
+        "isValidUser": true,
+        "pendingRender": false
+      },
+      "feDisplayOtherLocations": false
+    },
+    "display": {
+      "identifier": [
+        "$$CISBN$$V0826402178; $$CISBN$$V9780826402172"
+      ],
+      "creationdate": [
+        "1982"
+      ],
+      "creator": [
+        "Quinnett, Paul G.  $$QQuinnett, Paul G."
+      ],
+      "availinstitution": [
+        "$$IBOSU$$Savailable"
+      ],
+      "subject": [
+        "Psychotherapy; Counseling; Mental health services; Consumer education; Mental Health Services -- United States"
+      ],
+      "format": [
+        "xi, 188 pages ; 24 cm."
+      ],
+      "availlibrary": [
+        "$$IBOSU$$LMUG$$1Stacks$$2(RC480.5 .Q56 1982 )$$Savailable$$X01BOSU_INST$$YMUG$$Zboss$$P1"
+      ],
+      "language": [
+        "eng"
+      ],
+      "source": [
+        "ALMA_BOSU1"
+      ],
+      "title": [
+        "The troubled people book : a comprehensive guide to getting help"
+      ],
+      "type": [
+        "book"
+      ],
+      "publisher": [
+        "New York : Continuum"
+      ],
+      "availpnx": [
+        "available"
+      ],
+      "lds01": [
+        "21653918490001161"
+      ],
+      "lds04": [
+        "Bibliography: p. 187-188."
+      ]
+    },
+    "control": {
+      "recordid": [
+        "ALMA_BOSU121653918490001161"
+      ],
+      "sourceid": [
+        "ALMA_BOSU1"
+      ],
+      "almaid": [
+        "01BOSU_INST:21653918490001161"
+      ],
+      "originalsourceid": [
+        "01BOSU_INST"
+      ],
+      "sourceformat": [
+        "MARC21"
+      ],
+      "sourcerecordid": [
+        "21653918490001161"
+      ],
+      "sourcesystem": [
+        "Alma"
+      ]
+    },
+    "sort": {
+      "creationdate": [
+        "1982"
+      ],
+      "author": [
+        "Quinnett, Paul G., 1939-"
+      ],
+      "title": [
+        "troubled people book : a comprehensive guide to getting help /"
+      ]
+    },
+    "frbr": {
+      "t": [
+        1
+      ],
+      "k1": [
+        "$$Kquinnett paul g 1939$$AA"
+      ],
+      "k3": [
+        "$$Ktroubled people book a comprehensive guide to getting help$$AT"
+      ]
+    },
+    "dedup": {
+      "c10": [
+        "99189070910001161"
+      ],
+      "f10": [
+        "continuum"
+      ],
+      "f20": [
+        "99189070910001161"
+      ],
+      "f11": [
+        "quinnett paul g 1939"
+      ],
+      "f3": [
+        "0826402178",
+        "9780826402172"
+      ],
+      "c1": [
+        "82008102"
+      ],
+      "c2": [
+        "0826402178;9780826402172"
+      ],
+      "f5": [
+        "troubledpeoplebookaclgquinnett"
+      ],
+      "c3": [
+        "troubledpeoplebookacettinghelp"
+      ],
+      "f6": [
+        "1982"
+      ],
+      "c4": [
+        "1982"
+      ],
+      "f7": [
+        "troubled people book a comprehensive guide to getting help paul g quinnett"
+      ],
+      "c5": [
+        "99189070910001161"
+      ],
+      "f8": [
+        "nyu"
+      ],
+      "t": [
+        1
+      ]
+    },
+    "facets": {
+      "frbrtype": [
+        "6"
+      ],
+      "creatorcontrib": [
+        "Quinnett, P",
+        "Quinnett, Paul G."
+      ],
+      "creationdate": [
+        "1982"
+      ],
+      "newrecords": [
+        "20141119_621"
+      ],
+      "rsrctype": [
+        "books"
+      ],
+      "classificationlcc": [
+        "R - Medicine.–Internal medicine–Neurosciences. Biological psychiatry. Neuropsychiatry–Psychiatry–Therapeutics. Psychotherapy"
+      ],
+      "lfc10": [
+        "Mental Health Services–United States"
+      ],
+      "language": [
+        "eng"
+      ],
+      "prefilter": [
+        "books"
+      ],
+      "toplevel": [
+        "available"
+      ],
+      "library": [
+        "Mugar"
+      ],
+      "atoz": [
+        "T"
+      ],
+      "frbrgroupid": [
+        "570460131"
+      ],
+      "topic": [
+        "Psychotherapy",
+        "Counseling",
+        "Mental health services",
+        "Consumer education",
+        "Mental Health Services–United States"
+      ]
+    },
+    "enrichment": {
+      "classificationlcc": [
+        "RC480.5"
+      ]
+    },
+    "search": {
+      "sourceid": [
+        "ALMA_BOSU1"
+      ],
+      "creatorcontrib": [
+        "Paul G.,  Quinnett  1939-",
+        "Quinnett, Paul G., 1939-",
+        "Quinnett, P",
+        "Paul G. Quinnett."
+      ],
+      "creationdate": [
+        "1982"
+      ],
+      "subject": [
+        "Psychotherapy.",
+        "Counseling.",
+        "Mental health services.",
+        "Consumer education.",
+        "Mental Health Services United States.",
+        "Psychothérapie.",
+        "Santé mentale, Services de.",
+        "Consommateurs Éducation.",
+        "Counseling",
+        "Mental health services"
+      ],
+      "isbn": [
+        "0826402178",
+        "9780826402172"
+      ],
+      "rsrctype": [
+        "book"
+      ],
+      "lsr02": [
+        "RC480.5 .Q56 1982"
+      ],
+      "title": [
+        "The troubled people book : a comprehensive guide to getting help /"
+      ],
+      "startdate": [
+        "19820101"
+      ],
+      "lsr11": [
+        "findlibguidesrch"
+      ],
+      "addsrcrecordid": [
+        "99189070910001161"
+      ],
+      "recordid": [
+        "ALMA_BOSU121653918490001161"
+      ],
+      "general": [
+        "Continuum,"
+      ],
+      "enddate": [
+        "19821231"
+      ],
+      "lsr09": [
+        "Mental Health Services United States."
+      ],
+      "lsr08": [
+        "08494369"
+      ],
+      "scope": [
+        "ALMA_BOSU1",
+        "BOSU"
+      ]
+    },
+    "links": {
+      "openurl": [
+        "$$Topenurl"
+      ],
+      "lln06": [
+        "$$Uhttp://library.bu.edu/srch.php?q=Consumer+education+$$DFind Library Guides about Consumer education.",
+        "$$Uhttp://library.bu.edu/srch.php?q=Mental+health+services$$DFind Library Guides about Mental health services",
+        "$$Uhttp://library.bu.edu/srch.php?q=Psychotherapy+$$DFind Library Guides about Psychotherapy."
+      ],
+      "thumbnail": [
+        "$$Tamazon_thumb",
+        "$$Tgoogle_thumb"
+      ],
+      "lln02": [
+        "$$Tpermalink$$Epermalink"
+      ],
+      "lln03": [
+        "$$Uhttps://www.bu.edu/library/about/maps-floorplans/$$DMaps and directions to this item"
+      ],
+      "linktotoc": [
+        "$$Tamazon_toc$$Elinktotoc"
+      ],
+      "lln04": [
+        "$$Uhttps://www.bu.edu/library/about/maps-floorplans/mugar-5/$$DLocate this in Mugar Library on floor 5"
+      ],
+      "uri": [
+        "$$Aisbn$$V0826402178$$U(uri) http://www.isbnsearch.org/isbn/0826402178",
+        "$$Aisbn$$V9780826402172$$U(uri) http://www.isbnsearch.org/isbn/9780826402172",
+        "$$Aoclc_nr$$V(OCoLC)08494369$$U(uri) http://www.worldcat.org/oclc/08494369",
+        "$$Acreatorcontrib$$VQuinnett, Paul G.$$U(uri) http://id.loc.gov/authorities/names/n82082244$$U(uri) http://viaf.org/viaf/sourceID/LC|n82082244",
+        "$$Asubject$$VPsychotherapy$$U(uri) http://id.loc.gov/authorities/subjects/sh85108516",
+        "$$Asubject$$VCounseling$$U(uri) http://id.loc.gov/authorities/subjects/sh85033421",
+        "$$Asubject$$VMental health services$$U(uri) http://id.loc.gov/authorities/subjects/sh85083636",
+        "$$Asubject$$VConsumer education$$U(uri) http://id.loc.gov/authorities/subjects/sh85031483",
+        "$$Asubject$$VMental Health Services -- United States$$U(uri) http://www.ncbi.nlm.nih.gov/mesh/?term=D008605"
+      ],
+      "linktouc": [
+        "$$Tamazon_uc$$Eamazon",
+        "$$Tworldcat_isbn$$Eworldcat"
+      ]
+    },
+    "ranking": {
+      "booster2": [
+        5
+      ],
+      "booster1": [
+        "3"
+      ]
+    },
+    "addata": {
+      "date": [
+        "1982"
+      ],
+      "aulast": [
+        "Quinnett"
+      ],
+      "notes": [
+        "Bibliography: p. 187-188."
+      ],
+      "cop": [
+        "New York"
+      ],
+      "isbn": [
+        "0826402178",
+        "9780826402172"
+      ],
+      "format": [
+        "book"
+      ],
+      "ristype": [
+        "BOOK"
+      ],
+      "mis1": [
+        "21653918490001161"
+      ],
+      "oclcid": [
+        "08494369"
+      ],
+      "aufirst": [
+        "Paul G.,"
+      ],
+      "lccn": [
+        "82008102"
+      ],
+      "au": [
+        "Quinnett, Paul G."
+      ],
+      "genre": [
+        "book"
+      ],
+      "btitle": [
+        "The troubled people book : a comprehensive guide to getting help"
+      ],
+      "pub": [
+        "Continuum"
+      ],
+      "risdate": [
+        "1982"
+      ]
+    },
+    "browse": {
+      "institution": [
+        "BOSU"
+      ],
+      "subject": [
+        "$$DPsychotherapy$$EPsychotherapy$$I",
+        "$$DCounseling$$ECounseling$$I",
+        "$$DMental health services$$EMental health services$$I",
+        "$$DConsumer education$$EConsumer education$$I",
+        "$$DMental Health Services -- United States$$EMental Health Services United States$$I",
+        "$$DPsychothérapie$$EPsychothérapie",
+        "$$DSanté mentale, Services de$$ESanté mentale, Services de",
+        "$$DConsommateurs -- Éducation$$EConsommateurs Éducation",
+        "$$DConsumer education$$EConsumer education$$I(OCoLC)fst00876300",
+        "$$DCounseling$$ECounseling$$I(OCoLC)fst00881212",
+        "$$DMental health services$$EMental health services$$I(OCoLC)fst01016498",
+        "$$DPsychotherapy$$EPsychotherapy$$I(OCoLC)fst01081755"
+      ],
+      "author": [
+        "$$DQuinnett, Paul G., 1939-$$EQuinnett, Paul G., 1939-$$I"
+      ],
+      "callnumber": [
+        "$$IBOSU$$DRC480.5 .Q56 1982$$ERC  4805           Q 56   1982$$T0"
+      ],
+      "title": [
+        "$$DThe troubled people book : a comprehensive guide to getting help$$Etroubled people book : a comprehensive guide to getting help"
+      ]
+    }
+  },
+  "@id": "https://bu-primostage.hosted.exlibrisgroup.com/primo_library/libweb/webservices/rest/primo-explore/v1/pnxs/L/ALMA_BOSU121653918490001161",
+  "link": {},
+  "$$hashKey": "object:7037",
+  "delivery": {
+    "availabilityLinks": [
+      "detailsGetit1"
+    ],
+    "displayLocation": false,
+    "availabilityLinksUrl": [
+      ""
+    ],
+    "link": [
+      {
+        "displayLabel": "openurl",
+        "hyperlinkText": "",
+        "inst4opac": "BOSU",
+        "linkURL": "https://bu.userservices.exlibrisgroup.com/view/uresolver/01BOSU_INST/openurl?ctx_ver=Z39.88-2004&ctx_enc=info:ofi/enc:UTF-8&ctx_tim=2020-04-14T15%3A05%3A52IST&url_ver=Z39.88-2004&url_ctx_fmt=infofi/fmt:kev:mtx:ctx&rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Journal-ALMA_BOSU1&rft_val_fmt=info:ofi/fmt:kev:mtx:book&rft.genre=book&rft.atitle=&rft.jtitle=&rft.btitle=The%20troubled%20people%20book%20:%20a%20comprehensive%20guide%20to%20getting%20help&rft.aulast=Quinnett&rft.auinit=&rft.auinit1=&rft.auinitm=&rft.ausuffix=&rft.au=Quinnett,%20Paul%20G.&rft.aucorp=&rft.volume=&rft.issue=&rft.part=&rft.quarter=&rft.ssn=&rft.spage=&rft.epage=&rft.pages=&rft.artnum=&rft.issn=&rft.eissn=&rft.isbn=0826402178&rft.sici=&rft.coden=&rft_id=info:doi/&rft.object_id=&rft.eisbn=&rft_dat=%3CALMA_BOSU1%3E21653918490001161%3C/ALMA_BOSU1%3E&rft_id=info:oai/&req.language=eng&rft_pqid=&rft_galeid=&rft_cupid=&rft_eruid=&rft_nurid=&rft_ingid=",
+        "linkType": "http://purl.org/pnx/linkType/openurl",
+        "@id": "_:0"
+      },
+      {
+        "displayLabel": "Find Library Guides about Consumer education.",
+        "hyperlinkText": "Find Library Guides about Consumer education.",
+        "inst4opac": "BOSU",
+        "linkURL": "http://library.bu.edu/srch.php?q=Consumer+education+",
+        "linkType": "http://purl.org/pnx/linkType/lln06",
+        "@id": "_:1"
+      },
+      {
+        "displayLabel": "Find Library Guides about Mental health services",
+        "hyperlinkText": "Find Library Guides about Mental health services",
+        "inst4opac": "BOSU",
+        "linkURL": "http://library.bu.edu/srch.php?q=Mental+health+services",
+        "linkType": "http://purl.org/pnx/linkType/lln06",
+        "@id": "_:2"
+      },
+      {
+        "displayLabel": "Find Library Guides about Psychotherapy.",
+        "hyperlinkText": "Find Library Guides about Psychotherapy.",
+        "inst4opac": "BOSU",
+        "linkURL": "http://library.bu.edu/srch.php?q=Psychotherapy+",
+        "linkType": "http://purl.org/pnx/linkType/lln06",
+        "@id": "_:3"
+      },
+      {
+        "displayLabel": "thumbnail",
+        "hyperlinkText": "",
+        "inst4opac": "BOSU",
+        "linkURL": "",
+        "linkType": "http://purl.org/pnx/linkType/thumbnail",
+        "@id": "_:4"
+      },
+      {
+        "displayLabel": "thumbnail",
+        "hyperlinkText": "",
+        "inst4opac": "BOSU",
+        "linkURL": "https://books.google.com/books?bibkeys=ISBN:0826402178,OCLC:08494369,LCCN:82008102&jscmd=viewapi&callback=updateGBSCover",
+        "linkType": "http://purl.org/pnx/linkType/thumbnail",
+        "@id": "_:5"
+      },
+      {
+        "displayLabel": "$$Epermalink",
+        "hyperlinkText": "",
+        "inst4opac": "BOSU",
+        "linkURL": "",
+        "linkType": "http://purl.org/pnx/linkType/lln02",
+        "@id": "_:6"
+      },
+      {
+        "displayLabel": "Maps and directions to this item",
+        "hyperlinkText": "Maps and directions to this item",
+        "inst4opac": "BOSU",
+        "linkURL": "https://www.bu.edu/library/about/maps-floorplans/",
+        "linkType": "http://purl.org/pnx/linkType/lln03",
+        "@id": "_:7"
+      },
+      {
+        "displayLabel": "$$Elinktotoc",
+        "hyperlinkText": "",
+        "inst4opac": "BOSU",
+        "linkURL": "http://www.amazon.com/gp/reader/0826402178/ref=sib_dp_pop_toc?ie=UTF8&p=S00B#reader-link",
+        "linkType": "http://purl.org/pnx/linkType/linktotoc",
+        "@id": "_:8"
+      },
+      {
+        "displayLabel": "Locate this in Mugar Library on floor 5",
+        "hyperlinkText": "Locate this in Mugar Library on floor 5",
+        "inst4opac": "BOSU",
+        "linkURL": "https://www.bu.edu/library/about/maps-floorplans/mugar-5/",
+        "linkType": "http://purl.org/pnx/linkType/lln04",
+        "@id": "_:9",
+        "$$hashKey": "object:13018"
+      },
+      {
+        "displayLabel": "$$Eamazon",
+        "hyperlinkText": "",
+        "inst4opac": "BOSU",
+        "linkURL": "http://www.amazon.com/gp/product/0826402178",
+        "linkType": "http://purl.org/pnx/linkType/linktouc",
+        "@id": "_:10"
+      },
+      {
+        "displayLabel": "$$Eworldcat",
+        "hyperlinkText": "",
+        "inst4opac": "BOSU",
+        "linkURL": "",
+        "linkType": "http://purl.org/pnx/linkType/linktouc",
+        "@id": "_:11"
+      },
+      {
+        "displayLabel": "thumbnail",
+        "linkURL": "https://syndetics.com/index.aspx?isbn=0826402178/SC.JPG&client=primo",
+        "linkType": "http://purl.org/pnx/linkType/thumbnail",
+        "@id": "_:12"
+      },
+      {
+        "displayLabel": "thumbnail",
+        "linkURL": "https://books.google.com/books?bibkeys=ISBN:0826402178,OCLC:08494369,LCCN:82008102&jscmd=viewapi&callback=updateGBSCover",
+        "linkType": "http://purl.org/pnx/linkType/thumbnail",
+        "@id": "_:13"
+      }
+    ],
+    "availability": [
+      "available_in_my_institution"
+    ],
+    "additionalLocations": true,
+    "displayedAvailability": "available_in_my_institution",
+    "holding": [
+      {
+        "matchForHoldings": [
+          {
+            "holdingRecord": "",
+            "matchOn": "$$X"
+          },
+          {
+            "holdingRecord": "",
+            "matchOn": "$$Y"
+          }
+        ],
+        "subLocationCode": "boss",
+        "ilsApiId": "",
+        "libraryCode": "MUG",
+        "isValidUser": true,
+        "mainLocation": "MUG",
+        "callNumber": "(RC480.5 .Q56 1982 )",
+        "adaptorid": "ALMA_01",
+        "organization": "BOSU",
+        "holdingURL": "OVP",
+        "@id": "_:0",
+        "availabilityStatus": "available",
+        "subLocation": "Stacks",
+        "holdId": ""
+      }
+    ],
+    "bestlocation": {
+      "matchForHoldings": [
+        {
+          "holdingRecord": "",
+          "matchOn": "$$X"
+        },
+        {
+          "holdingRecord": "",
+          "matchOn": "$$Y"
+        }
+      ],
+      "mainLocation": "MUG",
+      "subLocationCode": "boss",
+      "callNumber": "(RC480.5 .Q56 1982 )",
+      "organization": "BOSU",
+      "libraryCode": "MUG",
+      "@id": "_:0",
+      "availabilityStatus": "available",
+      "subLocation": "Stacks",
+      "holdId": "",
+      "isValidUser": true,
+      "pendingRender": false
+    },
+    "deliveryCategory": [
+      "Alma-P"
+    ],
+    "serviceMode": [
+      "activate"
+    ],
+    "feDisplayOtherLocations": false,
+    "GetIt1": [
+      {
+        "links": [
+          {
+            "isLinktoOnline": false,
+            "displayText": "Almagetit",
+            "hyperlinkText": "",
+            "getItTabText": "alma_tab1_avail",
+            "link": "https://bu.userservices.exlibrisgroup.com/view/uresolver/01BOSU_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2020-04-14T15%3A05%3A52IST&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-ALMA_BOSU1&req_id=&rft_dat=ie=01BOSU_INST:21653918490001161,language=eng,view=BU&svc_dat=getit&user_ip=67.242.108.140&req.skin=nuiDev",
+            "@id": "_:0"
+          }
+        ],
+        "category": "Alma-P"
+      }
+    ]
+  },
+  "rtaInProgress": false
+}

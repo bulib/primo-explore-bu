@@ -12,16 +12,15 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './node_modules/angular/angular.js',
-      './node_modules/angular-animate/angular-animate.js',
-      './node_modules/angular-aria/angular-aria.js',
-      './node_modules/angular-material/angular-material.js',
-      './node_modules/angular-ui-router/release/angular-ui-router.js',
-      './node_modules/angular-mocks/angular-mocks.js',
-      './packages/unpaywall/src/unpaywall.module.js',
-      './packages/help-menu/dist/help-menu.js',
-      './packages/*/tests/*.spec.js',
-      './tests/smoke.spec.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-animate/angular-animate.js',
+      'node_modules/angular-aria/angular-aria.js',
+      'node_modules/angular-material/angular-material.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'packages/unpaywall/src/unpaywall.module.js',
+      'packages/help-menu/dist/help-menu.js',
+      'packages/*/tests/*.spec.js',
+      'tests/smoke.spec.js',
       { pattern: 'tests/fixtures/*.json', watched: true, served: true, included: false }
     ],
 
