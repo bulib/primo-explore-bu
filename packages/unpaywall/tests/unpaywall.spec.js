@@ -18,7 +18,7 @@ describe("'primo-explore-unpaywall' package smoke tests", function () {
         $injector: $injector,
         prmSearchResultAvailabilityLine: prmSearchResultAvailabilityLine 
       };
-      unpaywallController = $componentController('unpaywallController', locals, bindings);
+      unpaywallController = $componentController('bulibUnpaywall', locals, bindings);
     })
   );
   
