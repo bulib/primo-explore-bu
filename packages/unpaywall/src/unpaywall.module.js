@@ -28,18 +28,27 @@ angular.module('bulibUnpaywall', [])
       self.email = unpaywallConfig.email || "primo-explore-unpaywall@npmjs.com";
 
       // provide additional customization options (with defaults)
-      self.logToConsole = (Object.keys(unpaywallConfig).includes("logToConsole")) ? unpaywallConfig.logToConsole : true;
-      self.publishEvents = (Object.keys(unpaywallConfig).includes("publishEvents")) ? unpaywallConfig.publishEvents : false;
-      self.showVersionLabel = (Object.keys(unpaywallConfig).includes("showVersionLabel")) ? unpaywallConfig.showVersionLabel : false;
-      self.showDebugTable = (Object.keys(unpaywallConfig).includes("showDebugTable")) ? unpaywallConfig.showDebugTable : false;
-      self.showOnResultsPage = (Object.keys(unpaywallConfig).includes("showOnResultsPage")) ? unpaywallConfig.showOnResultsPage : true;
-      self.overrideOACheck = (Object.keys(unpaywallConfig).includes("overrideOACheck")) ? unpaywallConfig.overrideOACheck : false;
+      self.logToConsole = (Object.keys(unpaywallConfig).indexOf("logToConsole") != -1) 
+        ? unpaywallConfig.logToConsole : true;
+      self.publishEvents = (Object.keys(unpaywallConfig).indexOf("publishEvents")  != -1) 
+        ? unpaywallConfig.publishEvents : false;
+      self.showVersionLabel = (Object.keys(unpaywallConfig).indexOf("showVersionLabel") != -1) 
+        ? unpaywallConfig.showVersionLabel : false;
+      self.showDebugTable = (Object.keys(unpaywallConfig).indexOf("showDebugTable") != -1) 
+        ? unpaywallConfig.showDebugTable : false;
+      self.showOnResultsPage = (Object.keys(unpaywallConfig).indexOf("showOnResultsPage") != -1) 
+        ? unpaywallConfig.showOnResultsPage : true;
+      self.overrideOACheck = (Object.keys(unpaywallConfig).indexOf("overrideOACheck") != -1) 
+        ? unpaywallConfig.overrideOACheck : false;
       self.logEvent = unpaywallConfig.logEvent || logEventToGoogleAnalytics;
 
       // customize UI/UX
-      self.labelText = (Object.keys(unpaywallConfig).includes("labelText")) ? unpaywallConfig.labelText : null;
-      self.imageUrl  = (Object.keys(unpaywallConfig).includes("imageUrl")) ? unpaywallConfig.imageUrl : null;
-      self.imageStyle = (Object.keys(unpaywallConfig).includes("imageStyle")) ? unpaywallConfig.imageStyle : "height: 24px; vertical-align: bottom; padding-right: 5px;";
+      self.labelText = (Object.keys(unpaywallConfig).indexOf("labelText")  != -1) 
+        ? unpaywallConfig.labelText : null;
+      self.imageUrl  = (Object.keys(unpaywallConfig).indexOf("imageUrl") != -1) 
+        ? unpaywallConfig.imageUrl : null;
+      self.imageStyle = (Object.keys(unpaywallConfig).indexOf("imageStyle") != -1) 
+        ? unpaywallConfig.imageStyle : "height: 24px; vertical-align: bottom; padding-right: 5px;";
       
       // conditionally log to the console
       self.logMessageToConsole = function (message) {
@@ -97,10 +106,10 @@ angular.module('bulibUnpaywall', [])
 
                 // optionally display whether the link is to a published, submitted, or accepted version
                 var best_oa_version = best_oa_location.version.toLowerCase() || "";
-                if (best_oa_version.includes("publish")) {
+                if (best_oa_version.indexOf("publish") != -1) {
                   self.best_oa_version = "";  // users should assume it's the 'published' version without it being clarified in the UI
                 } else {
-                  self.best_oa_version = (best_oa_version.includes("submit")) ? "Submitted" : "Accepted";
+                  self.best_oa_version = (best_oa_version.indexOf("submit") != -1)? "Submitted" : "Accepted";
                 }
               }, function (errorResponse) {
                 self.logMessageToConsole("[error status: " + errorResponse.status + "] error calling unpaywall API: " + errorResponse.statusText);
