@@ -43,12 +43,13 @@
     "karma-jasmine-jquery": "^0.1.1",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-spec-reporter": "0.0.31",
-    "lerna": "^3.20.2",
     "npm-check-updates": "^4.0.1",
-    "primo-explore-devenv": "1.0.5"
+    "primo-explore-devenv": "1.0.5",
+    "require-dir": "^1.2.0"
   },
   "scripts": {
-    "reset": "rm -rf node_modules/ && lerna clean",
+    "init": "chmod +x ./scripts/*.sh && ./scripts/init.sh",
+    "start": "./scripts/start.sh",
     "test": "karma start --singleRun",
     "upgrade": "ncu -u && npm install",
     "deploy": "npm run upgrade && npm version patch && npm publish"

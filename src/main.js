@@ -1,17 +1,15 @@
 // import configuration variables
 import { 
-  ENV_PRODUCTION, INCLUDE_UNPAYWALL, INCLUDE_OUTBOUND_LINKS, INCLUDE_HELP_MENU 
+  ENV_PRODUCTION, INCLUDE_UNPAYWALL, INCLUDE_HELP_MENU 
 } from './config.js';
 
-// import npm packages
-import 'primo-explore-help-menu';
-import 'primo-explore-outbound-links';
-import 'primo-explore-unpaywall';
+// import versions locally
+import './help-menu';
+import './unpaywall.module';
 
 // determine which dependencies to include 
 let module_dependencies = ['angularLoad'];
 if(INCLUDE_UNPAYWALL){ module_dependencies.push('bulibUnpaywall'); }
-if(INCLUDE_OUTBOUND_LINKS){ module_dependencies.push('outboundLinksLogger'); }
 if(INCLUDE_HELP_MENU){ module_dependencies.push('helpMenuContentDisplay',  'helpMenuTopbar'); }
 
 // load custom view package with configuration constants
@@ -23,12 +21,6 @@ angular.module('viewCustom', module_dependencies)
     "publishEvents":ENV_PRODUCTION,
     "list_of_elements":ls_help_menu_items,
     "helpMenuWidth":550
-  })
-
-  // configure outboundLinksConfig
-  .constant('outboundLinksConfig', {
-    "logToConsole":!ENV_PRODUCTION,
-    "publishEvents":ENV_PRODUCTION
   })
 
   // configure unpaywallConfig || primoExploreUnpaywallStudioConfig
