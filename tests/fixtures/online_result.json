@@ -1,0 +1,785 @@
+{
+  "enrichment": {
+    "virtualBrowseObject": {
+      "callNumber": "",
+      "isVirtualBrowseEnabled": false,
+      "callNumberBrowseField": "browse_callnumber"
+    }
+  },
+  "delivery": {
+    "availabilityLinks": [
+      "detailsGetit1"
+    ],
+    "physicalItemTextCodes": "",
+    "displayLocation": false,
+    "availabilityLinksUrl": [
+      ""
+    ],
+    "link": [
+      {
+        "displayLabel": "openurl",
+        "hyperlinkText": "",
+        "inst4opac": "BOSU",
+        "linkURL": "https://bu.userservices.exlibrisgroup.com/view/uresolver/01BOSU_INST/openurl?ctx_ver=Z39.88-2004&ctx_enc=info:ofi/enc:UTF-8&ctx_tim=2020-04-14T15%3A01%3A10IST&url_ver=Z39.88-2004&url_ctx_fmt=infofi/fmt:kev:mtx:ctx&rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-proquest&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=The%20rise%20and%20rise%20of%20Unpaywall&rft.jtitle=Nature&rft.btitle=&rft.aulast=Else&rft.auinit=&rft.auinit1=&rft.auinitm=&rft.ausuffix=&rft.au=Else,%20Holly&rft.aucorp=&rft.date=2018-08-16&rft.volume=560&rft.issue=7718&rft.part=&rft.quarter=&rft.ssn=&rft.spage=290&rft.epage=291&rft.pages=290-291&rft.artnum=&rft.issn=00280836&rft.eissn=14764687&rft.isbn=&rft.sici=&rft.coden=&rft_id=info:doi/10.1038/d41586-018-05968-3&rft.object_id=&rft.eisbn=&rft_dat=%3Cproquest%3E2103566529%3C/proquest%3E%3Curl%3Ehttp://search.proquest.com/docview/2103566529/%3C/url%3E&rft_id=info:oai/&req.language=eng&rft_pqid=2103566529&rft_id=info:pmid/&rft_galeid=&rft_cupid=&rft_eruid=&rft_nurid=&rft_ingid=",
+        "linkType": "http://purl.org/pnx/linkType/openurl",
+        "@id": "_:0"
+      },
+      {
+        "displayLabel": "$$EView_record_in_ProQuest_(subscribers_only)",
+        "hyperlinkText": "",
+        "inst4opac": "BOSU",
+        "linkURL": "https://ezproxy.bu.edu/login?url=http://search.proquest.com/docview/2103566529/?pq-origsite=primo",
+        "linkType": "http://purl.org/pnx/linkType/linktorsrc",
+        "@id": "_:1",
+        "$$hashKey": "object:930"
+      },
+      {
+        "displayLabel": "openurlfulltext",
+        "hyperlinkText": "",
+        "inst4opac": "BOSU",
+        "linkURL": "https://bu.userservices.exlibrisgroup.com/view/uresolver/01BOSU_INST/openurl?ctx_ver=Z39.88-2004&ctx_enc=info:ofi/enc:UTF-8&ctx_tim=2020-04-14T15%3A01%3A10IST&url_ver=Z39.88-2004&url_ctx_fmt=infofi/fmt:kev:mtx:ctx&rfr_id=info:sid/primo.exlibrisgroup.com:primo3-Article-proquest&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=The%20rise%20and%20rise%20of%20Unpaywall&rft.jtitle=Nature&rft.btitle=&rft.aulast=Else&rft.auinit=&rft.auinit1=&rft.auinitm=&rft.ausuffix=&rft.au=Else,%20Holly&rft.aucorp=&rft.date=2018-08-16&rft.volume=560&rft.issue=7718&rft.part=&rft.quarter=&rft.ssn=&rft.spage=290&rft.epage=291&rft.pages=290-291&rft.artnum=&rft.issn=00280836&rft.eissn=14764687&rft.isbn=&rft.sici=&rft.coden=&rft_id=info:doi/10.1038/d41586-018-05968-3&rft.object_id=&svc_val_fmt=info:ofi/fmt:kev:mtx:sch_svc&svc.fulltext=yes&rft.eisbn=&rft_dat=%3Cproquest%3E2103566529%3C/proquest%3E%3Curl%3Ehttp://search.proquest.com/docview/2103566529/%3C/url%3E&rft_id=info:oai/&req.language=eng&rft_pqid=2103566529&rft_id=info:pmid/&rft_galeid=&rft_cupid=&rft_eruid=&rft_nurid=&rft_ingid=",
+        "linkType": "http://purl.org/pnx/linkType/openurlfulltext",
+        "@id": "_:2"
+      },
+      {
+        "displayLabel": "thumbnail",
+        "linkURL": "no_cover",
+        "linkType": "http://purl.org/pnx/linkType/thumbnail",
+        "@id": "_:3"
+      }
+    ],
+    "availability": [
+      "fulltext"
+    ],
+    "additionalLocations": false,
+    "displayedAvailability": "fulltext",
+    "holding": [],
+    "deliveryCategory": [
+      "Remote Search Resource"
+    ],
+    "serviceMode": [
+      "activate"
+    ],
+    "feDisplayOtherLocations": false,
+    "GetIt1": [
+      {
+        "links": [
+          {
+            "isLinktoOnline": true,
+            "displayText": "Almaviewit_remote",
+            "hyperlinkText": "",
+            "getItTabText": "alma_tab1_full",
+            "link": "https://bu.userservices.exlibrisgroup.com/view/uresolver/01BOSU_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2020-04-14T15%3A01%3A10IST&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-proquest&req_id=&rft_val_fmt=info:ofi/fmt:kev:mtx:journal&rft.genre=article&rft.atitle=The%20rise%20and%20rise%20of%20Unpaywall&rft.jtitle=Nature&rft_dat=%3Cproquest%3E2103566529%3C/proquest%3E%3Curl%3Ehttp://search.proquest.com/docview/2103566529/%3C/url%3E,language=eng,view=BU&rft.btitle=&rft.aulast=Else&rft.auinit=&rft.auinit1=&rft.auinitm=&rft.ausuffix=&rft.au=Else,%20Holly&rft.aucorp=&rft.date=2018-08-16&rft.volume=560&rft.issue=7718&rft.part=&rft.quarter=&rft.ssn=&rft.spage=290&rft.epage=291&rft.pages=290-291&rft.artnum=&rft.issn=00280836&rft.eissn=14764687&rft.isbn=&rft.sici=&rft.coden=&rft_id=info:doi/10.1038/d41586-018-05968-3&rft.object_id=&rft.eisbn=&rft.edition=&rft.pub=Nature%20Publishing%20Group&rft.place=London&rft.series=&rft.stitle=&rft.bici=&rft_id=info:bibcode/&rft_id=info:hdl/&rft_id=info:lccn/&rft_id=info:oclcnum/&rft_id=info:pmid/&rft_id=info:eric/((addata/eric}}&rft_dat=%3Cproquest%3E2103566529%3C/proquest%3E%3Curl%3Ehttp://search.proquest.com/docview/2103566529/%3C/url%3E,language=eng,view=BU&svc_dat=viewit&req.skin=nuiDev&rft_pqid=2103566529&rft_galeid=&rft_cupid=&rft_eruid=&rft_nurid=&rft_ingid=",
+            "@id": "_:0"
+          }
+        ],
+        "category": "Remote Search Resource"
+      }
+    ]
+  },
+  "context": "PC",
+  "lang3": "eng",
+  "pnx": {
+    "delivery": {
+      "delcategory": [
+        "Remote Search Resource"
+      ],
+      "fulltext": [
+        "fulltext"
+      ]
+    },
+    "search": {
+      "sourceid": [
+        "proquest"
+      ],
+      "creatorcontrib": [
+        "Else, Holly"
+      ],
+      "creationdate": [
+        "2018"
+      ],
+      "citation": [
+        "pf 290 pt 291 vol 560 issue 7718"
+      ],
+      "subject": [
+        "Spain",
+        "United States–Us",
+        "Paraguay",
+        "Canada",
+        "Maryland",
+        "Grenada",
+        "Research",
+        "Search Engines",
+        "Scientists",
+        "Science",
+        "Bibliometrics",
+        "Citation Indexes",
+        "Researchers",
+        "Open Access",
+        "Institutional Repositories",
+        "Databases",
+        "National Institute of Mental Health",
+        "International Bank for Reconstruction & Development–World Bank",
+        "541714",
+        "621112",
+        "928120"
+      ],
+      "rsrctype": [
+        "article"
+      ],
+      "description": [
+        "Since one part of the technology was released in 2016, the service has become indispensable for many researchers. Impactstory also offers free access to the Unpaywall database (updated twice a year for non-subscribers). Since its launch, Unpaywall's technology has also been integrated into many universitylibrary discovery systems, so that users can easily find freely available versions of research papers in institutional repositories. The US National Institute of Mental Health (NIMH), which has an overall budget of around US$1.5 billion, is working with Impactstory to develop a bespoke tool that uses Unpaywall."
+      ],
+      "title": [
+        "The rise and rise of Unpaywall"
+      ],
+      "startdate": [
+        "20180816"
+      ],
+      "lsr43": [
+        "1000084false",
+        "1000273true",
+        "1000283true",
+        "1005631true",
+        "1005660true",
+        "1005662true",
+        "1006072true",
+        "1006385true",
+        "1006454true",
+        "1006759true",
+        "1006761true",
+        "1006762true",
+        "1006763true",
+        "1006764true",
+        "1006765true",
+        "1006772true",
+        "1006815true",
+        "1006993true",
+        "1007015true",
+        "1007067true",
+        "1007106true",
+        "1007107true",
+        "1007108true",
+        "1007160true",
+        "1007385false",
+        "1007396false",
+        "1007403false",
+        "1007420false",
+        "1007431false",
+        "1007444false",
+        "1007447false",
+        "1007490false",
+        "1007515false",
+        "1007529false",
+        "1007531false",
+        "1007536false",
+        "1007538false",
+        "1007552false",
+        "1007617true",
+        "1007844true",
+        "1007845true",
+        "1007849true",
+        "1007851true",
+        "1007852true",
+        "1007853true",
+        "1007856true",
+        "1007902true",
+        "1007918false",
+        "1007945true",
+        "1008008true",
+        "1009127true",
+        "1009191true",
+        "1009714true",
+        "1009715true",
+        "10000002false",
+        "10000004false",
+        "10000005false",
+        "10000006false",
+        "10000013false",
+        "10000015false",
+        "10000020true",
+        "10000022false",
+        "10000025true",
+        "10000029false",
+        "10000032false",
+        "10000034true",
+        "10000035true",
+        "10000036true",
+        "10000037true",
+        "10000038true",
+        "10000039true",
+        "10000040true",
+        "10000041true",
+        "10000043true",
+        "10000045true",
+        "10000047true",
+        "10000049true",
+        "10000050true",
+        "10000053true",
+        "10000064true",
+        "10000117true",
+        "10000118true",
+        "10000119true",
+        "10000120true",
+        "10000155true",
+        "10000156true",
+        "10000157true",
+        "10000158true",
+        "10000160true",
+        "10000161true",
+        "10000164true",
+        "10000198false",
+        "10000200false",
+        "10000202false",
+        "10000209false",
+        "10000217false",
+        "10000233true",
+        "10000234true",
+        "10000238true",
+        "10000244true",
+        "..."
+      ],
+      "addtitle": [
+        "Nature"
+      ],
+      "recordid": [
+        "proquest2103566529"
+      ],
+      "general": [
+        "English",
+        "Nature Publishing Group",
+        "10.1038/d41586-018-05968-3",
+        "Medical Database",
+        "ProQuest Science Journals",
+        "STEM Database (ProQuest)",
+        "Health & Medical Collection (Alumni edition)",
+        "Medical Database (Alumni edition)",
+        "Nursing & Allied Health Database (Alumni edition)",
+        "Psychology Database (Alumni edition)",
+        "Science Database (Alumni edition)",
+        "ProQuest Pharma Collection",
+        "Health & Medical Collection",
+        "Psychology Database",
+        "Nursing & Allied Health Database",
+        "ProQuest Biology Journals",
+        "ProQuest Agriculture Journals",
+        "Ecology Abstracts",
+        "Entomology Abstracts",
+        "Animal Behavior Abstracts",
+        "Neurosciences Abstracts",
+        "ProQuest Public Health",
+        "Aquatic Science Journals",
+        "Materials Science Database",
+        "Advanced Technologies & Aerospace Database",
+        "Engineering Database",
+        "Biological Science Database",
+        "Environmental Science Database (ProQuest)",
+        "Earth, Atmospheric & Aquatic Science Database (ProQuest)",
+        "Engineering Research Database",
+        "Technology Research Database",
+        "ProQuest Nursing & Allied Health Source",
+        "ProQuest Research Library",
+        "Environment Abstracts",
+        "ProQuest Agricultural Science Collection",
+        "ProQuest Aquatic Science Collection",
+        "ProQuest Atmospheric Science Collection",
+        "ProQuest Biological Science Collection",
+        "ProQuest Central",
+        "ProQuest Earth Science Collection",
+        "ProQuest Engineering Collection",
+        "ProQuest Environmental Science Collection",
+        "ProQuest Advanced Technologies & Aerospace Collection",
+        "ProQuest Hospital Collection",
+        "ProQuest Materials Science Collection",
+        "ProQuest Natural Science Collection",
+        "ProQuest Technology Collection",
+        "Research Library (Alumni edition)",
+        "Hospital Premium Collection (Alumni edition)",
+        "ProQuest SciTech Collection",
+        "ProQuest Health & Medical Complete",
+        "ProQuest Medical Library",
+        "ProQuest Psychology Journals",
+        "Agricultural & Environmental Science Database",
+        "Earth, Atmospheric & Aquatic Science Database",
+        "Materials Science & Engineering Database",
+        "Natural Science Collection",
+        "ProQuest Central (new)",
+        "ProQuest Central K-12",
+        "ProQuest Central Korea",
+        "Research Library Prep",
+        "SciTech Premium Collection",
+        "Technology Collection",
+        "Health Research Premium Collection",
+        "Health Research Premium Collection (Alumni edition)",
+        "ProQuest Central Essentials",
+        "eLibrary",
+        "ProQuest One Academic",
+        "Environmental Science Index (ProQuest)",
+        "Biological Science Index (ProQuest)",
+        "Environmental Science Collection (ProQuest)",
+        "Materials Science Collection (ProQuest)",
+        "Engineering Collection (ProQuest)"
+      ],
+      "enddate": [
+        "20180816"
+      ],
+      "issn": [
+        "00280836",
+        "0028-0836",
+        "14764687",
+        "1476-4687"
+      ],
+      "scope": [
+        "1000084",
+        "1000273",
+        "1000283",
+        "1005631",
+        "1005660",
+        "1005662",
+        "1006072",
+        "1006385",
+        "1006454",
+        "1006759",
+        "1006761",
+        "1006762",
+        "1006763",
+        "1006764",
+        "1006765",
+        "1006772",
+        "1006815",
+        "1006993",
+        "1007015",
+        "1007067",
+        "1007106",
+        "1007107",
+        "1007108",
+        "1007160",
+        "1007385",
+        "1007396",
+        "1007403",
+        "1007420",
+        "1007431",
+        "1007444",
+        "1007447",
+        "1007490",
+        "1007515",
+        "1007529",
+        "1007531",
+        "1007536",
+        "1007538",
+        "1007552",
+        "1007617",
+        "1007844",
+        "1007845",
+        "1007849",
+        "1007851",
+        "1007852",
+        "1007853",
+        "1007856",
+        "1007902",
+        "1007918",
+        "1007945",
+        "1008008",
+        "1009127",
+        "1009191",
+        "1009714",
+        "1009715",
+        "10000002",
+        "10000004",
+        "10000005",
+        "10000006",
+        "10000013",
+        "10000015",
+        "10000020",
+        "10000022",
+        "10000025",
+        "10000029",
+        "10000032",
+        "10000034",
+        "10000035",
+        "10000036",
+        "10000037",
+        "10000038",
+        "10000039",
+        "10000040",
+        "10000041",
+        "10000043",
+        "10000045",
+        "10000047",
+        "10000049",
+        "10000050",
+        "10000053",
+        "10000064",
+        "10000117",
+        "10000118",
+        "10000119",
+        "10000120",
+        "10000155",
+        "10000156",
+        "10000157",
+        "10000158",
+        "10000160",
+        "10000161",
+        "10000164",
+        "10000198",
+        "10000200",
+        "10000202",
+        "10000209",
+        "10000217",
+        "10000233",
+        "10000234",
+        "10000238",
+        "10000244",
+        "..."
+      ]
+    },
+    "display": {
+      "identifier": [
+        "<b>ISSN: </b>00280836 ; <b>E-ISSN: </b>14764687 ; <b>DOI: </b>10.1038/d41586-018-05968-3"
+      ],
+      "creator": [
+        "Else, Holly"
+      ],
+      "subject": [
+        "Spain ; United States–Us ; Paraguay ; Canada ; Maryland ; Grenada ; Research ; Search Engines ; Scientists ; Science ; Bibliometrics ; Citation Indexes ; Researchers ; Open Access ; Institutional Repositories ; Databases ; National Institute of Mental Health ; International Bank for Reconstruction & Development–World Bank"
+      ],
+      "lds50": [
+        "peer_reviewed"
+      ],
+      "ispartof": [
+        "Nature, Aug 16, 2018, Vol.560(7718), pp.290-291"
+      ],
+      "description": [
+        "Since one part of the technology was released in 2016, the service has become indispensable for many researchers. Impactstory also offers free access to the Unpaywall database (updated twice a year for non-subscribers). Since its launch, Unpaywall's technology has also been integrated into many universitylibrary discovery systems, so that users can easily find freely available versions of research papers in institutional repositories. The US National Institute of Mental Health (NIMH), which has an overall budget of around US$1.5 billion, is working with Impactstory to develop a bespoke tool that uses Unpaywall."
+      ],
+      "language": [
+        "eng"
+      ],
+      "source": [
+        "© ProQuest LLC All rights reserved<img src=\"https://exlibris-pub.s3.amazonaws.com/PQ_Logo.jpg\" style=\"vertical-align:middle;margin-left:7px\">",
+        "Medical Database",
+        "ProQuest Science Journals",
+        "STEM Database (ProQuest)",
+        "Health & Medical Collection (Alumni edition)",
+        "Medical Database (Alumni edition)",
+        "Nursing & Allied Health Database (Alumni edition)",
+        "Psychology Database (Alumni edition)",
+        "Science Database (Alumni edition)",
+        "ProQuest Pharma Collection",
+        "Health & Medical Collection",
+        "Psychology Database",
+        "Nursing & Allied Health Database",
+        "ProQuest Biology Journals",
+        "ProQuest Agriculture Journals",
+        "Ecology Abstracts",
+        "Entomology Abstracts",
+        "Animal Behavior Abstracts",
+        "Neurosciences Abstracts",
+        "ProQuest Public Health",
+        "Aquatic Science Journals",
+        "Materials Science Database",
+        "Advanced Technologies & Aerospace Database",
+        "Engineering Database",
+        "Biological Science Database",
+        "Environmental Science Database (ProQuest)",
+        "Earth, Atmospheric & Aquatic Science Database (ProQuest)",
+        "Engineering Research Database",
+        "Technology Research Database",
+        "ProQuest Nursing & Allied Health Source",
+        "ProQuest Research Library",
+        "Environment Abstracts",
+        "ProQuest Agricultural Science Collection",
+        "ProQuest Aquatic Science Collection",
+        "ProQuest Atmospheric Science Collection",
+        "ProQuest Biological Science Collection",
+        "ProQuest Central",
+        "ProQuest Earth Science Collection",
+        "ProQuest Engineering Collection",
+        "ProQuest Environmental Science Collection",
+        "ProQuest Advanced Technologies & Aerospace Collection",
+        "ProQuest Hospital Collection",
+        "ProQuest Materials Science Collection",
+        "ProQuest Natural Science Collection",
+        "ProQuest Technology Collection",
+        "Research Library (Alumni edition)",
+        "Hospital Premium Collection (Alumni edition)",
+        "ProQuest SciTech Collection",
+        "ProQuest Health & Medical Complete",
+        "ProQuest Medical Library",
+        "ProQuest Psychology Journals",
+        "Agricultural & Environmental Science Database",
+        "Earth, Atmospheric & Aquatic Science Database",
+        "Materials Science & Engineering Database",
+        "Natural Science Collection",
+        "ProQuest Central (new)",
+        "ProQuest Central K-12",
+        "ProQuest Central Korea",
+        "Research Library Prep",
+        "SciTech Premium Collection",
+        "Technology Collection",
+        "Health Research Premium Collection",
+        "Health Research Premium Collection (Alumni edition)",
+        "ProQuest Central Essentials",
+        "eLibrary",
+        "ProQuest One Academic",
+        "Environmental Science Index (ProQuest)",
+        "Biological Science Index (ProQuest)",
+        "Environmental Science Collection (ProQuest)",
+        "Materials Science Collection (ProQuest)",
+        "Engineering Collection (ProQuest)"
+      ],
+      "title": [
+        "The rise and rise of Unpaywall"
+      ],
+      "type": [
+        "article"
+      ]
+    },
+    "links": {
+      "openurl": [
+        "$$Topenurl_article"
+      ],
+      "linktorsrc": [
+        "$$Uhttp://search.proquest.com/docview/2103566529/?pq-origsite=primo$$EView_record_in_ProQuest_(subscribers_only)"
+      ],
+      "openurlfulltext": [
+        "$$Topenurlfull_article"
+      ]
+    },
+    "control": {
+      "recordid": [
+        "TN_proquest2103566529"
+      ],
+      "sourceid": [
+        "proquest"
+      ],
+      "pqid": [
+        "2103566529"
+      ],
+      "sourcerecordid": [
+        "2103566529"
+      ],
+      "sourcesystem": [
+        "PC"
+      ]
+    },
+    "addata": {
+      "date": [
+        "2018-08-16"
+      ],
+      "aulast": [
+        "Else"
+      ],
+      "issue": [
+        "7718"
+      ],
+      "cop": [
+        "London"
+      ],
+      "format": [
+        "journal"
+      ],
+      "ristype": [
+        "JOUR"
+      ],
+      "eissn": [
+        "14764687"
+      ],
+      "spage": [
+        "290"
+      ],
+      "abstract": [
+        "Since one part of the technology was released in 2016, the service has become indispensable for many researchers. Impactstory also offers free access to the Unpaywall database (updated twice a year for non-subscribers). Since its launch, Unpaywall's technology has also been integrated into many universitylibrary discovery systems, so that users can easily find freely available versions of research papers in institutional repositories. The US National Institute of Mental Health (NIMH), which has an overall budget of around US$1.5 billion, is working with Impactstory to develop a bespoke tool that uses Unpaywall."
+      ],
+      "atitle": [
+        "The rise and rise of Unpaywall"
+      ],
+      "aufirst": [
+        "Holly"
+      ],
+      "url": [
+        "http://search.proquest.com/docview/2103566529/"
+      ],
+      "volume": [
+        "560"
+      ],
+      "pages": [
+        "290-291"
+      ],
+      "issn": [
+        "00280836"
+      ],
+      "au": [
+        "Else, Holly"
+      ],
+      "epage": [
+        "291"
+      ],
+      "genre": [
+        "article"
+      ],
+      "jtitle": [
+        "Nature"
+      ],
+      "pub": [
+        "Nature Publishing Group"
+      ],
+      "risdate": [
+        "20180816"
+      ],
+      "doi": [
+        "10.1038/d41586-018-05968-3"
+      ]
+    },
+    "sort": {
+      "creationdate": [
+        "20180816"
+      ],
+      "author": [
+        "Else, Holly"
+      ],
+      "title": [
+        "The rise and rise of Unpaywall"
+      ],
+      "lso01": [
+        "20180816"
+      ]
+    },
+    "facets": {
+      "frbrtype": [
+        "6"
+      ],
+      "creatorcontrib": [
+        "Else, Holly"
+      ],
+      "creationdate": [
+        "2018"
+      ],
+      "newrecords": [
+        "20180924"
+      ],
+      "toplevel": [
+        "peer_reviewed"
+      ],
+      "frbrgroupid": [
+        "6951073729172189465"
+      ],
+      "rsrctype": [
+        "articles"
+      ],
+      "topic": [
+        "Spain",
+        "United States–Us",
+        "Paraguay",
+        "Canada",
+        "Maryland",
+        "Grenada",
+        "Research",
+        "Search Engines",
+        "Scientists",
+        "Science",
+        "Bibliometrics",
+        "Citation Indexes",
+        "Researchers",
+        "Open Access",
+        "Institutional Repositories",
+        "Databases",
+        "National Institute of Mental Health",
+        "International Bank for Reconstruction & Development–World Bank"
+      ],
+      "language": [
+        "eng"
+      ],
+      "collection": [
+        "Medical Database",
+        "ProQuest Science Journals",
+        "STEM Database (ProQuest)",
+        "Health & Medical Collection (Alumni edition)",
+        "Medical Database (Alumni edition)",
+        "Nursing & Allied Health Database (Alumni edition)",
+        "Psychology Database (Alumni edition)",
+        "Science Database (Alumni edition)",
+        "ProQuest Pharma Collection",
+        "Health & Medical Collection",
+        "Psychology Database",
+        "Nursing & Allied Health Database",
+        "ProQuest Biology Journals",
+        "ProQuest Agriculture Journals",
+        "Ecology Abstracts",
+        "Entomology Abstracts",
+        "Animal Behavior Abstracts",
+        "Neurosciences Abstracts",
+        "ProQuest Public Health",
+        "Aquatic Science Journals",
+        "Materials Science Database",
+        "Advanced Technologies & Aerospace Database",
+        "Engineering Database",
+        "Biological Science Database",
+        "Environmental Science Database (ProQuest)",
+        "Earth, Atmospheric & Aquatic Science Database (ProQuest)",
+        "Engineering Research Database",
+        "Technology Research Database",
+        "ProQuest Nursing & Allied Health Source",
+        "ProQuest Research Library",
+        "Environment Abstracts",
+        "ProQuest Agricultural Science Collection",
+        "ProQuest Aquatic Science Collection",
+        "ProQuest Atmospheric Science Collection",
+        "ProQuest Biological Science Collection",
+        "ProQuest Central",
+        "ProQuest Earth Science Collection",
+        "ProQuest Engineering Collection",
+        "ProQuest Environmental Science Collection",
+        "ProQuest Advanced Technologies & Aerospace Collection",
+        "ProQuest Hospital Collection",
+        "ProQuest Materials Science Collection",
+        "ProQuest Natural Science Collection",
+        "ProQuest Technology Collection",
+        "Research Library (Alumni edition)",
+        "Hospital Premium Collection (Alumni edition)",
+        "ProQuest SciTech Collection",
+        "ProQuest Health & Medical Complete",
+        "ProQuest Medical Library",
+        "ProQuest Psychology Journals",
+        "Agricultural & Environmental Science Database",
+        "Earth, Atmospheric & Aquatic Science Database",
+        "Materials Science & Engineering Database",
+        "Natural Science Collection",
+        "ProQuest Central (new)",
+        "ProQuest Central K-12",
+        "ProQuest Central Korea",
+        "Research Library Prep",
+        "SciTech Premium Collection",
+        "Technology Collection",
+        "Health Research Premium Collection",
+        "Health Research Premium Collection (Alumni edition)",
+        "ProQuest Central Essentials",
+        "eLibrary",
+        "ProQuest One Academic",
+        "Environmental Science Index (ProQuest)",
+        "Biological Science Index (ProQuest)",
+        "Environmental Science Collection (ProQuest)",
+        "Materials Science Collection (ProQuest)",
+        "Engineering Collection (ProQuest)"
+      ],
+      "jtitle": [
+        "Nature"
+      ],
+      "prefilter": [
+        "articles"
+      ]
+    }
+  },
+  "@id": "https://bu-primostage.hosted.exlibrisgroup.com/primo_library/libweb/webservices/rest/v1/pnxs#",
+  "beaconO22": "560",
+  "extras": {
+    "citationTrails": {
+      "citing": [],
+      "citedby": [
+        "9049284205455415968",
+        "7995603439105213651",
+        "7299044193911795670"
+      ]
+    }
+  }
+}

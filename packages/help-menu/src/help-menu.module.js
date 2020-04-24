@@ -122,7 +122,7 @@ angular.module('helpMenuContentDisplay', [])
   .component('prmExploreFooterAfter', {
     template: `
       <help-menu-content-display>
-        <div ng-if="${window.location.pathname.includes("/static-file/help")}">${helpMenuContentDisplayTemplate}</div>
+        <div ng-if="${window.location.pathname.indexOf("/static-file/help") != -1}">${helpMenuContentDisplayTemplate}</div>
       </help-menu-content-display>`,
     controller: 'helpMenuPopupController'
   });
