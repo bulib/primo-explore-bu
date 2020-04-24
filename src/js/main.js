@@ -1,25 +1,22 @@
+var  module_dependencies = ['angularLoad'];
+
 // import configuration variables
-import { 
-  ENV_PRODUCTION, INCLUDE_UNPAYWALL, INCLUDE_HELP_MENU 
-} from './config.js';
-
-// import versions locally
-import './help-menu';
 import './unpaywall.module';
-
-// determine which dependencies to include 
-let module_dependencies = ['angularLoad'];
+var INCLUDE_UNPAYWALL = true;
 if(INCLUDE_UNPAYWALL){ module_dependencies.push('bulibUnpaywall'); }
+
+// import help menu
+import './help-menu';
+var INCLUDE_HELP_MENU = true;
 if(INCLUDE_HELP_MENU){ module_dependencies.push('helpMenuContentDisplay',  'helpMenuTopbar'); }
 
 // load custom view package with configuration constants
-angular.module('viewCustom', module_dependencies)
+angular.module('centralCustom', module_dependencies)
 
   // configure helpMenuConfig || primoExploreHelpMenuStudioConfig
   .constant('helpMenuConfig', {
-    "logToConsole":!ENV_PRODUCTION,
-    "publishEvents":ENV_PRODUCTION,
-    "list_of_elements":ls_help_menu_items,
+    "logToConsole":true,
+    "publishEvents":false,
     "helpMenuWidth":550
   })
 
@@ -29,7 +26,7 @@ angular.module('viewCustom', module_dependencies)
   })
   .constant('unpaywallConfig', {
     "email":"aidans@bu.edu",
-    "logToConsole":!ENV_PRODUCTION,
-    "publishEvents":ENV_PRODUCTION,
+    "logToConsole":true,
+    "publishEvents":false,
     "overrideOACheck":false
   })
