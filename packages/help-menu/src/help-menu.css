@@ -20,3 +20,19 @@ a.helpMenu--location-button {
 div.helpMenu--location{
   padding-bottom: 10px;
 }
+
+help-menu-topbar { 
+  --notification-indicator-display: none;
+  --notification-indicator-color: red;
+}
+
+help-menu-topbar .notification-indicator {
+  display: var(--notification-indicator-display, none);
+  background-color: var(--notification-indicator-color, red);
+  
+  position: fixed;
+  margin-left: 32px;
+  top: 17px;
+  height: 10px; width: 10px;
+  border-radius: 50%;
+}

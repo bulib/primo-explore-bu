@@ -173,6 +173,7 @@ angular.module('helpMenuTopbar', ['ngMaterial'])
             <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_help_24px"></prm-icon>
           </a>
         </div>
+        <span class="notification-indicator"></span>
       </help-menu-topbar>`,
     controller: 'helpMenuTopbarController'
   });
