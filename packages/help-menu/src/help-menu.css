@@ -30,7 +30,7 @@ help-menu-topbar .notification-indicator {
   display: var(--notification-indicator-display, none);
   background-color: var(--notification-indicator-color, red);
   
-  position: fixed;
+  position: absolute;
   margin-left: 32px;
   top: 17px;
   height: 10px; width: 10px;

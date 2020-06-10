@@ -5,7 +5,7 @@
   "what": "help-menu-topbar",
   "linkGit": "https://github.com/bulib/primo-explore-bu/tree/master/packages/help-menu",
   "npmid": "primo-explore-help-menu",
-  "version": "1.2.2",
+  "version": "1.4.3",
   "hook": "prm-search-bookmark-filter-after",
   "config": {
     "form": [
@@ -28,6 +28,19 @@
         "defaultValue": false,
         "templateOptions": {
           "label": "(debug) Determine whether click/usage events are published to Analytics",
+          "required": false,
+          "options": [
+            { "name": "true",  "value": true  },
+            { "name": "false", "value": false }
+          ]
+        }
+      },
+      {
+        "key": "enableNotificationIndicator",
+        "type": "select",
+        "defaultValue": false,
+        "templateOptions": {
+          "label": "highlight the icon for new users until they open and dismiss it",
           "required": false,
           "options": [
             { "name": "true",  "value": true  },
