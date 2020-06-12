@@ -4,23 +4,15 @@ import {helpMenuContentDisplayTemplate, helpMenuDialogTemplate} from './help-men
 // handle optional configuration variables
 const optionalConfigName = 'helpMenuConfig';
 const optionalStudioName = 'primoExploreHelpMenuStudioConfig';
-const localStorageVariableName = 'help-menu-notification-indicator-dismissed';
+
+// notification variables
 const cssVariableName = '--notification-indicator-display';
+const localStorageVariableName = 'help-menu-notification-indicator-dismissed';
+const DEFAULT_STORAGE_EXPIRATION_TIME = 1000 * 60 * 60 * 24 * 7 * 2; // 2 weeks
+
+// helper functions
 const logEventToGoogleAnalytics = function(category, action, label){
-  if(window.ga){ window.ga('send','event',category, action, label); }
-}
-const isLocalStorageEnabled = function(){
-  try{
-    localStorage.setItem("test", "test");
-    localStorage.removeItem("test");
-    return true;
-  } catch(err){ return false; }
-}
-const isNotificationDismissed = function(){ 
-  try{  // return true iff there's any value for our 'help-menu-notification-*' key in localStorage
-    return window.localStorage.getItem(localStorageVariableName) !== null; 
-  }
-  catch(err){ console.log(err); return true; }
+  if(window.ga){ window.ga('send','event', category, action, label); }
 }
 
 // configurable logging, event-handling, and interaction with help content
@@ -29,6 +21,7 @@ let helpMenuHelper = {
   publishEvents: false,
   helpMenuWidth: 500,
   enableNotificationIndicator: false,
+  notificationIndicatorExpiration: DEFAULT_STORAGE_EXPIRATION_TIME,
   list_of_elements: sample_list_of_elements,
   logMessage: function(message){
     if(this.logToConsole){ console.log("bulib-help-menu) " + message); }
@@ -41,19 +34,40 @@ let helpMenuHelper = {
     let category = "help-menu";
     this.logMessage(`logging '${category}' event with action: '${action}', label:'${label}'. [publish: ${this.publishEvents}]`);
 
-    if(this.publishEvents){
-      this.logEventToAnalytics(category, action, label);
+    if(this.publishEvents){ this.logEventToAnalytics(category, action, label); }
+  },
+  isNotificationDismissed: function(){ 
+    try{  // return true iff there's a value for 'help-menu-notification-*' key in localStorage that has not expired
+      let notificationDismissedValue = window.localStorage.getItem(localStorageVariableName);
+
+      // return false if there's no value stored at all
+      if (notificationDismissedValue === null){ return false; }
+      else{
+        
+        // if it's present, check for expiration. if it's expired, remove the value and return false.
+        let timeSinceUpdated = Date.now() - notificationDismissedValue;
+        if(timeSinceUpdated >= helpMenuHelper.notificationIndicatorExpiration){
+          this.logMessage(`'${localStorageVariableName}' value is present, but has expired. removing it returning 'not dismissed'`)
+          localStorage.removeItem(localStorageVariableName);
+          return false;
+        }
+        
+        // if there's an unexpired value there, it's been rightfully/recently dismissed
+        else{ return true; }
+      }
     }
+    // if there's an error or localStorage is disabled, default to dismissed
+    catch(err){ console.log(err); return true; }
   },
   showNotificationIndicatorIfNotDismissed: function(){
-    if(this.enableNotificationIndicator && isLocalStorageEnabled() && !isNotificationDismissed()){
+    if(this.enableNotificationIndicator && !this.isNotificationDismissed()){
       this.logMessage("'enableNotificationIndicator' is true, local storage is enabled, and it's not dismissed, so we'll show the indicator");
-      document.querySelector("help-menu-topbar").style.setProperty(cssVariableName,"inline-block");
+      document.querySelector("help-menu-topbar").style.setProperty(cssVariableName, "inline-block");
     }
   },
   dismissNotificationIndicator: function(){
-    try{
-      window.localStorage.setItem(localStorageVariableName, true);
+    try{  // add dismissed value to localStorage and hide the indicator with the css variable 
+      window.localStorage.setItem(localStorageVariableName, Date.now());
       document.querySelector("help-menu-topbar").style.setProperty(cssVariableName, "none");
       this.logMessage("notification-indicator dismissed");
     }catch(err){ this.logMessage(err); }
@@ -71,6 +85,7 @@ let helpMenuHelper = {
     if(Object.keys(config).includes("logToConsole")){ this.logToConsole = config.logToConsole; }
     if(Object.keys(config).includes("publishEvents")){ this.publishEvents = config.publishEvents; }
     if(Object.keys(config).includes("enableNotificationIndicator")){ this.enableNotificationIndicator = config.enableNotificationIndicator; }
+    if(Object.keys(config).includes("notificationIndicatorExpiration")){ this.notificationIndicatorExpiration = config.notificationIndicatorExpiration; }
     if(Object.keys(config).includes("helpMenuWidth")){ this.helpMenuWidth = config.helpMenuWidth; }
     if(Object.keys(config).includes("helpMenuTitle")){ this.helpMenuTitle = config.helpMenuTitle; }
     if(Object.keys(config).includes("logEventToAnalytics")){ this.logEventToAnalytics = config.logEventToAnalytics; }
