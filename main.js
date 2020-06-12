@@ -21,8 +21,14 @@ angular.module('viewCustom', module_dependencies)
   .constant('helpMenuConfig', {
     "logToConsole":!ENV_PRODUCTION,
     "publishEvents":ENV_PRODUCTION,
-    "list_of_elements":ls_help_menu_items,
-    "helpMenuWidth":550
+    "helpMenuTitle":"Search Menu",
+    "helpMenuWidth":500,
+    "list_of_elements":help_menu_items,
+    "enableNotificationIndicator":true,
+    "notificationIndicatorExpiration": 1000 * 60 * 60 * 24 * 7 * 2,  // 2 weeks
+    "logEventToAnalytics":function(category, action, label){
+      window.ga('send', 'event', category, action, label);
+    }
   })
 
   // configure outboundLinksConfig
