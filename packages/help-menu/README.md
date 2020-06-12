@@ -60,8 +60,17 @@ angular.module('viewCustom', ['angularLoad', 'helpMenuContentDisplay',  'helpMen
 ### Additional Steps
 
 To get the same styling, you'll have to copy or import the `help-menu.css` file to the `css/custom.css` for your view.
+  to automate this, add the following `script` to your `package.json`:
+
+```json
+  "postinstall": "cp node_modules/primo-explore-help-menu/dist/help-menu.css ./css/help-menu.css"
+```
   
-If you're using a version from `1.1.0` onward, you'll have to make sure there's a `html/help_en_US.html` included as well.
+If you're using a version from `1.1.0` onward, you'll have to make sure there's a `html/help_en_US.html` included as well
+
+```bash
+$ touch html/help_en_US.html
+```
 
 ### Adding Your Own Content
 
@@ -86,7 +95,7 @@ Make sure that each object in the list of elements matches the following structu
 }
 ```
 
-...including intentionally empty objects in the list (`{}`) to form the dividers.
+...include intentionally empty objects in the list (`{}`) to form the dividers.
 
 _note: the [iconset being used](https://material.io/tools/icons/) is from material.io and is included within primo_
 
@@ -102,6 +111,8 @@ the following table describes describes some additional configuration options th
 |`logEventToAnalytics`|_see example_|here's an opportunity to hook in whatever event tracking you have, (we use google analytics)|
 |`helpMenuTitle`|`Search Help`|page and popup title displayed at the top of the menu (useful for translations) |
 |`helpMenuWidth`|`500` (px)|the width of the dialog box and associated popup|
+|`enableNotificationIndicator`|`false`|visually highlight the top-bar icon for new users until they open and dismiss it|
+|`notificationIndicatorExpiration`|2 weeks|set the amount of time it takes before the notification dismissal resets|
 
 ## Events Logged
 
