@@ -4,8 +4,15 @@ import {helpMenuContentDisplayTemplate, helpMenuDialogTemplate} from './help-men
 // handle optional configuration variables
 const optionalConfigName = 'helpMenuConfig';
 const optionalStudioName = 'primoExploreHelpMenuStudioConfig';
+
+// notification variables
+const cssVariableName = '--notification-indicator-display';
+const localStorageVariableName = 'help-menu-notification-indicator-dismissed';
+const DEFAULT_STORAGE_EXPIRATION_TIME = 1000 * 60 * 60 * 24 * 7 * 2; // 2 weeks
+
+// helper functions
 const logEventToGoogleAnalytics = function(category, action, label){
-  if(window.ga){ window.ga('send','event',category, action, label); }
+  if(window.ga){ window.ga('send','event', category, action, label); }
 }
 
 // configurable logging, event-handling, and interaction with help content
@@ -13,6 +20,8 @@ let helpMenuHelper = {
   logToConsole: false,
   publishEvents: false,
   helpMenuWidth: 500,
+  enableNotificationIndicator: false,
+  notificationIndicatorExpiration: DEFAULT_STORAGE_EXPIRATION_TIME,
   list_of_elements: sample_list_of_elements,
   logMessage: function(message){
     if(this.logToConsole){ console.log("bulib-help-menu) " + message); }
@@ -25,9 +34,45 @@ let helpMenuHelper = {
     let category = "help-menu";
     this.logMessage(`logging '${category}' event with action: '${action}', label:'${label}'. [publish: ${this.publishEvents}]`);
 
-    if(this.publishEvents){
-      this.logEventToAnalytics(category, action, label);
+    if(this.publishEvents){ this.logEventToAnalytics(category, action, label); }
+  },
+  isNotificationDismissed: function(){ 
+    try{  // return true iff there's a value for 'help-menu-notification-*' key in localStorage that has not expired
+      let notificationDismissedValue = window.localStorage.getItem(localStorageVariableName);
+
+      // return false if there's no value stored at all
+      if (notificationDismissedValue === null){ return false; }
+      else{
+        
+        // if it's present, check for expiration. if it's expired, remove the value and return false.
+        let timeSinceUpdated = Date.now() - notificationDismissedValue;
+        if(timeSinceUpdated >= helpMenuHelper.notificationIndicatorExpiration){
+          this.logMessage(`'${localStorageVariableName}' value is present, but has expired. removing it returning 'not dismissed'`)
+          localStorage.removeItem(localStorageVariableName);
+          return false;
+        }
+        
+        // if there's an unexpired value there, it's been rightfully/recently dismissed
+        else{ return true; }
+      }
     }
+    // if there's an error or localStorage is disabled, default to dismissed
+    catch(err){ this.logMessage(err); return true; }
+  },
+  showNotificationIndicatorIfNotDismissed: function(){
+    if(this.enableNotificationIndicator && !this.isNotificationDismissed()){
+      this.logMessage("'enableNotificationIndicator' is true, local storage is enabled, and it's not dismissed, so we'll show the indicator");
+      document.querySelector("help-menu-topbar").style.setProperty(cssVariableName, "inline-block");
+    }
+  },
+  dismissNotificationIndicator: function(){
+    try{  // add dismissed value to localStorage and hide the indicator with the css variable 
+      if(this.enableNotificationIndicator){
+        window.localStorage.setItem(localStorageVariableName, Date.now());
+        document.querySelector("help-menu-topbar").style.setProperty(cssVariableName, "none");
+        this.logMessage("notification-indicator dismissed");
+      }
+    }catch(err){ this.logMessage(err); }
   },
   get_entry_by_id: function(id){
     // return a specified entry from 'list_of_elements' for the specified id (or {})
@@ -41,6 +86,8 @@ let helpMenuHelper = {
     if(!config || !Object.keys(config)){ return; }
     if(Object.keys(config).includes("logToConsole")){ this.logToConsole = config.logToConsole; }
     if(Object.keys(config).includes("publishEvents")){ this.publishEvents = config.publishEvents; }
+    if(Object.keys(config).includes("enableNotificationIndicator")){ this.enableNotificationIndicator = config.enableNotificationIndicator; }
+    if(Object.keys(config).includes("notificationIndicatorExpiration")){ this.notificationIndicatorExpiration = config.notificationIndicatorExpiration; }
     if(Object.keys(config).includes("helpMenuWidth")){ this.helpMenuWidth = config.helpMenuWidth; }
     if(Object.keys(config).includes("helpMenuTitle")){ this.helpMenuTitle = config.helpMenuTitle; }
     if(Object.keys(config).includes("logEventToAnalytics")){ this.logEventToAnalytics = config.logEventToAnalytics; }
@@ -97,7 +144,7 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
     help_popup.onload = function() { this.document.title = popup_title; }
 
     // prepare new window to handle 'select-option' via the '#', and close the dialog
-    help_popup.addEventListener('hashchange',$scope.setEntryIdFromHash,true);
+    help_popup.addEventListener('hashchange', $scope.setEntryIdFromHash, true);
     $scope.hide();
   }
 
@@ -105,7 +152,7 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
   $timeout($scope.setEntryIdFromHash(false), 10);
 
   // keep listening for changes in the page's 'hash' to see which entry to show (e.g. '/path/to#hash')
-  window.addEventListener('hashchange',$scope.setEntryIdFromHash,true);
+  window.addEventListener('hashchange', $scope.setEntryIdFromHash, true);
 
   // listen for any 'openHelpMenuEvent' to open menu in a new window
   window.addEventListener('openHelpMenuEvent', function(ev){ 
@@ -144,14 +191,15 @@ angular.module('helpMenuTopbar', ['ngMaterial'])
       if($injector.has(optionalConfigName)){ config = $injector.get(optionalConfigName); }
       if($injector.has(optionalStudioName)){ config = $injector.get(optionalStudioName); }
       helpMenuHelper.override_with_config(config);
+      helpMenuHelper.showNotificationIndicatorIfNotDismissed();
 
       // open the dialog when the button in the top right is pressed
       this.openHelpMenu = function(ev){
         helpMenuHelper.logHelpEvent("open-dialog", window.location.pathname);
+        helpMenuHelper.dismissNotificationIndicator();
         $mdDialog.show({
           controller: 'helpMenuDialogController',
           template: helpMenuDialogTemplate(helpMenuHelper.helpMenuWidth),
-          targetEvent: ev,
           hasBackdrop: true,
           multiple: false,
           clickOutsideToClose:true,
@@ -173,6 +221,7 @@ angular.module('helpMenuTopbar', ['ngMaterial'])
             <prm-icon icon-type="svg" svg-icon-set="action" icon-definition="ic_help_24px"></prm-icon>
           </a>
         </div>
+        <span class="notification-indicator"></span>
       </help-menu-topbar>`,
     controller: 'helpMenuTopbarController'
   });

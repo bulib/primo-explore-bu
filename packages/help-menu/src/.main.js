@@ -1,8 +1,5 @@
-// import npm package by name (from `node_modules/`)
+// import npm package by name (after `$ npm install --save-dev primo-explore-help-menu` is run)
 import 'primo-explore-help-menu';
-
-// import copy/pasted 'help-menu.js' in js/
-// import '../node_modules/primo-explore-help-menu/dist/help-menu';
 
 // import list of help-menu entries from another js file
 import {help_menu_items} from './help-menu-content';
@@ -15,6 +12,8 @@ app.constant('helpMenuConfig', {
   "list_of_elements":help_menu_items,
   "logToConsole":true,
   "publishEvents":false,
+  "enableNotificationIndicator":true,
+  "notificationIndicatorExpiration": 1000 * 60 * 60 * 24 * 7 * 2,  // 2 weeks
   "helpMenuTitle":"Search Menu",
   "helpMenuWidth":500,
   "logEventToAnalytics":function(category, action, label){

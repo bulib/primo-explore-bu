@@ -5,7 +5,7 @@
   "what": "help-menu-topbar",
   "linkGit": "https://github.com/bulib/primo-explore-bu/tree/master/packages/help-menu",
   "npmid": "primo-explore-help-menu",
-  "version": "1.2.2",
+  "version": "1.5.0",
   "hook": "prm-search-bookmark-filter-after",
   "config": {
     "form": [
@@ -56,6 +56,29 @@
         }
       },
       {"key":"list_of_elements"},
+      {
+        "key": "enableNotificationIndicator",
+        "type": "select",
+        "defaultValue": false,
+        "templateOptions": {
+          "label": "visually highlight the top-bar icon for new users until they open and dismiss it",
+          "required": false,
+          "options": [
+            { "name": "true",  "value": true  },
+            { "name": "false", "value": false }
+          ]
+        }
+      },
+      {
+        "key": "notificationIndicatorExpiration",
+        "type": "input",
+        "defaultValue":"1209600000",
+        "templateOptions": {
+          "required": false,
+          "label": "set the amount of time it takes before the notification dismissal resets (in milliseconds)",
+          "placeholder": "1000*60*60*24*7*2"
+        }
+      },
       {"key":"logEventToAnalytics"}
     ]
   }
