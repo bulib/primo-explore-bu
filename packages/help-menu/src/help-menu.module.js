@@ -57,7 +57,7 @@ let helpMenuHelper = {
       }
     }
     // if there's an error or localStorage is disabled, default to dismissed
-    catch(err){ console.log(err); return true; }
+    catch(err){ this.logMessage(err); return true; }
   },
   showNotificationIndicatorIfNotDismissed: function(){
     if(this.enableNotificationIndicator && !this.isNotificationDismissed()){
@@ -67,9 +67,11 @@ let helpMenuHelper = {
   },
   dismissNotificationIndicator: function(){
     try{  // add dismissed value to localStorage and hide the indicator with the css variable 
-      window.localStorage.setItem(localStorageVariableName, Date.now());
-      document.querySelector("help-menu-topbar").style.setProperty(cssVariableName, "none");
-      this.logMessage("notification-indicator dismissed");
+      if(this.enableNotificationIndicator){
+        window.localStorage.setItem(localStorageVariableName, Date.now());
+        document.querySelector("help-menu-topbar").style.setProperty(cssVariableName, "none");
+        this.logMessage("notification-indicator dismissed");
+      }
     }catch(err){ this.logMessage(err); }
   },
   get_entry_by_id: function(id){
