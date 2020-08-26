@@ -1,4 +1,4 @@
-import {sample_list_of_elements} from './help-menu-content';
+import {sample_list_of_elements, sample_list_of_updates} from './help-menu-content';
 import {helpMenuContentDisplayTemplate, helpMenuDialogTemplate} from './help-menu-templates';
 
 // handle optional configuration variables
@@ -23,6 +23,7 @@ let helpMenuHelper = {
   enableNotificationIndicator: false,
   notificationIndicatorExpiration: DEFAULT_STORAGE_EXPIRATION_TIME,
   list_of_elements: sample_list_of_elements,
+  list_of_updates: sample_list_of_updates,
   logMessage: function(message){
     if(this.logToConsole){ console.log("bulib-help-menu) " + message); }
   },
@@ -79,6 +80,9 @@ let helpMenuHelper = {
     for(let i=0; i<this.list_of_elements.length; i++){
       if(this.list_of_elements[i].id === id){ return this.list_of_elements[i]; }
     }
+    for(let i=0; i<this.list_of_updates.length; i++){
+      if(this.list_of_updates[i].id === id){ return this.list_of_updates[i]; }
+    }
     return {}
   },
   override_with_config: function(config){
@@ -92,6 +96,7 @@ let helpMenuHelper = {
     if(Object.keys(config).includes("helpMenuTitle")){ this.helpMenuTitle = config.helpMenuTitle; }
     if(Object.keys(config).includes("logEventToAnalytics")){ this.logEventToAnalytics = config.logEventToAnalytics; }
     if(Object.keys(config).includes("list_of_elements")){ this.list_of_elements = config.list_of_elements; }
+    if(Object.keys(config).includes("list_of_updates")){ this.list_of_updates = config.list_of_updates; }
   }
 };
 
@@ -105,6 +110,7 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
   helpMenuHelper.override_with_config(config);
 
   // gather items in list from helpMenuHelper
+  $scope.helpContentUpdates = helpMenuHelper.list_of_updates;
   $scope.helpContentList = helpMenuHelper.list_of_elements;
   $scope.helpMenuTitle = helpMenuHelper.helpMenuTitle;
 
