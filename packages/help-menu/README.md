@@ -124,6 +124,8 @@ the following table describes describes some additional configuration options th
 |`helpMenuWidth`|`500` (px)|the width of the dialog box and associated popup|
 |`enableNotificationIndicator`|`false`|visually highlight the top-bar icon for new users until they open and dismiss it|
 |`notificationIndicatorExpiration`|2 weeks|set the amount of time it takes before the notification dismissal resets|
+|`updatesLabel`|`Search Updates`|Heading text for shortlist of updates above help entries|
+|`entriesLabel`|`Help Entries`|Heading text for main help entries (only appears when there's a list of updates)|
 
 ## Events Logged
 

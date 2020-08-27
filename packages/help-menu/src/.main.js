@@ -9,13 +9,18 @@ var app = angular.module('viewCustom', ['angularLoad', 'helpMenuContentDisplay',
 
 // - configure help-menu - //
 app.constant('helpMenuConfig', {
-  "list_of_updates": sample_list_of_updates,
-  "list_of_elements":sample_list_of_items,
   "logToConsole":true,
   "publishEvents":false,
+
   "enableNotificationIndicator":true,
   "notificationIndicatorExpiration": 1000 * 60 * 60 * 24 * 7 * 2,  // 2 weeks
+
   "helpMenuTitle":"Search Menu",
+  "updatesLabel":"Search Updates",
+  "list_of_updates": sample_list_of_updates,
+  "entriesLabel":"Help Entries",
+  "list_of_elements":sample_list_of_items,
+  
   "helpMenuWidth":500,
   "logEventToAnalytics":function(category, action, label){
     window.ga('send', 'event', category, action, label);

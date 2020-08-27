@@ -19,10 +19,15 @@ const logEventToGoogleAnalytics = function(category, action, label){
 let helpMenuHelper = {
   logToConsole: false,
   publishEvents: false,
-  helpMenuWidth: 500,
+
   enableNotificationIndicator: false,
   notificationIndicatorExpiration: DEFAULT_STORAGE_EXPIRATION_TIME,
+  
+  updatesLabel: "Search Updates",
+  entriesLabel: "Help Entries",
   list_of_elements: sample_list_of_elements,
+  
+  helpMenuWidth: 500,
   logMessage: function(message){
     if(this.logToConsole){ console.log("bulib-help-menu) " + message); }
   },
@@ -94,7 +99,9 @@ let helpMenuHelper = {
     if(Object.keys(config).includes("helpMenuWidth")){ this.helpMenuWidth = config.helpMenuWidth; }
     if(Object.keys(config).includes("helpMenuTitle")){ this.helpMenuTitle = config.helpMenuTitle; }
     if(Object.keys(config).includes("logEventToAnalytics")){ this.logEventToAnalytics = config.logEventToAnalytics; }
+    if(Object.keys(config).includes("entriesLabel")){ this.entriesLabel = config.entriesLabel; }
     if(Object.keys(config).includes("list_of_elements")){ this.list_of_elements = config.list_of_elements; }
+    if(Object.keys(config).includes("updatesLabel")){ this.updatesLabel = config.updatesLabel; }
     if(Object.keys(config).includes("list_of_updates")){ this.list_of_updates = config.list_of_updates; }
   }
 };
@@ -109,9 +116,11 @@ const mainHelpMenuController = function(helpMenuHelper, $injector, $scope, $time
   helpMenuHelper.override_with_config(config);
 
   // gather items in list from helpMenuHelper
-  $scope.helpContentUpdates = helpMenuHelper.list_of_updates;
-  $scope.helpContentList = helpMenuHelper.list_of_elements;
   $scope.helpMenuTitle = helpMenuHelper.helpMenuTitle;
+  $scope.entriesLabel = helpMenuHelper.entriesLabel;
+  $scope.helpContentList = helpMenuHelper.list_of_elements;
+  $scope.updatesLabel = helpMenuHelper.updatesLabel;
+  $scope.helpContentUpdates = helpMenuHelper.list_of_updates;
 
   // modal navigation
   $scope.hide = function() { $mdDialog.hide(); };

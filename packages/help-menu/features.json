@@ -5,7 +5,7 @@
   "what": "help-menu-topbar",
   "linkGit": "https://github.com/bulib/primo-explore-bu/tree/master/packages/help-menu",
   "npmid": "primo-explore-help-menu",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "hook": "prm-search-bookmark-filter-after",
   "config": {
     "form": [
@@ -55,8 +55,28 @@
           "placeholder": 500
         }
       },
-      {"key":"list_of_updates"},
+      {
+        "key": "updatesLabel",
+        "type": "input",
+        "defaultValue":"Search Updates",
+        "templateOptions": {
+          "required": false,
+          "label": "Heading text for shortlist of updates above help entries",
+          "placeholder": "Search Updates"
+        }
+      },
       {"key":"list_of_elements"},
+      {
+        "key": "entriesLabel",
+        "type": "input",
+        "defaultValue":"Help Entries",
+        "templateOptions": {
+          "required": false,
+          "label": "Heading text for main help entries (only appears when there's a list of updates)",
+          "placeholder": "Help Entries"
+        }
+      },
+      {"key":"list_of_updates"},
       {
         "key": "enableNotificationIndicator",
         "type": "select",
