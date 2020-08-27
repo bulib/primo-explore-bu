@@ -15,7 +15,7 @@ const helpMenuMainContent = `
     <p ng-if="!entry.template"><em>{{entry.description}}</em></p>
     <div ng-bind-html="entry.template"></div>
   </div>
-  <h2 ng-hide="entry || !helpContentUpdates" class="mtl">Search Updates</h2>
+  <h2 ng-hide="entry || !helpContentUpdates">Search Updates</h2>
   <ul ng-hide="entry || !helpContentUpdates" style="list-style: none; width: 100%; padding-left: 0px;">
     <hr aria-hidden="true" />
     <li ng-repeat="item in helpContentUpdates" class="row">
@@ -28,7 +28,7 @@ const helpMenuMainContent = `
     </li>
     <hr aria-hidden="true" />
   </ul>
-  <h2 ng-hide="entry || !helpContentList" class="mtl">Help Entries</h2>
+  <h2 ng-hide="entry || !helpContentList || !helpContentUpdates">Help Entries</h2>
   <ul ng-hide="entry || !helpContentList" style="list-style: none; width: 100%; padding-left: 0px;">
     <hr aria-hidden="true" />
     <li ng-repeat="item in helpContentList" class="row">

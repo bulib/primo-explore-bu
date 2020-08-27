@@ -23,7 +23,6 @@ let helpMenuHelper = {
   enableNotificationIndicator: false,
   notificationIndicatorExpiration: DEFAULT_STORAGE_EXPIRATION_TIME,
   list_of_elements: sample_list_of_elements,
-  list_of_updates: sample_list_of_updates,
   logMessage: function(message){
     if(this.logToConsole){ console.log("bulib-help-menu) " + message); }
   },
