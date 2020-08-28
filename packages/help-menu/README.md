@@ -36,7 +36,7 @@ $ npm install --save-dev primo-explore-help-menu
 
 this should add the following line to your `package.json` file...
 ```json
-"primo-explore-help-menu": "^1.2.2"
+"primo-explore-help-menu": "^1.X.X"
 ```
 
 and add the contents of this repository (at that npm version) into a `node_modules/primo-explore-help-menu`
@@ -99,6 +99,17 @@ Make sure that each object in the list of elements matches the following structu
 
 _note: the [iconset being used](https://material.io/tools/icons/) is from material.io and is included within primo_
 
+As of `1.6.0`, you can also specify a `list_of_updates` variable with the same structure to highlight a number of
+  items above the other entries. At BU, we use this feature to highlight recent changes to the platform or big 
+  pieces of library news.
+
+```js
+// main.js
+import {my_custom_list_of_updates} from 'my_long_list_of_json_objects';
+
+app.constant('helpMenuConfig', { "list_of_updates": my_custom_list_of_updates });
+```
+
 ### Additional Customization
 
 the following table describes describes some additional configuration options that are currently afforded to
@@ -113,6 +124,8 @@ the following table describes describes some additional configuration options th
 |`helpMenuWidth`|`500` (px)|the width of the dialog box and associated popup|
 |`enableNotificationIndicator`|`false`|visually highlight the top-bar icon for new users until they open and dismiss it|
 |`notificationIndicatorExpiration`|2 weeks|set the amount of time it takes before the notification dismissal resets|
+|`updatesLabel`|`Search Updates`|Heading text for shortlist of updates above help entries|
+|`entriesLabel`|`Help Entries`|Heading text for main help entries (only appears when there's a list of updates)|
 
 ## Events Logged
 

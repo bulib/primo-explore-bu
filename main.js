@@ -2,6 +2,7 @@
 import { 
   ENV_PRODUCTION, INCLUDE_UNPAYWALL, INCLUDE_OUTBOUND_LINKS, INCLUDE_HELP_MENU 
 } from './config.js';
+import {sample_list_of_updates, sample_list_of_items} from './packages/help-menu/src/help-menu-content';
 
 // import npm packages
 import 'primo-explore-help-menu';
@@ -21,11 +22,17 @@ angular.module('viewCustom', module_dependencies)
   .constant('helpMenuConfig', {
     "logToConsole":!ENV_PRODUCTION,
     "publishEvents":ENV_PRODUCTION,
+
     "helpMenuTitle":"Search Menu",
     "helpMenuWidth":500,
-    "list_of_elements":help_menu_items,
+    "updatesLabel":"Search Updates",
+    "list_of_updates":sample_list_of_updates,
+    "entriesLabel":"Help Entries",
+    "list_of_elements":sample_list_of_items,
+
     "enableNotificationIndicator":true,
     "notificationIndicatorExpiration": 1000 * 60 * 60 * 24 * 7 * 2,  // 2 weeks
+
     "logEventToAnalytics":function(category, action, label){
       window.ga('send', 'event', category, action, label);
     }

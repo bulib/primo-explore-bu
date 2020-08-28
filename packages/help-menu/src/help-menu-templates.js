@@ -3,11 +3,11 @@ const helpMenuHeadContent = `
     <prm-icon icon-type="svg" svg-icon-set="navigation" icon-definition="ic_arrow_back_24px"
               aria-label="return to help content list" ></prm-icon>
   </md-button>
-  <h2>
+  <h1>
     <strong ng-if="helpMenuTitle">{{helpMenuTitle}}</strong>
     <strong ng-hide="helpMenuTitle">Search Help</strong>
     <span ng-hide="!entry"> - {{entry.title}}</span>
-  </h2>`;
+  </h1>`;
 
 const helpMenuMainContent = `
   <div ng-if="entry" id="search-help-menu-content" tabindex="-1">
@@ -15,7 +15,21 @@ const helpMenuMainContent = `
     <p ng-if="!entry.template"><em>{{entry.description}}</em></p>
     <div ng-bind-html="entry.template"></div>
   </div>
-  <ul ng-hide="entry" style="list-style: none; width: 100%; padding-left: 0px;">
+  <h2 ng-hide="entry || !helpContentUpdates">{{updatesLabel}}</h2>
+  <ul ng-hide="entry || !helpContentUpdates" style="list-style: none; width: 100%; padding-left: 0px;">
+    <hr aria-hidden="true" />
+    <li ng-repeat="item in helpContentUpdates" class="row">
+      <a ng-if="item.id" href="#{{item.id}}">
+        <prm-icon svg-icon-set="{{item.icon.group}}" icon-definition="ic_{{item.icon.code}}_24px"
+                  icon-type="svg" style="padding-right: 10px;"></prm-icon>
+        {{item.title}}
+      </a>
+      <hr ng-if="!item.id" aria-hidden="true" />
+    </li>
+    <hr aria-hidden="true" />
+  </ul>
+  <h2 ng-hide="entry || !helpContentList || !helpContentUpdates">{{entriesLabel}}</h2>
+  <ul ng-hide="entry || !helpContentList" style="list-style: none; width: 100%; padding-left: 0px;">
     <hr aria-hidden="true" />
     <li ng-repeat="item in helpContentList" class="row">
       <a ng-if="item.id" href="#{{item.id}}">
