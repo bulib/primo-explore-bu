@@ -1,4 +1,4 @@
-# primo-explore-bu [![Gitter](https://badges.gitter.im/bulib/developers.svg)](https://gitter.im/bulib/developers?utm_source=badge)
+# primo-explore-bu 
 
 assorted customizations to Ex Libris Primo New UI created, consumed, and maintained by BU Libraries.
 
@@ -40,4 +40,5 @@ In both of these cases, it would help us if you make sure to add on the appropri
   [labels](https://github.com/bulib/primo-explore-bu/labels) so that we
   can keep track of what your pull request or issue relates to.
 
-If you get stuck, send us a message on [our gitter](https://gitter.im/bulib/developers), and we'll try to help you out.
+If you get stuck, please email us at <a href="mailto:libwebsv@bu.edu">libwebsv@bu.edu</a> with the name of 
+  the repository or package you're having trouble with and we'll try to help you out.
